@@ -7,3 +7,10 @@ order deductions; research questions; source attribution; and AI-use disclosure.
 The initial PDF has a blank scholarly byline. Public dissemination, if completed,
 is evidenced by GitHub's actual commit/release record, not this manually dated file.
 No DOI or certification of scholarly priority is claimed.
+
+Licensing update - 7 October 2026
+Applied CC BY 4.0 to the original paper, LaTeX source, and research notes,
+to the extent the contributor holds rights in them. Added the official
+license text and attribution notice. The PDF and mathematical source are
+unchanged from the initial public commit
+d246eacb19d7f527f50b9715f98ded9869327dc1.

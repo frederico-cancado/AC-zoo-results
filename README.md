@@ -34,4 +34,10 @@ Some audit records refer to retained local working files that are not distribute
 
 Compile the LaTeX source twice with pdfLaTeX to resolve references. It uses standard mathematics and document-layout packages.
 
-No reuse license has been selected for this draft.
+## License
+
+Except where otherwise stated, the original material in this repository, including the paper PDF, its LaTeX source, and research notes, is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/), to the extent the contributor holds rights in it. See [LICENSE](LICENSE) for the full terms.
+
+For attribution, credit **frederico-cancado**, identify the paper title and version, and link to [this repository](https://github.com/frederico-cancado/AC-zoo-results). Include a license link and indicate changes, as required by CC BY 4.0. This permits sharing and adaptation, including commercial reuse, under those terms.
+
+Third-party material retains its own terms. This license concerns protected expression; it does not assert exclusive rights over mathematical ideas or results. The attribution to OpenAI's model construction and the AI-assistance disclosure above remain applicable.
