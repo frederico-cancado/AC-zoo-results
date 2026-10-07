@@ -18,3 +18,13 @@ Bibliographic review corrected the Pelc reference to the 1978 paper and
 added the Halpern-Howard and Rubin historical precedents. The source link
 is labelled as manuscript/source rather than incorrectly implying it also
 contains the separate Lean directory.
+
+AUTHOR CORRECTION CHECK - 7 October 2026
+The confirmed name Frederico Cançado appears on the title page and in the
+PDF Author metadata. Rebuilt twice with pdfLaTeX; still 12 A4 pages, with
+no undefined references/citations, overfull boxes, or missing characters.
+Rendered the revised PDF. Page 1 was visually inspected, including the
+cedilla in Cançado; no clipping or overlap was observed. Rendered pages
+2-12 are pixel-identical to the previously inspected published document.
+Extracted text differs only by the new author name (ignoring whitespace).
+No mathematical or bibliographic content was changed.

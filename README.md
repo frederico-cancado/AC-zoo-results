@@ -18,7 +18,7 @@ The note does **not** prove the unrestricted implications PP ⇒ NDS or PP ⇒ F
 
 This is a preliminary draft for review, not a peer-reviewed publication. It was prepared with substantial OpenAI Codex assistance in proof development, checking, literature searches, and drafting. The new deductions are not Lean-formalized. A bounded search completed on 7 October 2026 found no earlier publication of the central application; this is not a certification of worldwide priority or novelty.
 
-Repository maintained by [@frederico-cancado](https://github.com/frederico-cancado). The PDF’s preferred scholarly byline has not yet been supplied. No DOI is assigned. For a fixed version, cite the paper title, version, repository owner, and the specific release or commit URL.
+Author: **Frederico Cançado** ([@frederico-cancado](https://github.com/frederico-cancado)). No DOI is assigned. For a fixed version, cite the author, paper title, version, and the specific release or commit URL.
 
 ## Supporting records
 
@@ -38,6 +38,6 @@ Compile the LaTeX source twice with pdfLaTeX to resolve references. It uses stan
 
 Except where otherwise stated, the original material in this repository, including the paper PDF, its LaTeX source, and research notes, is licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/), to the extent the contributor holds rights in it. See [LICENSE](LICENSE) for the full terms.
 
-For attribution, credit **frederico-cancado**, identify the paper title and version, and link to [this repository](https://github.com/frederico-cancado/AC-zoo-results). Include a license link and indicate changes, as required by CC BY 4.0. This permits sharing and adaptation, including commercial reuse, under those terms.
+For attribution, credit **Frederico Cançado** (GitHub: **frederico-cancado**), identify the paper title and version, and link to [this repository](https://github.com/frederico-cancado/AC-zoo-results). Include a license link and indicate changes, as required by CC BY 4.0. This permits sharing and adaptation, including commercial reuse, under those terms.
 
 Third-party material retains its own terms. This license concerns protected expression; it does not assert exclusive rights over mathematical ideas or results. The attribution to OpenAI's model construction and the AI-assistance disclosure above remain applicable.
