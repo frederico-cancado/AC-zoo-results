@@ -1,0 +1,272 @@
+PUBLIC RELEASE PROVENANCE NOTE
+This is a dated AI-assisted research audit, not independent human peer review.
+References to work/ and outputs/ identify retained local research evidence,
+not files included in this repository. Statements about no publication
+refer to the audit session before this release. The paper is the
+self-contained presentation of the mathematical arguments.
+
+PUBLICATION MATHEMATICS AUDIT
+7 October 2026
+Separate AI-assisted adversarial re-reading for the preliminary paper
+
+VERDICT
+
+The abstract normal-form, canonical-profile, finite-basis, finite-antichain,
+and NDS deductions pass. The ordinary first-order relative-consistency
+bridge passes as an application of the cited construction's stronger
+INTERNAL output. The exact-order and cardinal-lattice deductions also pass,
+with the important extra hypothesis of doubling, verified separately for
+the concrete Cohen-label model. No mathematical gap was found in these
+proofs. This audit is not a fresh complete verification of the forcing
+construction, a Lean formalization of the corollaries, or a novelty verdict.
+
+Files actually re-read include:
+ outputs/NDS_without_Choice/ZF_proof_of_NDS_from_the_strong_package.txt
+ outputs/NDS_without_Choice/NDS_exact_definition_Howard_Tachtsis_audit.txt
+ outputs/NDS_without_Choice/PROOF_STATUS.txt
+ outputs/Choice_principles_from_PP_model/PROOFS_additional_choice_and_finite_cardinal_basis.txt
+ outputs/Choice_principles_from_PP_model/PROOFS_cardinal_lattice_and_power_roots.txt
+ outputs/Choice_principles_from_PP_model/PROOFS_comparability_and_additive_idempotence.txt
+ work/openai_math/conclusion.tex and metatheory.tex
+ The source PDF's extracted pages containing the exact proposition labels.
+
+1. PRECISE ABSTRACT THEOREM AND DEFINITIONS
+
+Work in ZF. Write X<=Y for existence of an injection X->Y, and X~=Y for
+existence of a bijection. Let A be NONEMPTY, and assume:
+ (S) Every nonempty set X is the image of A times some ordinal.
+ (W) Every ordinal-indexed family of nonempty sets has a choice function.
+ (Q) Every non-well-orderable surjective image of A is bijective with A.
+
+Non-well-orderability of A is NOT necessary for the abstract implication.
+It is needed for the application witnessing not-AC. If A is well-orderable,
+(S) already makes every set well-orderable, and the conclusions still hold.
+
+The theorem proves:
+ NF: every X ~= (A times kappa) disjoint-union lambda, for ordinal cardinals
+     kappa and lambda;
+ FB: for every nonempty SET F of sets there is a nonempty finite B subset F
+     such that for every X in F there exists Y in B with Y<=X;
+ FC: every sequence (X_n:n<omega) has i<j with X_i<=X_j;
+ NDS: no sequence (X_n:n<omega) satisfies X_(n+1)<=X_n and not X_n<=X_(n+1)
+      for every n;
+ FA: every set of pairwise injection-incomparable cardinalities is finite.
+
+FB is an existential, pointwise comparison assertion. It does not assert
+that a function uniformly selects one basis member and an injection for
+every member of an arbitrary, possibly non-well-orderable F. That stronger
+uniformity has not been proved and is unnecessary.
+
+2. NORMAL FORM: ALL CHOICES ARE BOUNDED
+
+For nonempty X select one presentation s:A times eta onto X. Define
+ B_i=s[A times {i}],
+ S_i=B_i minus union_{j<i} B_j.
+The S_i form a disjoint partition of X. Every nonempty S_i is an image of
+A: for this one i, take one point of S_i as a default outside S_i. This is
+only a pointwise existence proof, not a simultaneous family of defaults.
+
+Let N be the set of indices of non-WO slices and W=eta minus N. Empty
+slices belong to W. For i in N the candidate set of bijection graphs lies
+in P(A times X). For i in W the candidate set of well-order relations lies
+in P(X times X). Each is nonempty. Tag the candidates if desired; Replacement
+forms one ordinal-indexed family of sets. Apply (W) once.
+
+The N union is bijective with A times N. The W union is well-ordered by
+slice index first, then the selected internal slice order. Replacing the
+two well-orderable factors by their initial ordinals proves NF. X empty
+has the representation (0,0). No rank-unbounded choice is hidden here.
+
+3. CANONICAL PROFILE: NO CLASS CHOICE
+
+Define kappa(X) as the least ordinal cardinal allowing some NF representation;
+then lambda(X) as the least ordinal cardinal allowing that representation
+with kappa(X). Nonempty definable classes of ordinals have least elements:
+one existential witness bounds a nonempty set of qualifying ordinals.
+The resulting minima are uniquely definable independently of that bound.
+
+Thus Replacement forms R={(kappa(X),lambda(X)):X in F} for a set F, and
+also forms the profile sequence of an actual set-valued sequence. No class
+of presentations or bijections is selected. The two bijections used in a
+particular comparison may be used by finite existential reasoning in ZF.
+
+For the core theorem coordinatewise profile comparison is only SUFFICIENT.
+No necessary coordinate criterion for arbitrary NF presentations is used.
+
+4. FINITE BASIS AND THE CLEANEST COROLLARY ROUTE
+
+Every nonempty set R of ordinal pairs has a finite coordinatewise coinitial
+subset. Repeatedly select the lexicographically least remaining pair and
+delete its upper cone. The selection is unique. Omega recursion can be
+made total by an absorbing terminal state after the residual becomes empty.
+If it never terminated, selected first coordinates would be nondecreasing,
+while selected second coordinates would be strictly decreasing: any later
+selected pair survived the upper-cone deletion of every earlier one. This
+contradicts well-foundedness of the ordinals. Termination is therefore at
+some natural-number stage. No DC is required.
+
+Apply this to the canonical profiles of F. Finite choice (a ZF theorem)
+selects one F-member for each of the finitely many basis profiles. Coordinate
+inclusions and the existential NF bijections yield FB.
+
+A concise paper can derive FC directly from FB, without another ordinal-pair
+lemma. Apply FB to the range of (X_n). For each member of its finite basis,
+take its least occurrence index in the sequence. Choose j above the maximum
+of these finitely many indices. FB yields a basis member X_i<=X_j, with
+its chosen i<j. This proof needs no choice at all beyond FB itself.
+
+FC implies NDS: an injection X_i->X_j in a strict descending sequence,
+i<j, composes with the finitely many downward injections to give
+X_i->X_(i+1), contradicting strictness. Selecting/composing finitely many
+maps is a ZF theorem. Howard--Tachtsis's published NDS definition is exactly
+this actual set-valued-sequence formulation, not merely well-foundedness
+of ordinal cardinals.
+
+FA follows directly from FB, without invoking countable choice: a finite
+coinitial basis of an antichain must contain all its cardinalities. For
+Scott-cardinal coding, apply FB to the UNION of the representative sets
+making up the family of Scott cardinals, rather than choosing one
+representative from every cardinal. Every class in the family then equals
+one of the finitely many cardinalities of the resulting basis.
+
+Removing redundant elements from a finite basis leaves exactly all minimal
+cardinalities represented by F. Every F-cardinality lies above one of them.
+This does not say there are finitely many minimal SETS, nor that there is a
+uniform finite bound on all antichain sizes.
+
+5. EXACT SOURCE INPUT AND PAGE ANCHORS
+
+Pinned source: OpenAI, The Partition Principle does not imply Choice,
+24 September 2026, commit adc7f1241b42e322a6451854ab7e4b4c146bf78a.
+https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026/partition-principle-without-choice.pdf
+
+Printed page numbers (matching PDF page numbers in this copy):
+ - Proposition 3.6, pp.22--23: all-rank surjective presentation (S).
+ - Proposition 3.7, pp.23--24: choice for ordinal-indexed families (W).
+ - Proposition 3.8, p.24: the same label set A is non-well-orderable.
+ - Theorem 6.3, pp.33--34: every non-WO image of this A is bijective to A.
+ - Lemma 7.1, pp.34--36: assumes EXACTLY (S),(W),(Q) and proves PP.
+ - Remark 7.2, p.36: quotient/image equivalence without representative
+   choices, using the unique common value of the map on an equivalence class.
+ - Theorem 7.5, pp.37--38: construction summary; its proof explicitly puts
+   these three premises together for the same W and A.
+ - Section 8.1, p.38: explains the INTERNAL all-rank character of the
+   presentation, ordinal-choice assertion, and actual HS quotient graph.
+ - Lemma 8.1, p.39: Con(ZF) implies Con(ZFC+V=L).
+ - Lemma 8.2, pp.39--41: fixed-formula symmetric-forcing interpretation
+   including full Separation and Replacement instances.
+ - Lemma 8.3, pp.41--42: truth for the symmetric quotient over possibly
+   externally ill-founded ground models.
+ - Proof of Theorem 1.1, p.42: ordinary first-order consistency deduction.
+ - Section 8.6, p.43: separate countable-transitive-ground conclusion;
+   NOT a hypothesis of the ordinary consistency implication.
+
+The source's slicing proof already contains much of the normal-form idea,
+and explicitly credits Ryan-Smith's local-to-global slicing method. The
+preliminary paper should acknowledge that extraction rather than present
+NF as an independently developed forcing analysis. The additional elementary
+step is the finite-basis argument and its model-theoretic application.
+
+6. ORDINARY FIRST-ORDER RELATIVE-CONSISTENCY BRIDGE
+
+(S),(W),(Q), non-WO(A), FB, FC, NDS and FA expand into fixed first-order
+sentences or formulas with the one set parameter A. For example, FB is
+forall F [F nonempty -> exists B subset F (B finite and nonempty and
+forall X in F exists Y in B exists an injection Y->X)].
+
+The entire abstract argument is an internal ZF theorem with a finite
+ordinary derivation using finitely many schema instances. It applies even
+inside an externally ill-founded model; it uses no external well-foundedness
+of that model's ordinal order or external standardness of its omega.
+
+One must retain the source's STRONGER internal output, not merely its final
+sentence Con(ZF)->Con(ZF+PP+AC_WO+not AC): the latter alone would not prove
+NDS by our argument. Section 8.1 supplies the stronger internal ingredients.
+Append the internal derivation (S)+(W)+(Q)->FB+FC+NDS+FA to its forcing
+interpretation. Lemma 8.2 permits precisely this finite-proof step, and
+Lemma 8.3 transfers the enhanced sentence to the symmetric quotient. Thus
+
+ Con(ZF) -> Con(ZF + PP + AC_WO + FB + FC + NDS + FA + not AC).
+
+The constructible-ground and quotient-name arguments introduce no assumption
+of a countable TRANSITIVE model, an inaccessible, or an externally
+well-founded model. These would be stronger and unnecessary assumptions.
+The source construction remains an explicitly cited theorem input.
+
+7. FURTHER RESULTS: EXACT ORDER AND LATTICE AUDIT
+
+These proofs pass, but are best stated separately under (S),(W),(Q),
+non-WO(A), and the ADDITIONAL hypothesis A times 2 ~= A. The latter implies
+doubling for every infinite X by NF and absorption of finite remainders.
+It holds for the concrete model by the separately checked first-bit argument:
+A_0={a:0 notin a}, A_1={a:0 in a} have invariant names; a proposed ordinal
+enumeration of either is contradicted by copying a fresh chosen coordinate
+with its assigned first bit over the support, exactly as in Proposition3.8.
+Thus each half is non-WO, (Q) identifies each with A, and A=A_0 disjoint-union
+A_1 gives the required doubling. This source-dependent lemma should be
+written out if any lattice claim is included.
+
+Let c(X) be the canonical least NF coefficient and w(X) the maximum ordinal
+cardinal injecting into X. AC_WO proves existence of w(X): choose injections
+xi->X for all xi<h(X), and well-order the union of their ranges by least
+preimages in a well-ordered disjoint sum. Put rho=w(A). For kappa>0,
+w(A times kappa disjoint-union beta)=max(rho,kappa,beta).
+
+Adversarial checks of exact comparison:
+ - c is monotone under injections. Slice a subset of A times c(Y) plus beta;
+   its non-WO slices are copies of A, and the remaining slices have a
+   well-orderable union after one bounded application of AC_WO. Their index
+   set has cardinal at most c(Y).
+ - If c(X)<=c(Y) and w(X)<=w(Y), separately embed X's A-part and ordinal
+   remainder into Y; doubling of an infinite Y combines them. For finite Y,
+   c(X)=c(Y)=0 and ordinary finite comparison applies.
+Hence X<=Y iff c(X)<=c(Y) and w(X)<=w(Y). Equal (c,w) pairs characterize
+bijection. This is about CANONICAL invariants, not arbitrary NF coordinates.
+
+Set-indexed suprema and nonempty infima are coordinatewise suprema and
+minima. Realization of those pairs passes:
+ - c(A times c(X))=c(X), by minimality of the representation of X;
+ - a nonempty minimum of canonical coefficients is attained;
+ - for sigma=sup_i c(X_i), monotonicity bounds c(A times sigma) below by
+   every c(X_i) and above by sigma, hence gives equality;
+ - the w-coordinate formula then realizes the proposed extrema by
+   A times coefficient disjoint-union the proposed w-coordinate.
+All bounded/finitary cases, including zero coefficients and finite sets,
+are handled in the saved proof. No family of representatives is selected.
+
+Binary lattice distributivity therefore holds. Do NOT call the proper
+class of all cardinals a complete lattice without qualification: there is
+no greatest cardinal, hence no empty meet. Do NOT assert complete
+distributivity involving arbitrary choice-function products; that is a
+stronger and potentially AC-encoding statement. The safe formulation is:
+'all set-indexed joins and all nonempty set-indexed meets exist, and binary
+meet and join satisfy the distributive laws.'
+
+The saved explicit finite antichains pass too. If kappa>rho, a representation
+of A times kappa with coefficient eta<kappa would require every one of its
+kappa disjoint A-copies to meet the A times eta part. AC_WO chooses distinct
+such points; then kappa<=w(A times eta)=max(rho,eta)<kappa, a contradiction.
+Thus c(A times kappa)=kappa above rho, and opposed increasing/decreasing
+coordinate lists give antichains of every finite size.
+
+8. EDITORIAL QUALIFICATIONS REQUIRED
+
+ - Do not state or suggest a general implication PP->NDS, PP->FB or PP->FA.
+ - The abstract theorem is independent of the correctness of the external
+   construction; the consistency corollary depends on that construction.
+ - The 75-file Lean build concerns the pinned construction and the checked
+   stronger declarations, not a formalization of these new corollaries.
+   Successful compilation is not a semantic-adequacy or novelty certificate.
+ - Older saved notes denying an exact order classification are superseded
+   by the subsequent doubling/canonical-(c,w) theorem. Do not quote the old
+   caution as a current mathematical gap, but keep the core/appendix split.
+ - No BPI conclusion, no arbitrary uniform choice of injections, and no
+   uniform finite antichain bound follow from the core theorem.
+ - No originality or priority conclusion is supplied by this audit.
+
+Recommendation: lead the preliminary paper with the self-contained FB
+abstract theorem and source-dependent consistency corollary. Put the exact
+order/lattice theorem in an appendix with its explicit doubling hypothesis
+and concrete first-bit proof, or reserve it for a second version. The core
+paper remains correct without any of those additional forcing-dependent
+observations.

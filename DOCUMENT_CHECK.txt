@@ -1,0 +1,20 @@
+DOCUMENT AND PROOF CHECK RECORD
+7 October 2026
+
+Document: Finite_cardinal_bases_v0_1.pdf, 12 A4 pages.
+Build: pdfLaTeX, references resolved, no undefined citations/references,
+no overfull boxes, no missing-character warnings.
+Visual inspection: all 12 pages rendered and examined in six page pairs;
+no clipping, overlapping text, missing mathematical glyphs or broken tables
+observed. Headers, footers, theorem numbering and bibliography were checked.
+
+Mathematical review: separate AI-assisted readers reviewed the core proof,
+first-order consistency bridge, finite-generator extension, doubling lemma,
+canonical invariants and lattice consequences. Wording was corrected to
+specify ordinal CARDINAL parameters in the maximum formula. The document
+does not claim human peer review or a Lean proof of its new corollaries.
+
+Bibliographic review corrected the Pelc reference to the 1978 paper and
+added the Halpern-Howard and Rubin historical precedents. The source link
+is labelled as manuscript/source rather than incorrectly implying it also
+contains the separate Lean directory.

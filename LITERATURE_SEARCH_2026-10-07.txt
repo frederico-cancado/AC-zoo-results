@@ -1,0 +1,265 @@
+PUBLIC RELEASE PROVENANCE NOTE
+This is a dated AI-assisted research audit, not independent human peer review.
+References to work/ and outputs/ identify retained local research evidence,
+not files included in this repository. Statements about no publication
+refer to the audit session before this release. The paper is the
+self-contained presentation of the mathematical arguments.
+
+DATED LITERATURE AND NOVELTY CHECK
+7 October 2026 — preliminary-paper preparation
+
+Bottom-line finding
+-------------------
+No earlier positive consistency result ZF + not AC + NDS, or ZF + not AC
+with the finite-basis conclusion used in our draft, was located in the
+primary sources and public searches described below. The latest public
+version of Blass–Kulshreshtha still treats cardinal well-foundedness versus
+Choice as open. No indexed follow-up to the OpenAI PP release stating our
+NDS/finite-antichain/finite-basis corollaries was found.
+
+This supports presenting the draft as additional consequences of the
+OpenAI construction. It does NOT establish worldwide priority, exclude
+unindexed or unpublished work, or justify calling the underlying model
+our construction. Indexing lag is a material limitation for a release
+committed on 6 October 2026. The short preliminary paper should avoid
+“first”, “previously unknown”, and unconditional global novelty claims.
+
+1. What was checked today and what was reused
+-------------------------------------------
+Before searching, the previous release audit and independent literature
+audit in work/novelty/ were consulted, together with the saved additional
+cardinal-order results. Fresh searches covered the exact OpenAI paper
+title and variants; PP and NDS/cardinal well-foundedness; finite cardinal
+antichains, finite bases, finite coinitial families, and well-quasi-order;
+and joins, meets, boundedness, and lattice structure of choiceless
+cardinals. Searches also targeted 2026 follow-ups and current arXiv
+versions. Primary publisher pages, author pages, arXiv papers, and public
+repository metadata were preferred. Informal Q&A was used only to locate
+the older lattice references, which were then checked against primary
+documents where accessible.
+
+The public GitHub API still reports main as
+  adc7f1241b42e322a6451854ab7e4b4c146bf78a
+with committer date 2026-10-06T21:58:50Z. The PP directory and manuscript
+are unchanged. API responses are saved beside this note as
+openai_main_commit_2026-10-07.json and openai_pp_directory_2026-10-07.json.
+
+Accordingly, the previous complete source-corpus scan remains applicable;
+it was NOT repeated today. That scan covered all 9,015 TeX/Markdown/BibTeX/
+plain-text files in all 722 preprint directories, 133,841,049 bytes, with
+zero retrieval errors and verified Git blob hashes. Its 71 matches in
+42 files were inspected. Only the PP manuscript supplied relevant
+set-theoretic matches. See work/novelty/OpenAI_release_corollary_novelty_audit.txt
+for the exact search boundary and source anchors. This does not cover
+every unrelated Lean theorem, graphical text, private work, or differently
+worded implicit consequences.
+
+2. Source-backed novelty classification
+--------------------------------------
+Claim                                Classification and source boundary
+
+ZF + PP + AC_WO + not AC              Explicit OpenAI construction:
+                                     Theorem 1.1, printed p.3, and 7.5,
+                                     p.37. Attribute completely to it.
+
+CSB* and WPP without AC               Explicit OpenAI Remark 7.3, p.36;
+                                     not additional discoveries here.
+
+X ≈ (A × alpha) disjoint-union beta  Extracted normal form. Its core
+                                     slicing and choice assembly occur
+                                     in OpenAI Lemma 7.1, pp.34–35.
+                                     Not explicitly named as this global
+                                     normal form in the inspected source.
+
+NDS without AC                       Additional application of the strong
+                                     package, not found stated in the
+                                     inspected release or earlier primary
+                                     sources. Do not assert PP ⇒ NDS.
+
+Finite cardinal basis; no infinite    Additional consequences of the normal
+cardinal antichain                    form; not found stated in the release.
+                                     Distinguish these from a UNIFORM
+                                     finite width bound, which implies AC.
+
+All 24 Blass–Kulshreshtha WF forms    New application, if included, of their
+                                     established equivalence under PP:
+                                     Proposition 9.8. The equivalence is
+                                     theirs, not a new theorem here.
+
+Arbitrarily large finite antichains   Classical consequence of not AC;
+despite no infinite antichain         see Feldman–Orhon and Blass appendix.
+                                     Only coexistence in this model is
+                                     the application under discussion.
+
+Binary joins without AC              Classical prior art. Doubling implies
+                                     the relevant infinite-cardinal join
+                                     law (Halpern–Howard 1976), and doubling
+                                     was separated from AC by earlier work.
+
+Binary meets without AC in ZFA        Explicit Arthur L. Rubin 1978
+                                     preliminary announcement, verified.
+                                     Do not claim this is first obtained
+                                     by the OpenAI-derived model.
+
+Exact canonical coordinate order;     No exact predecessor located in this
+all set-sized suprema and nonempty    bounded search. These need independent
+set-sized infima in the pure ZF       proof and careful comparison with
+OpenAI model                         older cardinal boundedness literature.
+                                     Avoid “complete lattice”: the class
+                                     has no largest cardinal/empty infimum.
+
+The finite-product ordinal well-quasi-order argument is standard order
+theory. Its application to this model may be useful even though that
+order-theoretic lemma itself has no novelty claim.
+
+3. Closest primary literature, with precise metadata and relevance
+-----------------------------------------------------------------
+[OA] OpenAI, The Partition Principle does not imply Choice, manuscript
+dated 24 September 2026, pinned public repository commit above.
+https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026/partition-principle-without-choice.pdf
+Relevant anchors: Proposition 3.6, p.22 (SVC(A)); Proposition 3.7,
+pp.23–24 (AC_WO); Proposition 3.8, p.24 (A not well-orderable);
+Theorem 6.3, pp.33–34 (non-well-orderable images of A are copies of A);
+Lemma 7.1, pp.34–35 (global PP assembly). The introduction mentions the
+cardinal-well-foundedness question but the conclusions do not state NDS
+or finite basis. Manuscript inspection and a source scan are distinct
+from the local Lean verification of the construction recorded elsewhere.
+The new corollaries have not been Lean-formalized by this project.
+
+[BK] Andreas Blass and Dhruv Kulshreshtha, Cardinal Well-foundedness and
+Choice, arXiv:2310.09643, v3, 21 August 2026 (v1: 14 October 2023;
+v2: 16 January 2024), 14 pages.
+https://arxiv.org/abs/2310.09643
+https://arxiv.org/html/2310.09643v3
+Freshly checked: v3 remains the public current version. Its abstract
+and final questions still leave the general WF/AC issue open. Definition
+4.1 gives the 24 formulations; Proposition 9.8 gives their equivalence
+under PP. This does not prove PP implies them. Sections 10.3–10.5 summarize
+countermodels in the opposite direction. Section 11 remains unchanged.
+
+[HT] Paul Howard and Eleftherios Tachtsis, No decreasing sequence of
+cardinals, Archive for Mathematical Logic 55 (2016), no.3–4, 415–429.
+Published online 28 December 2015. DOI: 10.1007/s00153-015-0472-5.
+https://link.springer.com/article/10.1007/s00153-015-0472-5
+The publisher abstract defines the NDS question, leaves NDS⇒AC open,
+and states failures of the converse implications from AC_WO in ZF
+and from cardinal doubling in ZFA. Fresh check here was of the publisher
+record/abstract, not a new full-text audit behind its paywall.
+
+[T24] Eleftherios Tachtsis, No Decreasing Sequence of Cardinals in the
+Hierarchy of Choice Principles, Notre Dame Journal of Formal Logic
+65 (2024), no.3, 311–331. DOI: 10.1215/00294527-2024-0020.
+https://doi.org/10.1215/00294527-2024-0020
+Author publication list:
+https://www.samos.aegean.gr/actuar/ltah/publications_eng.html
+Metadata is confirmed there. BK Section 10.5 cites Theorem 6.4 for a
+model of BPI + countable choice + not NDS. The publisher full text was
+not accessed afresh, so this report does not claim to have re-audited
+every theorem in this paper. It provides no located positive NDS/not-AC
+separation.
+
+[FOB] David Feldman and Mehmet Orhon, with an appendix by Andreas Blass,
+Generalizing Hartogs’ Trichotomy Theorem, arXiv:0804.0673, 4 April 2008.
+https://arxiv.org/abs/0804.0673
+https://arxiv.org/pdf/0804.0673
+Theorem 1, printed p.2, treats fixed finite k-trichotomy and AC. The
+infinite-antichain issue is discussed on pp.6–7; the appendix on pp.7–8
+constructs arbitrarily large finite cardinal antichains from not AC.
+Do not confuse the unbounded collection of finite widths with an
+infinite antichain. Do not attribute the original finite-width/AC result
+to this paper exclusively; Tachtsis also identifies a result of Tarski.
+
+[K14] Asaf Karagila, Embedding orders into the cardinals with DC_kappa,
+Fundamenta Mathematicae 226 (2014), no.2, 143–156.
+DOI: 10.4064/fm226-2-4.
+https://www.impan.pl/shop/en/publication/transaction/download/product/88524
+Printed p.144 records the finite-antichain versus AC conjecture and the
+well-foundedness problem. Theorem 5.1 constructs counterexamples with
+DC_kappa and complicated cardinal orders; this is not a positive model
+of the proposed finite-basis property with not AC.
+
+[T18] Eleftherios Tachtsis, On the comparability of cardinals in the
+absence of the axiom of choice, Fundamenta Mathematicae 242 (2018),
+no.3, 247–266. DOI: 10.4064/fm376-11-2017; online 26 April 2018.
+https://www.impan.pl/en/publishing-house/journals-and-series/fundamenta-mathematicae/all/242/3/111922/on-the-comparability-of-cardinals-in-the-absence-of-the-axiom-of-choice
+The publisher abstract studies the principle that each infinite family
+of sets has two distinct injection-comparable members. It states its
+equivalence with the denumerable restriction and several implications
+and nonimplications involving other weak choice principles. No positive
+not-AC separation of that principle is announced in the abstract.
+Full text was not freshly available; avoid an exhaustive negative claim
+about every result in it.
+
+[SZ26] Guozhen Shen and Wenjie Zhou, On the ordering of surjective
+cardinals, Zeitschrift für Mathematische Logik und Grundlagen der
+Mathematik 72 (2026), 225–230. DOI: 10.60866/CAM.262.
+https://diamond-oa.lib.cam.ac.uk/entities/publication/c87c71fe-07f6-4b7f-8345-21aa1549a425
+https://api-diamond-oa.lib.cam.ac.uk/server/api/core/bitstreams/a03778bd-afbe-48c1-9017-7a410662e5a2/content
+Primary full text checked. Theorems 5 (p.226) and 15 (p.229) realize
+compatible prescribed partial/preorders in the injection/surjection
+cardinals, also with DC_kappa. This is a complexity result, not the
+positive NDS/finite-basis consistency result under consideration.
+
+4. Important older cardinal-lattice prior art
+---------------------------------------------
+[R78] Arthur L. Rubin, Independence of the axiom of choice from the
+greatest lower bound property of cardinals. Preliminary Report.
+Notices of the American Mathematical Society 25 (1978), A-14,
+abstract 78T-E3; received 16 September 1977.
+https://www.ams.org/journals/notices/197801/197801FullIssue.pdf
+Downloaded primary issue saved as Rubin1978_Notices.pdf, with extracted
+text. Lines 5886–5901 of the local text contain the announcement.
+It gives an FM model of ZFU, with uncountably many atoms, the full
+symmetric group, and countable supports, satisfying the binary greatest
+lower bound property but not AC. It expressly notes a difficulty in
+transferring the result to ZF. This is direct prior art, although only a
+preliminary abstract rather than a full proof in this source.
+
+[HH76] J. D. Halpern and Paul E. Howard, The law of infinite cardinal
+addition is weaker than the axiom of choice, Transactions of the
+American Mathematical Society 220 (1976), 195–204.
+DOI: 10.1090/S0002-9947-1976-0409183-1.
+https://www.ams.org/journals/tran/1976-220-00/S0002-9947-1976-0409183-1/S0002-9947-1976-0409183-1.pdf
+Downloaded as HalpernHoward1976.pdf. The opening page p.195 states that
+doubling for infinite cardinals implies the corresponding addition-as-
+supremum law, and gives the historical independence context. Thus binary
+joins without AC are not new. Its footnote already points to Sageev’s
+pure ZF result; the article itself constructs a ZFU model.
+
+Additional primary references located, but their complete contents were
+not available in this bounded check:
+  John L. Hickman, Boundedness Properties of Cardinals, Zeitschrift für
+  mathematische Logik und Grundlagen der Mathematik 25 (1979), 485–486.
+  DOI: 10.1002/malq.19790253103.
+  John Truss, Convex Sets of Cardinals, Proceedings of the London
+  Mathematical Society (3) 27 (1973), 577–599.
+  DOI: 10.1112/plms/s3-27.4.577.
+  G. Sageev, An independence result concerning the axiom of choice,
+  Annals of Mathematical Logic 8 (1975), 1–184.
+  DOI: 10.1016/0003-4843(75)90002-9.
+These are relevant leads for a full literature review of cardinal-lattice
+claims. Do not attribute unverified theorem statements to them solely on
+the basis of informal summaries. For the short NDS/finite-basis paper,
+the lattice claims can remain secondary or be omitted.
+
+5. Recommended manuscript wording and limits
+---------------------------------------------
+Suggested modest formulation:
+“We extract a finite-basis property for the injection order from the
+stronger structural properties of the recently released OpenAI model.
+This yields, in the same model, NDS and the absence of infinite cardinal
+antichains, while Choice fails. These consequences are not explicitly
+stated in the cited construction. A public literature check completed
+on 7 October 2026 did not locate an earlier positive consistency result
+of this form.”
+
+Avoid claiming that the search proves priority. Avoid presenting the
+classical finite-width theorem, finite-product well-quasi-order argument,
+or all-24-forms equivalence as new. Avoid general implications PP⇒NDS
+or NDS⇒AC/finite basis. The proof must identify precisely which stronger
+OpenAI package it uses. The distinction between full ZF and ordinary
+FM/ZFA is essential, particularly for the older lattice examples.
+
+No messages were sent to authors, no issue or preprint was posted, and
+no private databases or unpublished material were searched. This note
+is a dated research audit, not a publication-priority certification.

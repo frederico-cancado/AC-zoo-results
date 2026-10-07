@@ -1,0 +1,413 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=26mm,headheight=14pt]{geometry}
+\usepackage{microtype,enumitem,booktabs,longtable,array,xcolor,xurl,fancyhdr}
+\definecolor{linkblue}{RGB}{28,65,102}
+\usepackage[colorlinks=true,allcolors=linkblue,bookmarksnumbered=true]{hyperref}
+\hypersetup{pdftitle={Finite cardinal bases in the OpenAI partition-principle model},pdfsubject={Preliminary note: cardinal well-foundedness, antichains, and finite bases without choice},pdfkeywords={axiom of choice, partition principle, NDS, cardinal antichains, finite basis}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Finite cardinal bases without choice}
+\fancyhead[R]{\small Preliminary v0.1}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\setlength{\parskip}{3pt}
+\setlength{\emergencystretch}{1.5em}
+\setlist{itemsep=3pt,topsep=5pt}
+\newcommand{\ZF}{\mathsf{ZF}}
+\newcommand{\ZFC}{\mathsf{ZFC}}
+\newcommand{\AC}{\mathsf{AC}}
+\newcommand{\ACWO}{\mathsf{AC}_{\mathrm{WO}}}
+\newcommand{\PP}{\mathsf{PP}}
+\newcommand{\NDS}{\mathsf{NDS}}
+\newcommand{\FB}{\mathsf{FB}}
+\newcommand{\SVC}{\mathsf{SVC}}
+\newcommand{\Con}{\operatorname{Con}}
+\newcommand{\Ord}{\operatorname{Ord}}
+\newcommand{\calP}{\mathcal P}
+\newcommand{\inj}{\hookrightarrow}
+\newcommand{\onto}{\twoheadrightarrow}
+\newcommand{\cX}{c_A}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\title{\textbf{Finite cardinal bases in the OpenAI\\partition-principle model}\\[7pt]\large Cardinal well-foundedness, finite antichains, and further consequences}
+\author{}
+\date{Version 0.1 \quad 7 October 2026\\\small Preliminary research note for review}
+\begin{document}
+\maketitle
+\begin{abstract}
+OpenAI's manuscript \emph{The Partition Principle does not imply Choice} gives a symmetric model of $\ZF+\PP+\neg\AC$ with a stronger homogeneous-image property. We isolate an elementary consequence of that property: every set-sized family of cardinalities has a finite coinitial basis. Consequently there is no infinite strictly decreasing sequence of cardinalities, and every set-sized antichain of cardinalities is finite. The proof extracts a normal form $(A\times\alpha)\sqcup\beta$ from the manuscript's hypotheses and uses a finite-basis lemma for pairs of ordinals. The resulting consistency corollaries depend on the cited construction, while the abstract implication is proved here in $\ZF$. We explain the earlier well-foundedness and antichain questions, distinguish the contribution from results already in the source, and record further deductions and a research programme. A dated, bounded literature search found no earlier publication of the central application; this is not a certification of priority.
+\end{abstract}
+
+\paragraph{Status and attribution.}
+This is a preliminary note, not a peer-reviewed publication. The model construction and the resolution of the partition-principle problem are attributed to OpenAI \cite{OpenAI}. The proposed follow-up contribution is the extraction and application of the finite-basis theorem below. Statements called theorems have complete arguments in this note or explicit cited dependencies; questions in Section~\ref{research} are not claimed as results. Substantial AI assistance and the limits of verification are described in Section~\ref{provenance}.
+
+\section{The older problems and the new construction}\label{history}
+
+\subsection{Partitions versus choosing representatives}
+The partition principle states
+\[
+ \PP:\qquad X\onto Y\quad\Longrightarrow\quad Y\inj X.
+\]
+Equivalently, a partition of a set admits an injection into its underlying set. Choice supplies such an injection by taking a representative of each part. The converse is difficult because a reverse injection need not choose an element of the corresponding part: for a given surjection $f$, the injection $j$ need not satisfy $f\circ j=\mathrm{id}$.
+
+The question has a long history. Da Silva's account traces the principle to Beppo Levi in 1902 \cite[Section 2]{daSilva}. Banaschewski and Moore \cite{BM} studied its relationship with the dual Cantor--Bernstein theorem, and Pelc \cite{Pelc} connected these comparison principles with cardinal well-foundedness. Blass's small-violations-of-choice method \cite{Blass} and Ryan-Smith's local-to-global analysis \cite{RyanSmith} provide useful structural tools.
+
+The OpenAI manuscript \cite[Theorem 1.1]{OpenAI}, dated 24 September 2026 and available in the repository revision checked on 7 October, states
+\begin{equation}\label{sourcecons}
+ \Con(\ZF)\ \Longrightarrow\
+ \Con(\ZF+\PP+\ACWO+\neg\AC).
+\end{equation}
+Here $\ACWO$ is choice for families indexed by an ordinal. The implication $\PP\Rightarrow\ACWO$ is classical; its appearance separately records the construction's structure. Equation~\eqref{sourcecons} is the negative resolution of the converse-to-choice problem supplied by that manuscript. This note uses its stronger intermediate properties rather than independently constructing a model.
+
+\subsection{Decreasing sequences of cardinalities}
+Without choice, injection comparison is a partial order on cardinalities, not necessarily a linear order. Besides incomparability, one can ask whether this order is well-founded. Howard and Tachtsis \cite{HT} investigated the principle called $\NDS$: there is no infinite strictly decreasing sequence of cardinalities. Tachtsis \cite{Tachtsis2024} further studied its position among weak choice principles.
+
+Blass and Kulshreshtha \cite{BK} distinguish 24 formulations of cardinal well-foundedness, including differences between injections and surjections and between family and sequence formulations. Their version 3, dated 21 August 2026, still asks whether these principles imply $\AC$. Their Proposition 9.8 identifies the formulations under $\PP$, but does not establish them from $\PP$. A model satisfying both $\PP$ and $\NDS$ while violating $\AC$ therefore has consequences beyond the terminal statement~\eqref{sourcecons}.
+
+\subsection{Finite antichains, without a uniform finite bound}
+A different weakening of linear cardinal comparison says that every infinite family of distinct cardinalities contains two comparable members. In other words, there is no infinite set-sized cardinal antichain.
+
+Feldman and Orhon, with an appendix by Blass \cite{FO}, prove that for each fixed finite $k>1$, the assertion that every $k$ cardinalities contain a comparable pair implies choice. Their discussion also separates the infinite-family question from these finite bounds. Karagila \cite[p.~144]{Karagila} records the question whether finiteness of every cardinal antichain can coexist with failure of choice. Tachtsis \cite{Tachtsis2018} studies related comparability principles.
+
+The distinction is essential: ``each antichain is finite'' permits arbitrarily large finite antichains. The construction used here has exactly that behaviour. Already $A$ and its Hartogs ordinal are incomparable; Section~\ref{lattice} gives explicit antichains of every finite size.
+
+\subsection{Why a finite-basis formulation is useful}
+The central statement packages both well-foundedness and the antichain conclusion. We use the descriptive label $\FB$ for a \emph{finite coinitial cardinal basis}, rather than treating the abbreviation as an established name in the literature. A finite basis does not mean that there are only finitely many cardinalities. It means that, inside any given set-sized family, finitely many members suffice to lie below all the others.
+
+\section{Definitions and the abstract hypotheses}\label{defs}
+
+All arguments take place in classical $\ZF$. Write $X\preccurlyeq Y$ if there is an injection $X\inj Y$, and $X\prec Y$ if $X\preccurlyeq Y$ and $Y\not\preccurlyeq X$. Write $X\cong Y$ for the existence of a bijection. The disjoint union is denoted by $\sqcup$.
+
+\begin{definition}
+The following are statements about sets.
+\begin{enumerate}[label=(\roman*)]
+\item $\NDS$: there is no sequence $(X_n)_{n<\omega}$ with $X_{n+1}\prec X_n$ for every $n$.
+\item The finite-antichain principle: every set family $\mathcal F$ whose distinct members have incomparable cardinalities is finite.
+\item $\FB$: for every nonempty set family $\mathcal F$, there is a nonempty finite $\mathcal F_0\subseteq\mathcal F$ such that
+\begin{equation}\label{FBdef}
+ \forall X\in\mathcal F\ \exists Y\in\mathcal F_0\quad Y\preccurlyeq X.
+\end{equation}
+\end{enumerate}
+No simultaneous choice of all the injections in~\eqref{FBdef} is part of the assertion. Likewise, $\NDS$ quantifies over sequences of sets, not sequences already equipped with injection witnesses.
+\end{definition}
+
+For statements phrased directly about cardinalities, one may use Scott representatives: the set of all representatives of the least possible rank. If $\mathcal C$ is a set of Scott cardinalities, its union is a set of representatives. Applying $\FB$ to that union avoids choosing one set for each cardinality.
+
+\begin{definition}\label{package}
+Fix a nonempty set $A$. The \emph{homogeneous-image hypotheses} are:
+\begin{enumerate}[label=(\Alph*)]
+\item\label{S} $\SVC(A)$: every nonempty set $X$ is the image of a surjection $A\times\eta\onto X$ for some ordinal $\eta$.
+\item\label{W} $\ACWO$: every ordinal-indexed family of nonempty sets has a choice function.
+\item\label{Q} Every non-well-orderable surjective image of $A$ is bijective with $A$.
+\end{enumerate}
+Non-well-orderability of $A$ itself is required for the consistency application, but not for the abstract finite-basis implication.
+\end{definition}
+
+\begin{theorem}[Central implication]\label{central}
+In $\ZF$, the hypotheses of Definition~\ref{package} imply $\FB$. Hence every sequence of sets has a forward-comparable pair, $\NDS$ holds, and every set-sized cardinal antichain is finite.
+\end{theorem}
+
+The proof is given in Sections~\ref{normal}--\ref{finitebasis}. The resulting application is
+\begin{equation}\label{newcons}
+ \Con(\ZF)\ \Longrightarrow\
+ \Con(\ZF+\PP+\ACWO+\FB+\NDS+\neg\AC),
+\end{equation}
+with finiteness of all set-sized cardinal antichains in the same model. The construction in \cite{OpenAI} is the external input for~\eqref{newcons}.
+
+\section{Extracting the cardinal normal form}\label{normal}
+
+\begin{lemma}\label{NF}
+Under Definition~\ref{package}, every set $X$ has a representation
+\begin{equation}\label{normalform}
+ X\cong(A\times\alpha)\sqcup\beta,
+ \qquad \alpha,\beta\in\Ord.
+\end{equation}
+The two parameters may be chosen to be initial ordinals.
+\end{lemma}
+\begin{proof}
+The empty set uses $\alpha=\beta=0$. Otherwise fix one surjection $s:A\times\eta\onto X$. Put
+\[
+ B_i=s[A\times\{i\}],\qquad
+ T_i=B_i\setminus\bigcup_{j<i}B_j\quad(i<\eta).
+\]
+The $T_i$ partition $X$. Each nonempty $T_i$ is a surjective image of $A$: fix one $t\in T_i$, keep $s(a,i)$ when it belongs to $T_i$, and send all other arguments to $t$. This proves existence for one slice at a time; it does not choose default elements simultaneously.
+
+Let $I$ consist of those $i<\eta$ for which $T_i$ is not well-orderable. For $i\in I$, hypothesis~\ref{Q} supplies a bijection $A\to T_i$; for $i\notin I$, take a well-order of $T_i$, including the empty relation when the slice is empty. The candidate bijections lie in $\calP(A\times X)$ and the candidate orders in $\calP(X\times X)$. Thus $\ACWO$ selects witnesses from a set-sized, well-orderably indexed family.
+
+The union of the non-well-orderable slices is bijective with $A\times I$, hence with $A\times\alpha$ for an ordinal $\alpha$. The remaining slices have a well-orderable union: order by slice index first, then by the selected well-order inside each slice. That union is bijective with an ordinal $\beta$. The two pieces are disjoint and cover $X$. Replacing each ordinal by its initial ordinal preserves the representation.
+\end{proof}
+
+The slicing mechanism is an extraction of the method already used in \cite[Lemma 7.1]{OpenAI}, which in turn credits Ryan-Smith's local-to-global argument \cite{RyanSmith}. The next finite-basis step is the additional application needed here.
+
+For each $X$, choose its parameters \emph{definably}: let $\alpha(X)$ be the least ordinal admitting any representation~\eqref{normalform}, and let $\beta(X)$ be the least ordinal witnessing it for that $\alpha(X)$. These exist because any one witness bounds a nonempty set in which to minimize. Replacement collects the pairs for any set family. No class choice or simultaneous selection of normal-form bijections is being made. Arbitrary representations need not be unique; only the chosen least pair is canonical.
+
+\section{A finite basis and its consequences}\label{finitebasis}
+
+\begin{lemma}[Ordinal pairs, in $\ZF$]\label{ordpairs}
+Every nonempty set $R\subseteq\Ord^2$ has a nonempty finite subset $R_0$ such that every pair in $R$ is coordinatewise above a pair in $R_0$.
+\end{lemma}
+\begin{proof}
+Choose the lexicographically least residual pair, delete its coordinatewise upper cone, and repeat while a pair remains. The rule is unique, so recursion on $\omega$ requires no choice. If it never stopped, the selected first coordinates would be nondecreasing: removal cannot introduce a smaller first coordinate. Since every later pair survived deletion of each earlier upper cone, its second coordinate would be strictly smaller than the preceding second coordinate. This would be an infinite descending sequence of ordinals. The process therefore stops after finitely many selections. Every deleted pair lies above a selected pair, proving the assertion.
+\end{proof}
+
+\begin{proof}[Proof of the finite-basis assertion in Theorem~\ref{central}]
+For a nonempty set family $\mathcal F$, apply Lemma~\ref{ordpairs} to
+\[
+ R=\{(\alpha(X),\beta(X)):X\in\mathcal F\}.
+\]
+Choose one member of $\mathcal F$ for each of the finitely many basis pairs. This is finite choice, a theorem of $\ZF$. Let $\mathcal F_0$ be the resulting finite family. If the profile of $Y\in\mathcal F_0$ is coordinatewise below that of $X\in\mathcal F$, the coordinate inclusions give
+\[
+ (A\times\alpha(Y))\sqcup\beta(Y)
+ \inj (A\times\alpha(X))\sqcup\beta(X).
+\]
+Composing with two normal-form bijections gives $Y\preccurlyeq X$. This proves~\eqref{FBdef}. The injections need only exist separately.
+\end{proof}
+
+\begin{corollary}\label{seq}
+Under $\FB$, every sequence $(X_n)_{n<\omega}$ has indices $i<j$ such that $X_i\preccurlyeq X_j$. In particular, $\NDS$ holds.
+\end{corollary}
+\begin{proof}
+Apply $\FB$ to the range of the sequence. Each member of its finite basis has a least occurrence index. Choose $j$ larger than all these indices. A basis member injects into $X_j$, and its least index $i$ is smaller than $j$.
+
+If the sequence were strictly decreasing, finitely many downward injections would give $X_j\preccurlyeq X_{i+1}$. Composing contradicts $X_i\not\preccurlyeq X_{i+1}$. Only finitely many witnesses are used, not countably many chosen injections.
+\end{proof}
+
+\begin{corollary}\label{antichain}
+Under $\FB$, every set-sized cardinal antichain is finite. More generally, every nonempty set family represents finitely many minimal cardinalities, and each of its cardinalities lies above one of them.
+\end{corollary}
+\begin{proof}
+For an antichain, a basis member can inject into another member only when they represent the same cardinality. Hence the finite basis accounts for every cardinality in the antichain. For a general family, remove redundant cardinalities from a finite basis, leaving its minimal ones. They remain coinitial. If a family cardinality lay strictly below one of them, another basis member would lie below that smaller cardinality, contradicting minimality in the finite basis. Conversely every minimal family cardinality must coincide with a basis cardinality.
+\end{proof}
+
+There can still be infinitely many distinct sets representing a single minimal cardinality. Corollary~\ref{antichain} concerns the number of cardinalities, not the number of such representatives. The Scott-set formulation follows by applying $\FB$ to the union of the sets of representatives.
+
+\section{Application and exact dependence on the source}\label{application}
+
+The source proves Definition~\ref{package} for one distinguished non-well-orderable $A$ in its symmetric model. The anchors below refer to the pinned manuscript, whose page numbers and theorem numbers should not be silently transferred to later revisions.
+
+\begin{center}\small
+\begin{tabular}{p{.48\linewidth}p{.42\linewidth}}
+\toprule
+Construction input & Source in \cite{OpenAI}\\
+\midrule
+$\SVC(A)$ & Proposition 3.6, pp.~22--23\\
+$\ACWO$ & Proposition 3.7, pp.~23--24\\
+$A$ is not well-orderable & Proposition 3.8, p.~24\\
+Homogeneity of non-well-orderable images & Theorem 6.3, pp.~33--34\\
+The three-hypothesis deduction of $\PP$ & Lemma 7.1, pp.~34--36\\
+Ordinary first-order consistency interpretation & Section 8, pp.~38--42\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{corollary}\label{consistency}
+Taking the cited construction as a theorem input, equation~\eqref{newcons} holds. The same model has no infinite set-sized cardinal antichain.
+\end{corollary}
+\begin{proof}
+Apply Theorem~\ref{central} internally to the source's $A$. The source already supplies $\PP$, $\ACWO$, and failure of choice. The application retains these properties because it is a deduction inside that very model.
+
+For ordinary relative consistency, the source's Section 8 treats the stronger construction assertions in its first-order symmetric forcing interpretation. Keep the canonical name for $A$ and append the finite $\ZF$ proof above to that interpretation. Its completeness and symmetric-quotient argument gives a model satisfying the additional sentences. Thus no countable transitive model or inaccessible cardinal is being added to the hypothesis $\Con(\ZF)$. This uses the intermediate construction properties, not only the terminal sentence~\eqref{sourcecons}.
+\end{proof}
+
+A direct witness to $\neg\AC$ remains $\calP(A)\setminus\{\varnothing\}$. A choice function on all these subsets would choose successively from the unchosen remainder; Hartogs' theorem would force the process to exhaust $A$, yielding a well-order.
+
+By \cite[Proposition 9.8]{BK}, $\PP$ identifies its 24 well-foundedness variants. Consequently they also hold together with $\neg\AC$ in this model. This is one application of an existing equivalence theorem, not 24 separate new constructions. The source itself already states the consequences for dual Cantor--Schroeder--Bernstein and the weak partition principle in Remark 7.3.
+
+\section{A research programme for this and further models}\label{research}
+
+\paragraph{General implications.}
+The proofs do not establish $\PP\Rightarrow\NDS$, $\PP\Rightarrow\FB$, or $\PP\Rightarrow$ the finite-antichain principle. They use homogeneous images of a fixed generator. It is useful to isolate exactly which weaker local hypotheses still suffice, and whether $\NDS$ can hold while $\FB$ fails. The questions comparing $\PP$, $\NDS$, and the weak partition principle should retain the formulation distinctions in \cite{BK}.
+
+\paragraph{Power sets and ultrafilters.}
+Compute the canonical invariants of $\calP(X)$. A concrete comparison is $\calP(A)$ versus $\calP(h(A))$: the inputs are incomparable, but the present argument does not decide their power-set cardinalities. Likewise the Boolean Prime Ideal Theorem has not been decided in this model. Under $\SVC(A)$ its established local test is the existence of a fine ultrafilter on $[A]^{<\omega}$, recorded in \cite[Section 3.6]{RyanSmith}. This is a target, not a new independence theorem.
+
+\paragraph{Further normal-form models.}
+The useful feature is finite-dimensional ordinal control, rather than this particular forcing alone. Suppose finitely many fixed sets $A_1,\ldots,A_d$ give every set a normal form
+\[
+ X\cong\bigsqcup_{r=1}^{d}(A_r\times\alpha_r),\qquad \alpha_r\in\Ord.
+\]
+Taking the lexicographically least witnessing tuple gives definable profiles. Every set of tuples in $\Ord^d$ has a finite coordinatewise coinitial subset. To see this in $\ZF$, successively extract subsequences at tail minima of each coordinate; any infinite tuple sequence then has a forward-comparable pair. A uniquely specified lexicographic residual-selection recursion, deleting upper cones, cannot continue forever. Applying the resulting finite basis to the profiles proves $\FB$, just as above. An ordinal remainder can be included by taking one $A_r$ to be a singleton.
+
+This gives a concrete criterion for testing new symmetric or permutation models. A proposed model must independently verify its all-rank normal form and failure of choice. This note constructs no additional model, and a transfer from pure symmetric forcing to a model with atoms is not automatic.
+
+\paragraph{Absorption spectrum and formalization.}
+Determine precisely which well-ordered $\lambda$ satisfy $A\times\lambda\cong A$, particularly below $\rho$. Above $\rho$, equation~\eqref{largecoeff} supplies part of the answer. Formalizing the normal-form and finite-basis deductions would provide a useful separate verification milestone; it should not be confused with the already released construction formalization.
+
+\section{Prior-publication search and contribution boundaries}\label{novelty}
+
+The following assessment is dated \textbf{7 October 2026}. It reports what was found, not a proof that no earlier discovery or publication exists.
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{.29\linewidth}>{\raggedright\arraybackslash}p{.64\linewidth}}
+\toprule
+Claim & Publication status found in the checked sources\\
+\midrule
+\endhead
+$\PP+\neg\AC$ and $\ACWO$ & Explicit source result in \cite{OpenAI}; not attributed to this note.\\[5pt]
+Dual CSB and weak PP & Explicit in \cite[Remark 7.3]{OpenAI}; classical implications.\\[5pt]
+Two-ordinal normal form & Extracted from the source's slicing and homogeneous-image hypotheses; its mechanism is implicit in Lemma 7.1.\\[5pt]
+$\FB$, $\NDS$, finite antichains with $\neg\AC$ & No explicit earlier positive application located in the checked release and targeted literature search. These are the central candidate follow-up consequences.\\[5pt]
+All 24 well-foundedness variants & Application of \cite[Proposition 9.8]{BK} to the preceding corollary, rather than separate new constructions.\\[5pt]
+Doubling and binary bounds & Earlier related results exist; see \cite{Jech,HH,Rubin}. Novelty, if any, must concern the exact statement and simultaneous theory, not those principles in isolation.\\[5pt]
+Exact coordinates; all set suprema and nonempty infima & Additional deductions in Section~\ref{lattice}; no matching result located in this bounded search. Their historical priority remains unconfirmed.\\
+\bottomrule
+\end{longtable}
+
+The checked GitHub main revision is
+\begin{center}\small\texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.
+\end{center}
+It is unchanged from the preceding audit. That audit searched 9,015 TeX, Markdown, bibliography and text sources across 722 manuscript directories, verified their Git blob hashes, and reviewed the relevant keyword matches. The target manuscript received a further focused check. This was a lexical corpus search, not semantic proofreading of every manuscript or a search of all unreleased work.
+
+The fresh external check covered the current arXiv version of \cite{BK}, exact-title and theorem-phrase searches, primary author/publisher pages for the historical references, and indexed discussion of the OpenAI release. No indexed follow-up giving the central $\FB/\NDS$/finite-antichain application was found. Some older journal full texts were not accessible; in those cases only available abstracts, metadata, or explicit accounts in primary later papers were used. Search indexing can lag, and unpublished or differently phrased results can be missed. The accompanying search record preserves this scope.
+
+The manuscript's cover date is 24 September 2026. The checked repository commit is dated 6 October 2026. Neither a cover date nor a search result establishes who first privately recognized a corollary. Accordingly this note makes no assertion of exclusive priority.
+
+\section{Attribution, assistance, and verification}\label{provenance}
+
+\paragraph{Construction credit.}
+OpenAI is credited for the model and its proof. The abstract $\ZF$ argument here can be evaluated independently; the relative-consistency application stands on the cited construction and its metatheory. The normal-form extraction explicitly retains the source's credit to Ryan-Smith's method.
+
+\paragraph{AI assistance.}
+OpenAI Codex was used substantially for proof development, mathematical cross-checks, source searches, and drafting this note. This assistance was not limited to language editing. AI tools are not listed as authors. The draft has not undergone independent human peer review; no human verification or approval is asserted here. Any human author who releases a version must review, understand, approve, and take responsibility for its contents and attribution.
+
+\paragraph{Formal verification scope.}
+The local verification record reports successful compilation of the 75 pinned construction files and checks of the relevant declaration dependencies. This concerns the source construction, not a Lean formalization of the new finite-basis, $\NDS$, or lattice deductions. Those additions have been checked by separate AI-assisted mathematical arguments. No comparison against an external challenge specification is claimed. Compilation alone should not be described as certifying every interpretive or metatheoretic statement in this note.
+
+\paragraph{Version record.}
+Version 0.1 assembles the central finite-basis proof, its consistency application, historical motivation, further deductions, and the dated search assessment. Later releases should identify corrections and changed claims explicitly. A public timestamp documents the contents of a release; it does not by itself establish correctness, novelty, or ownership of mathematical facts.
+
+\clearpage
+\appendix
+\section{Further checked consequences}\label{lattice}
+
+This section records extensions of the central result. The exact-order statements require one further fact about the concrete construction, namely $A\sqcup A\cong A$. They should not be inferred from a bare assertion of $\PP$.
+
+\subsection{Doubling and countably many copies}
+In the source, $A$ consists of distinct Cohen subsets of an ordinal. Partition it as
+\[
+ A_0=\{a\in A:0\notin a\},\qquad
+ A_1=\{a\in A:0\in a\}.
+\]
+Both pieces are non-well-orderable. Here is the needed modification of \cite[Proposition 3.8]{OpenAI}. Suppose a supported name is forced to enumerate $A_b$ by an ordinal. Enlarge a condition's diagram range to include the name's support and the Cohen condition's coordinate support. Choose a fresh coordinate $j$ outside that range and assign its bit at $0$ the value $b$. Strengthen to decide an enumerating index with value $A_j$ and to include $j$ in the diagram. The source's fresh-copy lemma moves the new coordinates while fixing the old range. The original and copied diagram conditions have a common extension, and their Cohen conditions are compatible. The enumeration name and the ordinal index are fixed, but its two forced values are distinct labels. This is a contradiction. The argument is about compatible forcing conditions, not an alleged automorphism of a fixed transitive universe.
+
+Each nonempty $A_b\subseteq A$ is an image of $A$, so hypothesis~\ref{Q} yields $A_b\cong A$. Thus $A\times2\cong A$. Fix injections $f_0,f_1:A\to A$ with disjoint ranges. The maps $f_0^nf_1$ have pairwise disjoint ranges, giving $A\times\omega\inj A$. Cantor--Schroeder--Bernstein supplies the reverse equality. Applying the normal form, and absorbing a finite ordinal remainder into a countable subset of one $A$-copy, proves
+\begin{equation}\label{absorption}
+ X\times\omega\cong X\quad\text{for every infinite }X.
+\end{equation}
+The consistency of universal additive idempotence with failure of choice is classical; see \cite[Chapter 11, Problem 11]{Jech} and Halpern--Howard \cite{HH}, who also explain its connection with binary cardinal suprema. The assertion here is its simultaneous validity with the source's $\PP$ model and the central consequences above.
+
+\subsection{Two canonical invariants determine the order}
+Assume the homogeneous-image hypotheses, non-well-orderability of $A$, and $A\times2\cong A$. Let $c_A(X)$ be the least coefficient $\alpha$ in~\eqref{normalform}. Let $w(X)$ be the largest well-ordered cardinal that injects into $X$.
+
+To justify the latter definition, put $h=h(X)$ and use $\ACWO$ to select an injection $\xi\inj X$ for every $\xi<h$. The union of their ranges is a well-orderable subset of $X$: it is the image of a well-orderable disjoint union. Its cardinal dominates every well-orderable subcardinal of $X$, and is the desired maximum. Write $\rho=w(A)$. It is infinite. For ordinal cardinals $\alpha>0$ and $\beta$,
+\begin{equation}\label{wformula}
+ w((A\times\alpha)\sqcup\beta)=\max(\rho,\alpha,\beta).
+\end{equation}
+For the upper bound, the projection onto $A$ of any well-orderable subset of $A\times\alpha$ is well-orderable, hence has size at most $\rho$. The lower bounds are immediate. For $\alpha=0$, the value is $\beta$.
+
+\begin{theorem}\label{order}
+In these hypotheses,
+\[
+ X\preccurlyeq Y
+ \quad\Longleftrightarrow\quad
+ c_A(X)\le c_A(Y)\ \text{ and }\ w(X)\le w(Y).
+\]
+Consequently the pair $(c_A(X),w(X))$ determines cardinality.
+\end{theorem}
+\begin{proof}
+Monotonicity of $w$ is immediate. To prove monotonicity of $c_A$, represent $Y$ by its least coefficient and slice a subset $Z\subseteq Y$ along its copies of $A$. Each nonempty slice is either well-orderable or bijective with $A$, since any nonempty subset of $A$ is an image of $A$. Using $\ACWO$, assemble these pieces into a normal form for $Z$. The non-well-orderable slices are indexed by a subset of $c_A(Y)$, so $c_A(Z)\le c_A(Y)$. This proves necessity for arbitrary injections as well.
+
+Conversely, embed the $A\times c_A(X)$ part of a normal form for $X$ into the corresponding part of $Y$. Its ordinal remainder has cardinal at most $w(X)$, so also embeds into $Y$. If $Y$ is infinite, combine these maps using $Y\sqcup Y\cong Y$, which follows from the same normal-form argument as~\eqref{absorption}. If $Y$ is finite, both coefficients are zero and the assertion is ordinary finite comparison. Cantor--Schroeder--Bernstein gives the equality criterion.
+\end{proof}
+
+This is a criterion for the \emph{least} coefficient together with $w(X)$. It does not assert coordinatewise necessity for arbitrary displayed parameters $\alpha,\beta$.
+
+\begin{corollary}\label{bounds}
+Every set-sized family of cardinalities has a supremum, and every nonempty set-sized family has an infimum. In the coordinates of Theorem~\ref{order}, they are
+\[
+ \bigvee_i|X_i|:\ (\sup_i c_A(X_i),\sup_i w(X_i)),\qquad
+ \bigwedge_i|X_i|:\ (\min_i c_A(X_i),\min_i w(X_i)).
+\]
+Binary meet and join satisfy the distributive laws.
+\end{corollary}
+\begin{proof}
+We must check that these coordinate pairs are realized. If $c=c_A(X)$, then $c_A(A\times c)=c$: a smaller representation would also lower the coefficient of $X$. Adding a well-orderable summand preserves this coefficient by monotonicity and the evident representation.
+
+For a nonempty meet, put $c=\min_i c_A(X_i)$ and $w=\min_iw(X_i)$. If $c=0$, the ordinal cardinal $w$ represents the desired pair. Otherwise $c$ is an attained canonical coefficient and $w\ge\max(\rho,c)$. Equation~\eqref{wformula} shows that $(A\times c)\sqcup w$ represents $(c,w)$.
+
+For a join, put $c=\sup_i c_A(X_i)$ and $w=\sup_iw(X_i)$. The empty family has supremum $0$, and the case $c=0$ is again represented by $w$. If $c>0$, then $w\ge\max(\rho,c)$. Monotonicity gives $c_A(A\times c)\ge c_A(X_i)$ for every $i$, while its displayed representation gives the reverse bound by $c$. Hence $c_A(A\times c)=c$, and $(A\times c)\sqcup w$ realizes the pair. Theorem~\ref{order} proves the extremal properties. Finite distributivity follows from minimum and maximum in each ordinal coordinate.
+\end{proof}
+
+The class of all cardinalities has no top: there is no empty infimum. Thus ``complete lattice'' without this qualification would be misleading. No stronger assertion of complete distributivity is made. There is also older partial prior art: Rubin's 1978 preliminary report \cite{Rubin} gives binary greatest lower bounds with failure of choice in an atom model, and does not claim transfer to $\ZF$. The present conjunction and exact coordinate argument must be distinguished from that earlier result.
+
+For explicit finite antichains, note that
+\begin{equation}\label{largecoeff}
+ \kappa>\rho\quad\Longrightarrow\quad c_A(A\times\kappa)=\kappa
+\end{equation}
+for well-ordered cardinals $\kappa$. Indeed, a representation with coefficient $\eta<\kappa$ would send each of the $\kappa$ disjoint $A$-copies to a set meeting $A\times\eta$; otherwise that copy would be well-orderable. Ordinal choice selects one such point from each copy, giving $\kappa\preccurlyeq A\times\eta$, contrary to~\eqref{wformula}. Choose
+\[
+ \rho<\kappa_0<\cdots<\kappa_{n-1}
+ \le\lambda_{n-1}<\cdots<\lambda_0.
+\]
+Then $(A\times\kappa_i)\sqcup\lambda_i$ have increasing first invariants and decreasing second invariants, so are pairwise incomparable.
+
+\subsection{Fixed-aleph comparison and power-set roots}
+Let $W_\lambda$ mean that every set is injection-comparable with the well-ordered cardinal $\lambda$, as in \cite[Section 3.5]{RyanSmith}. Every non-well-orderable set contains a copy of $A$ by its normal form. Therefore
+\[
+ W_\lambda\quad\Longleftrightarrow\quad\lambda<h(A)
+ \quad\Longleftrightarrow\quad\lambda\le\rho.
+\]
+Above this threshold $A$ itself witnesses incomparability. This determines the threshold abstractly, without assuming preservation of particular ground-model cardinals.
+
+A separate consequence needs only $\FB$: every set has a finite bound on its possible iterated power-set-root depths. Form
+\[
+ R_X=\{Y\subseteq X:\exists n<\omega\ (\calP^n(Y)\cong X)\}.
+\]
+Every root cardinal has a representative here, using iterated singleton injections into $X$, and $X\in R_X$. Let $Y_1,\ldots,Y_k$ be a finite basis, with depths $n_1,\ldots,n_k$. A root $Y$ of depth $m>\max_i n_i$ would admit an injection from some $Y_i$, implying
+\[
+ |X|=|\calP^{n_i}(Y_i)|\le|\calP^{n_i}(Y)|
+       <|\calP^m(Y)|=|X|,
+\]
+contrary to Cantor's theorem. The bound depends on $X$. Pelc's full-power-tree question is discussed in \cite[Theorem 10.9]{BK}; the argument here obtains a bound directly from $\FB$.
+
+
+\begin{thebibliography}{99}\small
+
+\bibitem{BM} B. Banaschewski and G. H. Moore, \emph{The dual Cantor--Bernstein theorem and the partition principle}, Notre Dame Journal of Formal Logic \textbf{31} (1990), no.~3, 375--381. \href{https://doi.org/10.1305/ndjfl/1093635502}{doi:10.1305/ndjfl/1093635502}.
+
+\bibitem{Blass} A. Blass, \emph{Injectivity, projectivity, and the axiom of choice}, Transactions of the American Mathematical Society \textbf{255} (1979), 31--59. \href{https://doi.org/10.1090/S0002-9947-1979-0542870-6}{doi:10.1090/S0002-9947-1979-0542870-6}.
+
+\bibitem{BK} A. Blass and D. Kulshreshtha, \emph{Cardinal Well-foundedness and Choice}, arXiv:2310.09643v3, 21 August 2026. \url{https://arxiv.org/abs/2310.09643v3}.
+
+\bibitem{daSilva} S. G. da Silva, \emph{The Axiom of Choice and the Partition Principle from Dialectica Categories}, Logic Journal of the IGPL \textbf{29} (2021), no.~5, 783--797. \href{https://doi.org/10.1093/jigpal/jzaa023}{doi:10.1093/jigpal/jzaa023}.
+
+\bibitem{FO} D. Feldman and M. Orhon, with an appendix by A. Blass, \emph{Generalizing Hartogs' Trichotomy Theorem}, arXiv:0804.0673 (2008). \url{https://arxiv.org/abs/0804.0673}. See Theorem 1 and the discussion of infinite trichotomy.
+
+\bibitem{HH} J. D. Halpern and P. E. Howard, \emph{The law of infinite cardinal addition is weaker than the axiom of choice}, Transactions of the American Mathematical Society \textbf{220} (1976), 195--204. \href{https://doi.org/10.1090/S0002-9947-1976-0409183-1}{doi:10.1090/S0002-9947-1976-0409183-1}.
+
+\bibitem{HT} P. Howard and E. Tachtsis, \emph{No decreasing sequence of cardinals}, Archive for Mathematical Logic \textbf{55} (2016), 415--429. \href{https://doi.org/10.1007/s00153-015-0472-5}{doi:10.1007/s00153-015-0472-5}.
+
+\bibitem{Jech} T. J. Jech, \emph{The Axiom of Choice}, Studies in Logic and the Foundations of Mathematics, vol.~75, North-Holland, 1973. Chapter 11. \url{https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf}.
+
+\bibitem{Karagila} A. Karagila, \emph{Embedding orders into the cardinals with $\mathsf{DC}_\kappa$}, Fundamenta Mathematicae \textbf{226} (2014), no.~2, 143--156. \href{https://doi.org/10.4064/fm226-2-4}{doi:10.4064/fm226-2-4}.
+
+\bibitem{OpenAI} OpenAI, \emph{The Partition Principle does not imply Choice}, manuscript dated 24 September 2026, repository revision checked 7 October 2026. Commit \texttt{adc7f1241b42e322a6451854ab7e4b4c146bf78a}. \href{https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026}{Pinned manuscript and source}.
+
+\bibitem{Pelc} A. Pelc, \emph{On Some Weak Forms of the Axiom of Choice in Set Theory}, Bulletin de l\'Acad\'emie Polonaise des Sciences, S\'erie des Sciences Math\'ematiques, Astronomiques et Physiques \textbf{26} (1978), 585--589. The results used for historical context are discussed in \cite[Section 10]{BK}.
+
+\bibitem{Rubin} A. L. Rubin, \emph{Independence of the axiom of choice from the greatest lower bound property of cardinals}, preliminary report 78T-E3, Notices of the American Mathematical Society, January 1978, p.~A-14. \url{https://www.ams.org/journals/notices/197801/197801FullIssue.pdf}.
+
+\bibitem{RyanSmith} C. Ryan-Smith, \emph{Local reflections of choice}, Acta Mathematica Hungarica \textbf{176} (2025), no.~1, 244--257. \href{https://doi.org/10.1007/s10474-025-01533-3}{doi:10.1007/s10474-025-01533-3}. Author manuscript: \url{https://academic.calliope.mx/files/papers/2412.13785.pdf}. Section references in this note refer to the checked author manuscript.
+
+\bibitem{Tachtsis2018} E. Tachtsis, \emph{On the comparability of cardinals in the absence of the axiom of choice}, Fundamenta Mathematicae \textbf{242} (2018), no.~3, 247--266. \href{https://doi.org/10.4064/fm376-11-2017}{doi:10.4064/fm376-11-2017}.
+
+\bibitem{Tachtsis2024} E. Tachtsis, \emph{No Decreasing Sequence of Cardinals in the Hierarchy of Choice Principles}, Notre Dame Journal of Formal Logic \textbf{65} (2024), no.~3, 311--331. \href{https://doi.org/10.1215/00294527-2024-0020}{doi:10.1215/00294527-2024-0020}.
+
+\end{thebibliography}
+\end{document}

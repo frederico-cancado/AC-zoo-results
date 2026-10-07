@@ -1,0 +1,151 @@
+PUBLIC RELEASE PROVENANCE NOTE
+This is a dated AI-assisted research audit, not independent human peer review.
+References to work/ and outputs/ identify retained local research evidence,
+not files included in this repository. Statements about no publication
+refer to the audit session before this release. The paper is the
+self-contained presentation of the mathematical arguments.
+
+OPENAI RELEASE UPDATE AUDIT
+7 October 2026
+
+SCOPE
+A targeted update of the previous release audit, for a preliminary note on
+finite cardinal bases (FB), NDS, and the absence of infinite cardinal
+antichains in the released PP model. This is a repository-source audit,
+not an independent worldwide literature search and not proof of novelty.
+
+RETRIEVAL TIMES AND REVISION
+Fresh GitHub API/metadata retrieval started at 2026-10-07T17:45:18.352908+00:00.
+Audit completed at 2026-10-07T17:46:49.040782+00:00.
+
+Current API endpoint: https://api.github.com/repos/openai/math/commits/main
+Current repository: https://github.com/openai/math
+Current main SHA: adc7f1241b42e322a6451854ab7e4b4c146bf78a
+This is IDENTICAL to the previously audited revision. No revised or newly
+added manuscript exists between the previous pin and the currently checked
+main branch. The old source corpus need not be downloaded again.
+
+The commit is the repository's single initial commit, with author/committer
+metadata 2026-10-06T21:58:50Z. The manuscript's cover date is separately
+September 24, 2026. The cover date is not evidence that the paper was
+publicly available on that date. This audit verifies the currently visible
+repository state and commit metadata, not the date of every possible
+previous dissemination.
+
+IMMUTABLE REFERENCES
+Commit:
+https://github.com/openai/math/commit/adc7f1241b42e322a6451854ab7e4b4c146bf78a
+Paper:
+https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026/partition-principle-without-choice.pdf
+Citation README:
+https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/preprints/The-Partition-Principle-does-not-imply-Choice-September-24-2026/README.md
+Root README:
+https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/README.md
+License:
+https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/LICENSE
+
+REUSED CORPUS AUDIT
+The cached full scan at this SAME revision covers all 9,015
+.tex/.md/.bib/.txt files in the complete, nontruncated preprints subtree:
+7,729 TeX; 757 Markdown; 501 BibTeX; 28 text files.
+All 722 manuscript directories contain TeX and were included.
+Total bytes: 133,841,049.
+Retrieval errors: 0.
+All returned blobs matched the published Git SHA-1 identifiers.
+The original scan took 96.26 seconds and recorded 71 keyword
+matches in 42 files. Those matches were reviewed in the previous audit;
+only the PP manuscript had relevant set-theoretic matches.
+
+The original search included NDS, decreasing cardinal sequences, cardinal
+well-foundedness/antichains/finite bases, Kinna-Wagner, BPI, fine filters,
+PP, nonwellorderable sets and local splitting of surjections. The complete
+catalogue and relevant formalization metadata were also checked previously.
+
+FRESH TARGETED FOLLOW-UP
+All 12 textual files in the PP preprint directory were rechecked against
+their pinned Git blob hashes. All matched. Three small diagram sources
+were retrieved to complete the locally retained copy.
+The focused patterns covered NDS, FB, antichains, finite bases, cardinal
+lattices, infima, least upper/greatest lower bounds, idempotence, absorption,
+decreasing sequences, and well-foundedness. The conclusion was also read
+directly. The matches concerned background, forcing antichains, monoid
+cost/cofinality arguments, or metatheoretic well-foundedness.
+
+No explicit theorem asserting any of the following was found in this
+manuscript:
+- NDS in the constructed model;
+- finite cardinal bases for all nonempty set families;
+- no infinite antichain of cardinalities in the constructed model;
+- a canonical two-invariant description of cardinal comparison;
+- cardinal-lattice completeness or distributivity;
+- absorption X x omega = X for every infinite X.
+
+The second group (comparison/lattice/absorption) was checked directly in
+the target manuscript; the prior broad whole-release scan was NOT designed
+to capture every lattice or absorption formulation in every unrelated
+manuscript. Do not characterize this follow-up as a new full-corpus semantic
+review. Different wording, implicit results, arbitrary non-text artifacts,
+and unpublished materials remain outside what a lexical absence can prove.
+
+WHAT IS EXPLICITLY IN THE SOURCE
+Theorem 1.1 (p3): Con(ZF) implies Con(ZF+PP+AC_WO+not AC).
+Theorem 1.2 (p3): separate transitive-model construction.
+Proposition 3.6 (p22): SVC(A).
+Proposition 3.7 (pp23-24): AC_WO.
+Proposition 3.8 (p24): A is not wellorderable.
+Theorem 6.3 (pp33-34): every nonwellorderable image of A is bijective to A.
+Lemma 7.1 (pp34-35): the three-part package implies PP.
+Remark 7.2 (p36): SVC+(A) follows by PP; distinctions among local forms.
+Remark 7.3 (p36): PP implies CSB* implies WPP, with the same-model
+consistency corollaries explicitly stated.
+The introduction cites cardinal well-foundedness as related background.
+It does not assert NDS/FB/cardinal-antichain consequences in its conclusion.
+
+The normal-form mechanism is already implicit in the ordinal slicing and
+assembly argument of Lemma 7.1. Thus the right attribution for later
+consequences is additional corollaries of the source construction, with
+the construction, stronger package, and slicing method credited to it.
+It would be misleading to claim an independently constructed model.
+
+AUTHORSHIP, CITATION, AND LICENSE METADATA
+The target README and main TeX both identify the author as OpenAI and the
+manuscript date as September 24, 2026. The root README says the manuscripts
+and proof artifacts were produced by an internal OpenAI model and notes
+that verification stages differ. It states that public release history
+will be preserved and directs citations to individual manuscript BibTeX.
+
+The repository root supplies the Apache License, Version 2.0; the GitHub
+API likewise reports SPDX Apache-2.0. The supplied file is a legal license,
+not a statement of mathematical priority or proof correctness. Quoting or
+redistributing source files is different from citing mathematical results.
+For any reused repository files, retain and review the applicable license
+and notices. This audit does not adjudicate copyright authorship in AI
+outputs or give legal conclusions about ownership of mathematical facts.
+
+The currently exposed public repository settings are:
+has_issues=false; has_discussions=false; allow_forking=true;
+archived=false; default_branch=main. The website states that only
+collaborators can create pull requests. There is no root CONTRIBUTING file.
+These observations support using a separate repository for an independently
+authored corollary note, rather than suggesting a currently available issue
+or outside PR route here. No external post, message, fork, or PR was made.
+
+SAFE CLAIM FOR THE NOTE
+'We derive additional cardinal-structure consequences of the stronger
+package in OpenAI's released construction. NDS, the finite-basis property,
+and the absence of infinite cardinal antichains are not stated in the
+manuscript or found in our source search of the release as checked on
+7 October 2026. We do not claim that this negative search establishes
+worldwide priority.'
+
+EVIDENCE SAVED WITH THIS UPDATE
+current_commit_2026-10-07.json
+repository_metadata_2026-10-07.json
+root_readme_2026-10-07.txt
+license_2026-10-07.txt
+pp_readme_2026-10-07.txt
+pp_main_2026-10-07.tex
+github_retrieval_log_2026-10-07.json
+target_source_followup_scan_2026-10-07.json
+The last file records target source paths, matching Git hashes, regex,
+and match contexts. Previous full-corpus evidence remains in work/novelty/.

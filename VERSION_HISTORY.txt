@@ -1,0 +1,9 @@
+VERSION HISTORY
+
+v0.1 — 7 October 2026 — Initial preliminary research note.
+Contains historical PP/NDS/antichain motivation; the normal-form and finite-basis
+proofs; the conditional application to OpenAI's construction; further cardinal-
+order deductions; research questions; source attribution; and AI-use disclosure.
+The initial PDF has a blank scholarly byline. Public dissemination, if completed,
+is evidenced by GitHub's actual commit/release record, not this manually dated file.
+No DOI or certification of scholarly priority is claimed.
