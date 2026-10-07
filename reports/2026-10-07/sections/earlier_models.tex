@@ -1,0 +1,117 @@
+\section{Earlier permutation-model results and construction obstructions}
+\label{sec:earlier}
+These results belong to the earlier ordinary Fraenkel--Mostowski (FM) search. They are retained because a failed PP construction may still satisfy useful restricted principles, and because the obstructions explain why merely modifying a group or filter is difficult. The ground universe has atoms and choice. The action is faithful, the normal filter is effective, and ``open'' means allowed by that filter. All densities, indices and multiplicities in this section are external ground cardinals. Claims about specific constructions are conditional on their recorded normal-form and extension lemmas; they are not claims about every permutation model.
+
+\subsection{Exact and sufficient group criteria}
+\paragraph{The exact PP criterion.}
+For every open $K$, there must be one open $J\leq K$ such that for every pair of open subgroups $L\leq H\leq K$ there is a $J$-equivariant injection
+\[
+\operatorname{Res}_J(K/H)\inj\operatorname{Res}_J(K/L).
+\tag{P}
+\]
+The same $J$ must work for all pairs. Matching requires the exact conjugacy type of each point stabilizer and enough target orbits of that type. A fixed point, an inclusion between stabilizers, or individual repairs with unbounded supports do not suffice. The criterion is hereditary to open subgroups; passing to a dense subgroup with the induced topology preserves it.
+
+\paragraph{Common compression.}
+The group formulation of $\ACWO$ used here is
+\[
+\forall K\text{ open}\ \exists Q\leq K\text{ open}\
+\forall L\leq K\text{ open}\ \exists k\in K\quad k^{-1}Qk\leq L.
+\tag{C}
+\]
+In a faithful effective action, failure of choice is equivalent to the identity subgroup not being open. A coset object $K/H$ is internally well-orderable precisely when its normal core in $K$ is open: a supported well-order has trivial permutation action on its domain, and an open core conversely supports a ground well-order.
+
+\paragraph{Uniform non-well-orderable profiles.}
+A sufficient additional condition is that, after one open refinement $J\leq K$, all $K/H$ with non-open core become isomorphic as $J$-sets. Combined with (C), well-orderable targets are handled by simultaneous sections and the remaining targets by these common bijections. This implies (P). It also gives a two-prototype decomposition and hence NDS. No nondiscrete realization of this uniform condition was obtained.
+
+\paragraph{Finite prototypes.}
+More generally, suppose that for each open $K$ there are an open $J\leq K$ and finitely many continuous $J$-sets $U_1,\ldots,U_r$ such that every restricted $K/H$ is a disjoint union of ground-cardinal multiples of these same prototypes. Decomposing a supported sequence into such orbits gives coefficient vectors in a finite product of well-orders. An increasing pair of vectors gives a supported reverse comparison, excluding strict descent. This proves NDS and finite antichains, without a uniform finite bound on their sizes. The condition also implies (C), by fixing a point of each nonempty prototype. Its realization remains unresolved.
+
+\paragraph{Relative point completeness (RPC).}
+For a transitive atom action with cofinal point fixers, (P) requires a refinement below which every open subgroup is the exact stabilizer of an atom. Equivalently, at a suitable root $b$, every open $H\leq G_b$ has the form $\operatorname{Fix}(b,a)$. In particular such a subgroup is determined by its fixed atoms; arbitrary increasing unions must retain this property. In this setting, (C), RPC and the dichotomy that every internal atom subset is well-orderable or equipotent to the atom set imply full PP. This sufficient criterion has no realized nondiscrete example in the record. A multi-HNN construction realizes (C) and RPC with failure of AC, but fails the dichotomy, PP and NDS.
+
+\subsection{Necessary topology and a sharp atom-model boundary}
+The following restrictions have saved proofs and separate checks.
+\begin{enumerate}
+\item Under (C), the intersection $R(K)$ of the open normal subgroups of $K$ is open and satisfies $R(R(K))=R(K)$. It has no proper open subgroup of finite index. A commensurated open subgroup has open core; a cofinal commensurated neighbourhood base therefore forces discreteness.
+\item A nondiscrete (C)-group has no open compact or open Roelcke-precompact subgroup. Cofinally one obtains an open $B\rtimes\langle g\rangle$ with quotient $\mathbb Z$. The contraction argument gives a proper conjugate copy inside a common-compression witness; co-Hopfian, J\'onsson, or malnormal witness designs are consequently unsuitable in the stated setting.
+\item A nondiscrete effective FM group satisfying PP has
+\[
+ d(K)\geq 2^{\aleph_0}\quad\text{for every open }K.
+\]
+The proof interpolates a rationally dense chain in one open-subgroup interval. Real cuts yield continuum many open intermediate subgroups, each requiring a distinct exact stabilizer in one coset target. A dense subset meets all open cosets, giving the cardinal bound. Thus no separable open subgroup is possible. This excludes Polish effective topologies, not every topology on a countable atom set.
+\item If $J$ is a common-compression witness in $K$, then $[K:J]=d(K)$ and the character and weight are bounded by this index (the weight equals $d(K)$ in the recorded setting). Below a PP witness, the number of open subgroups is at most $d(K)$. A finite-prototype witness satisfies the same local capacity bound. No general amplification to $2^{d(K)}$ was proved.
+\end{enumerate}
+
+\paragraph{Finite choice in ordinary FM.}
+For each fixed $n\geq2$, $\ACWO+\mathsf{AC}_n$ implies $\AC$ in the ordinary FM setting above. Here $\mathsf{AC}_n$ means choice for arbitrary families of $n$-element sets. The proof uses tail-equivalence classes of injective atom sequences. Ordinal-indexed choice supplies a common support for representatives of well-ordered configurations. If that support still moves an atom, a contracting translate creates an exact $n$-cycle of tail classes, contradicting a supported selector. Therefore the support fixes all atoms and is trivial.
+
+Consequently $\ACWO+\mathsf{OP}$ collapses to $\AC$ in ordinary FM. The OpenAI generator $A\subseteq\mathcal P(\kappa)$ has a lexicographic order; its full linearly orderable strong-generator package cannot occur in a nonchoice ordinary FM model. This is an atom-model obstruction, not a contradiction in pure $\ZF$.
+
+If an unordered strong generator did exist in ordinary FM, it could be replaced by a subset of atoms of least external nonchoice size $\lambda$. After an open restriction, its point stabilizers would form a cofinal neighbourhood base, and every further open subgroup would have density exactly $\lambda$. Thus $\lambda\geq2^{\aleph_0}$. These constraints do not construct such a generator or prove that it is impossible.
+
+\subsection{Germ and monoid completions: what succeeded locally}
+In the imported free germ construction, complete stationary-tail quotients and countable-prefix quotients admit reverse injections into the atom set with one prescribed root support. The proof preserves exact relative stabilizers through triangular extensions and provides enough tagged target orbits. This is a whole-quotient result, not just a local finite test.
+
+Proper-suffix, nonfree whole-act extensions improve this to exact codes for ordered tuples and unordered finite configurations. In the mixed completion, each nontrivial supported atom orbit contains a copy of the whole atom set after one common refinement. Hence every atom subset is well-orderable or equipotent to $A$, and PP and NDS hold when restricted to atom subsets. With the recorded countable-code schedule, $\operatorname{Count}(A)\cong A$ and every surjection from an atom subset with countable fibers has a reverse injection. The argument does not choose enumerations of all fibers simultaneously.
+
+Zero-suffix markers repair the residual stabilizer groups of the proper-suffix construction: a fair schedule kills every final group $U(P_f)$, where $P_f=\{u:uf=f\}$. Basic root fixers then have no proper open normal subgroup. Arbitrary open subgroups may still have nontrivial quotients. Neither this repair nor countable-fiber PP establishes full PP.
+
+\subsection{Explicit counterexamples to the germ candidates}
+\paragraph{Free finite-period germs.}
+A preserved divisibility invariant says that certain periodic fixed labels meeting a designated cone already lie in that cone. It leaves a target coset with an exact relative stabilizer absent from every possible image point. A stronger direct witness is
+\[
+\operatorname{Anc}(u)\times M\onto A,\qquad (x,r)\longmapsto xr,
+\]
+where ancestors of $u$ have no supported reverse injection from $A$. Thus the final imported Section 85 candidate fails PP, including its optional local-group completion. Global absorber resets do not remove the endpoint-specific invariant. This proof does not establish failure of NDS in that candidate.
+
+\paragraph{Proper-suffix-only completion.}
+It repairs that ancestor witness but preserves an action-groupoid residual. Tagged loops yield $2^\lambda$ open overgroups of one point fixer, while the relevant target coset has only $\lambda$ points. Exact stabilizer capacity refutes full PP. Its restricted positive results remain valid; NDS is unclassified here.
+
+\paragraph{Mixed zero-suffix completion.}
+The residual-group obstruction is repaired, but a long-chain quotient supplies a different counterexample. The scheduled operations produce decreasing principal ideals $h_\alpha M$ with
+\[
+\bigcap_{\alpha<\omega_1}h_\alpha M=aM.
+\]
+The relation $xEy$ iff $xh_\alpha=yh_\alpha$ for some $\alpha$ defines an internal surjection $A\onto A/E$. Its class stabilizer is a proper increasing union with the same fixed atoms as a larger root fixer. A supported reverse injection is impossible. The construction generalizes at the stated regular scheduling boundaries. Countably based repairs preserve this obstruction; arbitrary uncountably based repairs are not excluded. Failure of NDS does not follow from this PP counterexample.
+
+\Needspace{12\baselineskip}
+\subsection{Fields, local-motion groups, and symmetric iterations}
+\begin{longtable}{>{\raggedright\arraybackslash}p{.26\linewidth}>{\raggedright\arraybackslash}p{.66\linewidth}}
+\toprule
+Construction or method & Precise outcome recorded\\\midrule\endhead
+Countable full-field group & Dense chains of root fields give continuum many distinct cut fixers in an interval whose source enumeration orbit is countable. PP fails; the literal uncountable-chain proof is unnecessary. NDS remains unclassified.\\
+Uncountable algebraically closed atom field with countable closed-subfield supports & A proper dense subgroup of a countable field automorphism group has the same fixed atoms as its closure. The enumeration quotient violates exact stabilizer matching, so PP fails.\\
+Saturated full separably closed fields & With the recorded named finite $p$-basis and sufficient saturation/homogeneity, every fixed finite or infinite support bound is excluded for PP. Kummer root capacity, dense restriction groups, or a binary-profile surjection handle the separate size cases. Arbitrary normal filters and restricted nonsaturated groups are outside this conclusion.\\
+General saturated structures & Countable language/base with finite supports fails $\ACWO$ under the stated saturation hypotheses. For language/base of size $\leq\lambda$ and all $\leq\lambda$ supports, order-indiscernible restriction groups violate PP capacity.\\
+Increasing homeomorphisms of a ray & With initial-segment fixers, (C) and nonchoice hold and every open subgroup has continuum density. The endpoint quotient refutes PP; separate prime-localization coset tails refute NDS. First countability alone is not enough.\\
+Finite piecewise-affine interval exchanges & Bounded-interval supports give (C) and nonchoice. Parameter subspaces give too many overgroups for PP; prime-cycle tails independently refute NDS. Removing an atom order does not repair the problem.\\
+Continuous local-motion repairs & On the stated second-countable patches, a countable moving subgroup has the same fixed atoms as a larger patch group, giving the quotient obstruction. In the affine example, compact motion is dense, so a Hausdorff quotient killing it is trivial.\\
+Full-symmetric enlargement & A genuine non-open, trace-preserving extension supplies exact old stabilizer types and repairs enlarged old quotient diagrams. The larger group creates new PP and NDS obstructions.\\
+Iterated full-symmetric absorption & At cofinality above the support bound the limit is dense in a full symmetric group and fails PP and NDS. At smaller cofinality, a reservoir diagonal defeats (C) and gives a well-orderable-target PP obstruction. Small-cofinality NDS is not settled.\\
+\bottomrule
+\end{longtable}
+
+A separate algebraic lemma is useful in the field exclusions: if an uncountable field $C$ lies in a separably closed field with a transcendental $t$ over $C$, the latter requires at least $|C|$ field generators over $C$. Roots of $t-a$ for distinct $a\in C$, after the stated finite cyclotomic adjustment, give the Kummer degree bound. The conclusion concerns literal field generation, not a closure operation that already includes separable closure.
+
+\subsection{Coherent coding is possible, but the constructed models fail}
+The forest constructions realize actual equivariant coding maps, so their positive part should not be confused with a merely proposed coding scheme.
+\begin{enumerate}
+\item A binary forest realizes $[A]^2\cong A$ equivariantly; fixed finite arity $m$ similarly realizes $[A]^m\cong A$. Appropriate infinite support filters yield (C) and nonchoice. A fresh cyclic configuration of prime order greater than $m$ refutes PP, and tails over distinct such primes refute NDS.
+\item A general finite-carrier theorem removes any bound on signature size: if every atom has an actual finite pointwise support under an embedded full basis permutation group, the quotient of injective sequences by finite coordinate permutations is a PP counterexample under the stated infinite support bound. Its fibers are countable. A merely finite carrier label is not enough for this theorem.
+\item A countably branching forest realizes codes for all countable subsets and exact sequence codes. It repairs the previous finite-reordering quotient and finite prime-cycle tails. Nevertheless the fixed-support construction has too many open overgroups for PP.
+\item NDS in that countable-code model fails by a different mechanism: hidden index-$p$ subgroups of compact auxiliary product groups have the same fixed atoms as the whole product. The exact coded finite covers give strictly descending tails over distinct primes. Higher fixed infinite arities and the singular-bound version admit the corresponding capacity argument.
+\item At singular $\lambda$, the recorded injective $<\lambda$ codes bootstrap to exact $\lambda$-sequence codes, causing support collapse and the previous obstructions. At regular uncountable limit $\lambda$, the particular forest fails common compression. A general theorem excluding all unbounded-arity or huge-signature constructions was not proved.
+\end{enumerate}
+
+\paragraph{Proof records.} The supporting archive includes the original follow-up mathematical notes under \path{evidence/earlier_FM/}, including \path{NO_SEPARABLE_OPEN_GROUP_PP_THEOREM.txt}, \path{RELATIVE_POINT_COMPLETENESS_CRITERION.txt}, \path{MIXED_COMPLETION_LONG_CHAIN_PP_COUNTEREXAMPLE.txt}, \path{SATURATED_SCF_FIXED_SUPPORT_BOUND_NO_GO.txt}, \path{COHERENT_COUNTABLE_CODES_AND_CAPACITY_OBSTRUCTION.txt} and \path{HIDDEN_PRIME_COVER_NDS_OBSTRUCTION.txt}. Earlier ``current candidate'' labels in those chronological notes are superseded by the conclusions above.
+
+\subsection{Other imported forcing results and their limits}
+The untouched imported report also records restricted pure-$\ZF$ forcing analyses. These were historical source material, not a second independently certified construction in the present consolidation. Their retained conclusions are:
+\begin{itemize}
+\item Ordinal-target PP is equivalent to $\ACWO$; the first failure of well-orderability in pure $\ZF+\ACWO$ occurs at a power set of an ordinal. Under $\SVC^+(S)$, full PP localizes to $\ACWO$ plus PP between subsets of $S$. Whole-source PP$(S)$ is a separate condition when only $\SVC(S)$ is known.
+\item Repairing old real quotients, keeping old reals, or proving PP between old objects does not control new sources. Externally ccc repairs and internally well-orderable repairs have distinct exclusions over the specified Feferman seed.
+\item The recorded stabilized repair handles quotients of the full final real set, with dependent choice and $\SVC^+(\mathbb R)$ under its stated assumptions. Its unrestricted ordinal-choice/distributivity and arbitrary-source obligations were not closed. A sparse variant fails PP and the relevant ordinal-choice principle; that does not refute the different unbiased version.
+\item Specified Sacks, Silver, Mathias, Laver, Miller and related routes are excluded only under the report's seed and preservation hypotheses. Ordinary splitting and fat splitting are not completely classified there. A no-proper-intermediate theorem retaining the seed does not cover submodels that discard old reals.
+\item An amoeba proposal lacks its countable-pattern properness proof; the full-condition product proposal has an explicit choice cone whose density is not proved. These are unfinished constructions, not consistency theorems.
+\end{itemize}
+Bounded-rank Jech--Sochor transfer alone cannot turn an ordinary-FM statement with unrestricted all-set quantifiers into the desired pure-$\ZF$ theorem. The positive pure model used in the current results is the separately cited OpenAI construction.

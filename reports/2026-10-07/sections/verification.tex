@@ -1,0 +1,52 @@
+\section{Verification, novelty and the remaining research programme}
+\label{sec:verification}
+\subsection{What was checked formally}
+The saved isolated build compiled all 75 unchanged pinned \path{PartitionConsistency} proof files with Lean 4.34.1 and the pinned Mathlib. The recorded \texttt{\#print axioms} checks cover the main consistency declarations and the stronger inputs: non-well-orderable quotient/image bijections, ordinal presentation, and ordinal-indexed choice. Only \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound} occur in those checked declarations. The construction sources were identity-checked. This is a local build of the cited formalization, not a Comparator challenge-definition comparison.
+
+The ordinary relative-consistency conclusion still uses the first-order interpretation in the manuscript's Section 8. Ambient Lean choice is part of the metatheory; it must not be confused with choice holding inside the modeled universe. Nor does a successful build of the original construction formally verify every new corollary in this report.
+
+Two small additional developments were checked: \path{SixCycleAudit.lean} formalizes the finite cyclic-overlap and copied-assignment lemmas used in the BPI proof; \path{FiniteHeightAudit.lean} formalizes a finite-height combinatorial part of the order-forcing chain-condition argument. Their scope files identify the boundaries. Neither file formalizes the full forcing theorem, the entire six-cycle argument, the preservation theorem, the NDS deduction or the new exponentiation theorem.
+
+\subsection{Mathematical and finite checks}
+Separate AI-assisted reviews checked the finite-basis proof, exact comparison and lattice arguments, monoid-action and nonsplitting arguments, the six-cycle proof and its support/Cohen compatibility, parameter variants, cardinal-function coding, and the stated finite-order-extension results. The countable-member choice consequence received a second independent AI reconstruction during this consolidation. These checks can expose gaps and mismatched quantifiers, but they are not independent human peer review.
+
+Finite computational checks validate the small graph gadget and the stated finite-order compatibility patterns; the saved files include the exact scopes and counts. Such finite checks do not replace the infinite forcing argument. Compilation, reference checks and visual PDF inspection concern the document, not mathematical truth.
+
+\subsection{Novelty boundaries}
+The literature record is a bounded search dated 6--7 October 2026. It includes a keyword search of the released text-source corpus across 722 OpenAI manuscripts (9,015 retrieved text-source files, hash-checked), followed by review of candidate matches. This was not a semantic proof-by-proof reading of all manuscripts. The target PP construction was examined directly.
+\begin{longtable}{>{\raggedright\arraybackslash}p{.30\linewidth}>{\raggedright\arraybackslash}p{.62\linewidth}}
+\toprule
+Claim or subject & Attribution boundary\\\midrule\endhead
+PP with failure of AC & The OpenAI construction; not a new model constructed by this report.\\
+CSB* and WPP & Already explicit in the cited source, Remark 7.3.\\
+Finite basis, NDS, finite cardinal antichains in $W$ & No earlier explicit application located in the bounded search. The normal-form mechanism is extracted from the source, and the ordinal-vector argument is classical. No priority certificate.\\
+BPI/OEP failure in $W$ & No explicit statement located in the checked target source or bounded follow-up search. The new argument is a candidate additional application, pending specialist assessment.\\
+Cardinal lattice and additive absorption & Related weaker consistency results are classical; broad novelty must not be inferred from a fresh proof or new notation.\\
+Comparable power-set cardinals without AC & Already obtained in the first Cohen model in the cited Glazer discussion; not new as a bare consistency result.\\
+Unequal exponents with equal powers at every base & Older unequal mutually surjective examples provide this phenomenon without PP. The present argument uses a different mechanism, with a well-orderable exponent and PP. Its exact prior status remains subject to further checking.\\
+Real Hartogs/ordinal-choice package & Earlier comparison models exist. The new finite-order forcing analysis is the particular object studied here; no first-ever claim for its broad choice/real-cardinal package.\\
+RPP versus BPI & Classical comparisons precede this report; merely obtaining the ordinary RPP here is not a new general implication.\\
+\bottomrule
+\end{longtable}
+
+The distinction between injection and surjection, members and indices, set families and sequences, and $\ZF$ and $\ZFA$ is essential when searching for prior results. A statement under a different formulation may require a choice principle to transfer. The source-conflict records retain cases where a later introduction appeared to contradict older published results; no new theorem is based on the disputed historical claim. In particular, this report does not advertise consistency of $\mathsf{DC}+\mathsf{BPI}+\neg\AC$ as newly obtained.
+
+\subsection{Open questions retained at the cut-off}
+\begin{enumerate}
+\item Does $\PP$ imply $\NDS$ or $\FB$ in arbitrary $\ZF$ models? Does NDS or FB imply PP? The model-specific positive package settles none of these unrestricted directions.
+\item Is there a different pure model of $\PP+\mathsf{BPI}+\neg\AC$? Does $\SVC(A)+Q(A)+\ACWO+\mathsf{BPI}$ force choice? The negative BPI theorem for $W$ alone does not answer either question.
+\item In $N=W[G]$, does $\mathbb R\inj A$ hold? Are all non-well-orderable images of $A$ equinumerous with $A$? Do PP, NDS, FB or BPI hold? Preserve the distinction between the old-set comparisons already proved and these global new-set questions.
+\item Can the new real-sized bound on directed availability ideals replace the original ground-cardinal bound in the coherent quotient argument? A coding bound alone does not give the needed supported matching.
+\item What are the exact two-colour triple Ramsey thresholds? The finite-colour spectrum and the failure of fixed coarsenings to supply the desired binary obstruction do not settle this.
+\item Can an unordered ordinary-FM generator realize the exact coset criterion, RPC plus the missing dichotomy, or the finite-prototype criterion? The many exclusions are architecture-specific and do not establish a universal impossibility theorem.
+\item Which exact all-base exponent-cancellation or exponent-separation principles are equivalent to AC or to known weak-choice principles? The present model refutes the stated principles, and the recorded implications are limited to those proved above.
+\end{enumerate}
+
+\subsection{Files, authorship and publication record}
+The public package supplies this PDF, its complete LaTeX source, supporting mathematical notes, the two auxiliary Lean developments with check records, and a machine-readable source map with checksums. The evidence is grouped by original-model results, earlier FM investigations, source verification and novelty records. Chronological notes may retain an earlier unresolved status that was later settled; this report is the status guide, and the filenames cited in each chapter lead to the detailed arguments.
+
+The original imported PDF and TeX remain unchanged in the local workspace. They are not included in the public evidence archive, which contains the mathematical follow-up records rather than the raw imported conversation or account/usage data. OpenAI's third-party manuscript and Lean source distribution are linked by pinned revision, not relicensed or republished here.
+
+The earlier focused finite-basis paper remains available; this report extends the scope rather than overwriting its historical public version. The Weak Choice Atlas website is a separate software/catalogue output. Its search, comparison and provenance checks do not certify every mathematical result, and publication of this report does not imply that all its new records have already been added to that website.
+
+This version is a preliminary research release by Frederico Can\c{c}ado, with substantial Codex assistance disclosed. A public GitHub commit documents this version and date; it does not certify correctness or priority. No DOI, journal acceptance, or independent human verification is asserted. Original expression is released under the repository's CC BY 4.0 terms to the extent the contributor holds rights in it. Unproved questions do not reserve their eventual solutions.

@@ -1,0 +1,590 @@
+% Retrospective section. No preamble; requires amsmath, amssymb and url/hyperref.
+% Mathematical records below concern original W, not its ordinary order extension.
+\section{Cardinal order, exponentiation, and choice in the original model}
+\label{sec:complete-cardinals}
+
+This section collects the results established for the \emph{original}
+symmetric model $W$, and, where explicitly indicated, its separately audited
+parameter variants. It does not transfer these conclusions to the later
+ordinary forcing extension. The foundational construction, its Partition
+Principle and support lemmas are due to OpenAI~\cite{OpenAI}; the additional
+calculations below are the research deductions reported here. They have
+received separate mathematical checks by AI agents, not external human peer
+review or a complete Lean formalization. Historical qualifications are given
+at the end of the section.
+
+\subsection{The generator and the exact cardinal records}
+
+Write $X\leq Y$ for an injection and $X\cong Y$ for a bijection. In the
+source's general ground $V\models\mathsf{ZFC}$, put
+\[
+ \kappa=\omega_1^V,\qquad \mu=((2^{\aleph_0})^+)^V.
+\]
+The set $A\subseteq\mathcal P(\kappa)$ consists of the distinct Cohen rows.
+The source proves $\mathsf{SVC}(A)$, choice for ordinal-indexed families
+$\mathsf{AC}_{\mathrm{WO}}$, and the classification
+\[
+ \text{every non-well-orderable image of $A$ is bijective with $A$}. \tag{Q}
+\]
+Together these give $\mathsf{PP}$ and $\neg\mathsf{AC}$ in $W$.
+The same source locality implies that a function on an ordinal with values
+in a ground set belongs to the Cohen intermediate extension. Thus ground
+cardinals at least $\mu$ remain cardinals in $W$.
+
+\paragraph{The action and absorption.}
+The generic diagrams define an internal free right action of the ground
+monoid $T$ on $A$. For each $a$, the map $t\mapsto a\cdot t$ is injective;
+its image $aT$ is a \emph{chart}, of cardinal $\mu$. Every ordinal-indexed
+subset of $A$ lies in one chart. The latter assertion follows by copying a
+putative outside value freshly while fixing the supporting diagram: two
+compatible conditions would assign different labels to the same ordinal
+index. Hence the largest well-orderable cardinal injecting into $A$ is
+\[
+                         w(A)=\mu,\qquad h(A)=\mu^+.
+\]
+Here $h$ is the Hartogs number. No global inverse-label map $A\to I$ is
+asserted to belong to $W$.
+
+Each map $a\mapsto a\cdot t$ is onto. Define a predecessor diagram by
+$q(tx)=p(x)$ and put its remaining coordinates freshly; exact amalgamation
+makes such predecessors dense. For $t\ne1$, every fiber over an anchor
+$a_0$ is non-well-orderable. To see the key step, normalize an alleged
+ordinal enumeration to a condition $(d,p)$ containing its support and the
+Cohen support, with $a_0=A_{p(ce_0)}$, where $e_0\ne1$ is the distinguished
+monoid element. Take $q_{e_0}=p$. The source probe clause at
+$(e_0c,t,\{1\})$ supplies $n$ with
+\[
+                   nt=e_0ce_0,\qquad e_0\not\sqsubseteq n,
+\]
+where $u\sqsubseteq v$ means $uz=v$ for some $z$.
+Thus $A_{q(n)}$ is in the fiber but outside the root diagram. Decide its
+enumeration index and copy both the stronger diagram and its Cohen
+condition freshly over the root. Exact diagram overlap and disjoint
+Cohen supports off the root give the contradiction.
+
+Fibers for distinct $t$ are disjoint by freeness in the monoid coordinate.
+Each nonempty fiber is an image of $A$ by a retraction, so (Q) identifies
+it with $A$. Choosing these bijections over the well-ordered set
+$T\setminus\{1\}$ gives $A\times\mu\leq A$. Consequently
+\[
+                  A\times\mu\cong A,\qquad A^2\cong A.       \tag{1}
+\]
+For the second equality, first use the raw normal form below for $A^2$.
+Its well-orderable subsets have well-orderable projections of size at most
+$\mu$, so both ordinal parameters are at most $\mu$ and are absorbed by
+$A\times\mu$. This avoids assuming square absorption in advance.
+
+\paragraph{Normal form and order.}
+An $\mathsf{SVC}(A)$ presentation $A\times\eta\twoheadrightarrow X$ splits
+$X$ by its least presenting ordinal coordinate. By (Q), each resulting
+non-well-orderable piece is a copy of $A$; the other pieces are
+well-orderable. Ordinal-indexed choice assembles the bijections, yielding
+$X\cong(A\times\alpha)\sqcup\beta$.
+Using (1), the exact records are
+\[
+ \begin{array}{ll}
+ (0,\lambda):&\text{a well-orderable cardinal }\lambda,\\
+ (a,e),\ \mu\leq a\leq e:
+   & A\times a\quad\text{if }a=e,\\[-2pt]
+   &(A\times a)\sqcup e\quad\text{if }a<e.
+ \end{array}                                                    \tag{2}
+\]
+All nonzero coordinates here are ordinal cardinals. For the second kind,
+$w(X)=e$, $h(X)=e^+$, and
+\[
+             A\leq X,\qquad e\leq X\leq A\times e.
+\]
+Under $\mathsf{AC}_{\mathrm{WO}}$, the Lindenbaum number agrees with the
+Hartogs number. The least non-well-orderable cardinal is therefore $|A|$.
+
+The records determine the \emph{entire injection order}:
+\[
+            (a,e)\leq(c,f)\quad\Longleftrightarrow\quad
+                         a\leq c\ \hbox{and}\ e\leq f,        \tag{3}
+\]
+including the well-orderable records with first coordinate zero.
+For necessity in the first coordinate, an injection between non-WO
+normal forms cannot send an entire source $A$-slice into the target's
+ordinal tail. Ordinal-indexed choice picks one point from each source
+slice whose image lies in the target's $A$-part. These are distinct,
+so the source coefficient is at most the largest WO cardinal of that
+part, namely the target coefficient. Necessity for $w$ is immediate.
+Conversely embed the $A$-part and the ordinal part using the two coordinate
+inequalities, then combine the embeddings using doubling of the target.
+The WO cases reduce to the definition of $w$.
+
+\subsection{Lattice structure, finite bases, and finite powers}
+
+Equation (3) gives a precise cardinal lattice, with necessary size
+qualifications: \emph{every set-sized family} of cardinalities has a
+supremum, and every \emph{nonempty set-sized family} has an infimum.
+They are obtained by coordinatewise suprema and minima in (2).
+The resulting pairs are again realizable records. Binary distributive
+laws follow from those for minimum and maximum in two ordinal chains.
+There is no largest cardinal and no empty infimum; this is not an
+unqualified claim of a complete lattice or of complete distributivity.
+Scott cardinals can be used throughout to avoid choosing representatives.
+
+The finite-basis theorem proved elsewhere in this report says that every
+nonempty family has a finite coinitial family under injections. It yields
+$\mathsf{NDS}$ and the absence of infinite antichains of cardinalities.
+It does \emph{not} bound all antichains by one fixed natural number. For
+any positive $n$, the $n$ records
+\[
+ \bigl(\mu^{+i},\mu^{+(2n-i)}\bigr),\qquad i<n,
+\]
+form an antichain: the first coordinates increase and the second decrease.
+In bare ZF the exact order-theoretic equivalence is
+$\mathsf{FB}\leftrightarrow\mathsf{WF}_{\mathrm{card}}+\mathsf{FAC}$,
+where $\mathsf{WF}_{\mathrm{card}}$ is minimal-element well-foundedness
+on sets of Scott cardinals and $\mathsf{FAC}$ means every such antichain
+is finite. With DC it becomes
+$\mathsf{FB}\leftrightarrow\mathsf{NDS}+\mathsf{FAC}$.
+The representative and sequence distinctions should not be suppressed
+when DC is absent. Moreover, the already proved PP and NDS give all
+24 cardinal well-foundedness variants in Blass--Kulshreshtha's
+Definition~4.1, using their equivalence under PP
+\cite[Proposition 9.8]{BK}. This equivalence does not prove NDS from
+PP alone.
+
+For a fixed ordinal cardinal $\lambda$, the assertion
+$\mathsf W_\lambda$ that every cardinal is comparable with $\lambda$
+has the exact threshold
+\[
+                W\models\mathsf W_\lambda
+                       \quad\Longleftrightarrow\quad\lambda\leq\mu.
+                                                                  \tag{4}
+\]
+Every non-WO set contains $A$, proving the positive direction; $A$ is
+incomparable with every ordinal cardinal above $\mu$, proving the negative.
+The usual surjective version agrees under PP. In particular full
+comparability still fails, as it must when AC fails.
+
+Every infinite set absorbs a countable multiplier and doubles. For
+non-WO $X$ with record $(a,e)$, direct multiplication gives
+\[
+                 X^n\cong A\times e\quad(2\leq n<\omega).     \tag{5}
+\]
+Indeed $A\times e\leq X^2\leq A^2\times e^2$, and multiplying the
+normal form by $A\times e$ leaves the same cardinal. Thus
+$X^3\cong X^2$ holds for every infinite $X$, but $X^2\cong X$ does not:
+$X=A\sqcup\mu^+$ has record $(\mu,\mu^+)$ and its square has record
+$(\mu^+,\mu^+)$. The question about universal square/cube stability is
+historical; Rubin--Rubin's 1985 introduction already discusses it. The
+bounded search does not establish its intervening publication status.
+
+There is also a finite bound, depending on $X$, on iterated power-set
+roots: some $N<\omega$ satisfies
+\[
+                    \mathcal P^n(Y)\cong X\quad\Longrightarrow\quad n\leq N.
+                                                                  \tag{6}
+\]
+Represent every possible root by a subset of $X$, using iterated singleton
+maps. The resulting set of roots has a finite coinitial basis
+$Y_1,\ldots,Y_k$, with unique depths $n_1,\ldots,n_k$; uniqueness follows
+from Cantor's theorem. If a root $Y$ had depth $m>\max n_i$, some
+$Y_i\leq Y$ would give
+$X\cong\mathcal P^{n_i}(Y_i)\leq\mathcal P^{n_i}(Y)
+ <\mathcal P^m(Y)\cong X$, impossible. In particular every cardinal is
+a finite power-set iterate of one which is not a power-set cardinal.
+There is no bound uniform in $X$.
+
+\subsection{Supported names and exact exponentiation}
+
+For ground ordinals $b,\lambda$, write
+\[
+             E_V(b,\lambda)=|\{f\in V:f:\lambda\to b\}|^V.
+\]
+This is a ground cardinal; unmarked exponentials are computed in $W$.
+The decisive local calculation, for $b\geq2$ and ordinal cardinals
+$\lambda\geq\mu$, is
+\[
+ b^A\cong A\times E_V(b,\mu),\qquad
+ b^\lambda\cong A\times E_V(b,\lambda).                         \tag{7}
+\]
+The coefficients are at least $(2^\mu)^V$ and are preserved cardinals.
+
+Here are the ingredients ensuring that (7) counts \emph{all internal}
+well-orderable families. Fix a supporting diagram $p$. Normalize names
+to globally total $A$-to-$b$ functions, using the zero function whenever
+the original value has the wrong type. The canonical graph name uses
+only label/ordinal pair names and the ordinary forcing relation. It is
+equivariant, keeps the support, and has a fixed rank bound. Thus these
+names form a ground set, rather than a class of unbounded-rank names.
+For each $t\in T$ choose a ground diagram $q^t$ with $(q^t)_t=p$.
+At the record $(t,s,d)$, with $d$ a Cohen condition on $D_{q^t}$, record
+$\xi<b$ exactly when
+\[
+                 (d,q^t)\Vdash\tau(A_{q^t(s)})=\xi.
+\]
+There are $\mu$ positions, and at most one value per position. The code
+is a \emph{partial value function}, so there are at most
+$(|b|^V+1)^\mu=E_V(b,\mu)$ codes in the ground.
+
+Equal codes force equality below $(1,p)$. Otherwise put an input where
+the values differ into a larger diagram $r$, write $p=r_t$, restrict
+the Cohen witness to $D_r$ by source locality, and transport it to $q^t$
+by a permutation fixing $D_p$. It produces different values at the same
+record, a contradiction. Ground choice now selects one representative
+per code. Their ordinal enumeration is HS with support $D_p$.
+Any internal WO family of functions has one supported enumeration;
+normalizing its coordinates with the same support embeds the whole family
+into that representative list by least indices. Ground functions on
+one chart give the matching lower bound. For ordinal domain $\lambda$
+the records are $(d,\xi)$, $\xi<\lambda$, and both local-decision clauses
+give the analogous count. There is no maximum-principle assumption,
+choice indexed by $A$, or automorphism of the actual pure model in this
+argument. Finally both function sets are non-WO and square-idempotent;
+(2)--(5) turn their exact WO bounds into (7).
+
+\paragraph{Universal exponent collapse.}
+For every non-WO $X$, set $e=w(X)$. Then for \emph{every set} $Y$,
+\[
+                         Y^X\cong Y^e.                         \tag{8}
+\]
+More explicitly,
+\[
+ \begin{aligned}
+ \mathcal P(X)&\cong A\times E_V(2,e)\cong\mathcal P(e),\\
+ b^X&\cong A\times E_V(b,e) &&(b\geq2\text{ ordinal}),\\
+ Y^X&\cong A\times E_V(f,e) &&(Y\text{ non-WO},\ f=w(Y)).
+ \end{aligned}                                                   \tag{9}
+\]
+The same formulas hold with domain $e$.
+
+For the proof, two-point coding and $A\leq\mathcal P(\kappa)$ give
+$A^e\cong\mathcal P(e)$. The normal form also gives
+$\kappa\times X\cong X$, hence $A^X\cong\mathcal P(X)$.
+Sandwich an ordinal-base power between $b^e$ and $b^{A\times e}$.
+With $\delta=E_V(b,\mu)$, (7) calculates the upper endpoint as
+\[
+ (b^A)^e\cong(A\times\delta)^e
+ \cong A^e\times\delta^e\cong A\times E_V(b,e),
+\]
+since ground arithmetic has $E_V(\delta,e)=E_V(b,e)$.
+The lower endpoint has the same cardinal. Its case $b=2$ proves the
+power-set formula before that formula is used for non-WO bases.
+For non-WO $Y$, use $A\leq Y$, $f\leq Y\leq A\times f$ for the upper
+bound. To inject $A\times(f^e)^V$ into $Y^e$, reserve one coordinate for
+the $A$ point and $e$ further coordinates for the ground function,
+using $e+1\cong e$. This provides the matching lower bound in both
+$Y^e$ and $Y^X$. Empty and singleton bases give the trivial equalities
+because $X$ and $e$ are nonempty. This exhausts all internal bases.
+
+Consequently
+\[
+                  \mu<A,\qquad \forall Y\ (Y^\mu\cong Y^A).    \tag{10}
+\]
+The statement asserts pointwise existence of bijections. It asserts
+neither a natural transformation between function-space functors nor
+one class-sized choice of all bijections.
+
+\subsection{Complete arithmetic table over the constructible ground}
+
+For the separately audited $L$-ground variants $M_{m,n}$, put
+$\kappa=\aleph_m$, $\mu=\aleph_n$, where $1\leq m<n<\omega$.
+All alephs are preserved. The original construction over $L$ is $M_{1,2}$.
+The following tables concern these original symmetric models.
+The records of power sets are
+\[
+\begin{array}{c|c}
+ |X|&|\mathcal P(X)|\text{ as a record}\\ \hline
+ \text{finite }r&(0,2^r)\\
+ \text{infinite WO }\lambda<\kappa&(0,\lambda^+)\\
+ \text{WO }\kappa\leq\lambda<\mu&(\mu,\mu)\\
+ \text{WO }\lambda\geq\mu&(\lambda^+,\lambda^+)\\
+ \text{non-WO }(a,e)&(e^+,e^+)
+\end{array}                                                       \tag{11}
+\]
+For the small ordinal plateau, the local Cohen forcing has size $\mu$
+and the $\kappa^+$ chain condition. Nice names for subsets of $\lambda$
+number at most $\mu^{\max(\kappa,\lambda)}$, equal under ground GCH to
+$\mu$ for $\kappa\leq\lambda<\mu$ and to $\lambda^+$ for
+$\lambda\geq\mu$. One supported enumeration bounds every WO family;
+a chart and the ground power set supply the lower bounds. Below $\kappa$
+there are no new subsets of ordinals. In particular, in $M_{1,2}$,
+\[
+ \mathbb R\cong\aleph_1,\qquad
+ \mathcal P(\aleph_1)\cong A,\qquad
+ \mathcal P(A)\cong\mathcal P(\aleph_2)\cong A\times\aleph_3.
+\]
+This is a ground-GCH calculation, not GCH inside the choiceless model.
+
+For completeness write $E(b,\lambda)=E_L(b,\lambda)$. Apart from empty
+and singleton cases, the \emph{entire exponent table} is
+\[
+\begin{array}{c|c|c}
+ |Y|&|X|&|Y^X|\text{ as a record}\\ \hline
+ \text{WO }b\geq2&\text{WO }2\leq\lambda<\kappa&(0,E(b,\lambda))\\
+ \text{WO }b\geq2&\text{WO }\lambda\geq\kappa&(\theta,\theta)\\
+ \text{non-WO }(a,f)&\text{WO }\lambda\geq2&(E(f,\lambda),E(f,\lambda))\\
+ \text{WO }b\geq2&\text{non-WO }(c,e)&(E(b,e),E(b,e))\\
+ \text{non-WO }(a,f)&\text{non-WO }(c,e)&(E(f,e),E(f,e))
+\end{array}                                                       \tag{12}
+\]
+where $\theta=\max(\mu,E(b,\lambda))$.
+For $X=\varnothing$ the result is $1$, including $0^0=1$;
+for $X\ne\varnothing$ and $Y=\varnothing$ it is $0$;
+a singleton base always gives $1$; a singleton exponent returns $Y$
+with its original record. This last exception matters when $a<f$.
+
+To justify the rows not already covered by (9), ordinal-valued functions
+of length $\lambda<\kappa$ are ground functions. Also
+$A^\lambda\cong A$ for $0<\lambda<\kappa$: a sequence has range in one
+chart and its $T$-coordinate sequence is ground, giving
+$A\times(T^\lambda)^V\twoheadrightarrow A^\lambda$; now
+$\mu^{<\kappa}=\mu$, (1), and PP apply. For $\lambda\geq\kappa$,
+nice function names number at most
+$(\max(\mu,b)^\lambda)^L=\max(\mu,E(b,\lambda))$.
+This gives the WO-base row as above. The non-WO-base upper bound is
+$A^\lambda\times f^\lambda$. A matching lower bound uses two coordinates
+if $\lambda$ is finite, since $f^\lambda=f$ in the ground, and the
+reserved-coordinate coding if $\lambda$ is infinite.
+
+The ground coefficients in (12) are explicit. For positive finite
+$\lambda$, $E(b,\lambda)$ is the usual finite power when $b$ is finite
+and is $b$ when $b$ is infinite. For infinite $\lambda$ and $b\geq2$,
+\[
+ E(b,\lambda)=
+ \begin{cases}
+  \lambda^+,&b\leq\lambda,\\
+  b,&\lambda<b\text{ and }\lambda<\operatorname{cf}^L(b),\\
+  b^+,&\operatorname{cf}^L(b)\leq\lambda<b.
+ \end{cases}                                                     \tag{13}
+\]
+The final case concerns singular $b$; it follows from K\"onig's theorem
+and $b^\lambda\leq2^b=b^+$.
+
+\subsection{Choice consequences and their exact boundaries}
+
+In addition to $\mathsf{PP}$, $\mathsf{AC}_{\mathrm{WO}}$,
+$\mathsf{FB}$ and $\mathsf{NDS}$, the original model satisfies ordinary
+DC, $\mathsf{KWP}_1$, the Ordering Principle, and choice for arbitrary
+families of nonempty finite sets. The classical implication
+$\mathsf{AC}_{\mathrm{WO}}\Rightarrow\mathsf{DC}$ is Jensen's theorem
+as presented in Jech~\cite[Theorem 8.2]{Jech}; an earlier apparent source
+conflict was resolved by reading the actual PDF. For $\mathsf{KWP}_1$,
+PP turns a presentation into $X\leq A\times\eta$, which embeds into a
+power set of an ordinal by tagged coding. Lexicographic order on that
+power set linearly orders $X$. Least elements of finite subsets then
+give finite-member choice. This does not assert that every prescribed
+partial order has a linear extension: the separate obstruction in this
+report proves failure of that stronger principle and of BPI.
+
+The source itself explicitly states the dual Cantor--Bernstein principle
+$\mathsf{CSB}^*$ and Weak Partition Principle as consequences of PP.
+With $X\leq^*Y$ meaning $X=\varnothing$ or $Y\twoheadrightarrow X$,
+these say respectively
+\[
+ X\leq^*Y\ \&\ Y\leq^*X\Rightarrow X\cong Y,
+ \qquad X\leq^*Y\Rightarrow\neg(Y<X).
+\]
+They are not newly extracted results of this report.
+
+\paragraph{Choice for countable members.}
+A further saved proof, now independently audited twice, gives
+\[
+ \mathsf C(\infty,\leq\aleph_0):\quad
+ \text{every family of nonempty countable sets has a choice function}.
+                                                                  \tag{14}
+\]
+This is Howard--Rubin Form 85A. The family of indices is arbitrary;
+its \emph{members} are countable, so (14) differs from countable choice.
+For one nonempty countable $S\subseteq A\subseteq\mathcal P(\omega_1)$,
+its pairwise first-difference ordinals are countably many and therefore
+bounded. Let $\alpha(S)<\omega_1$ be the least ordinal whose restriction
+map separates $S$. Source preservation gives
+$\mathcal P(\alpha)^W=\mathcal P(\alpha)^V$ for every $\alpha<\omega_1$.
+One fixed ground family of well-orders of these power sets selects the
+least restriction and hence a unique member of $S$. No simultaneous
+choice of enumerations of $S$ was used. Given arbitrary $X$, choose one
+embedding $X\leq A\times\eta$ and first take the least ordinal slice of
+a countable subset, then this selector on $A$. For an arbitrary family,
+apply the construction just once to its union. The proof is for original
+$W$; new reals prevent an automatic transfer to the later extension.
+
+\paragraph{Ordinary versus higher dependent choice.}
+Despite DC, the original model and the audited parameter family fail
+$\mathsf{DC}_{\omega_1}$. Order $A$ natively by
+$a\leq_Tb$ iff $a\cdot t=b$ for some $t\in T$. Every ordinal-indexed
+subset has a common lower bound by chart locality, and every point has
+a strict predecessor by surjectivity of the $e_0$-translation.
+There is no strictly decreasing $\omega_1$-sequence: localize its whole
+range to one chart, lift to $T$, and apply the source's strictly
+increasing real-valued height. This would give a decreasing
+$\omega_1$-sequence of reals, impossible because its disjoint successive
+intervals inject into the rationals. Thus the tree of descending
+sequences of countable ordinal length is countably closed and has no
+terminal node but has no $\omega_1$-branch. Equivalently, the relation
+``strictly below every member of the preceding countable set'' directly
+violates the conclusion of Howard--Rubin's Form 44.
+Increasing only the Cohen parameter does not remove this height obstruction.
+
+\subsection{Ramsey principles: ordinary truth and stronger separations}
+
+Here RPP means the \emph{Ramseyan Partition Principle}: every two-coloring
+of pairs of an infinite set has an infinite homogeneous subset. This is
+not PP and not the group-filter Ramsey condition used in FM analyses of
+BPI. Ordinary RPP holds in $W$: DC gives a countably infinite subset,
+and the ordinary finite-arity Ramsey theorem on $\omega$ is provable in
+ZF. More generally, $\mathsf{NDS}$ implies that every infinite set is
+Dedekind-infinite: otherwise finite injective lists from an infinite
+Dedekind-finite set produce a strictly descending sequence by excluding
+successively shorter lists. Thus both the PP/DC and NDS routes give RPP.
+These implications are classical weak-choice context~\cite{Blass1977,BK}.
+
+The stronger cardinal demands differ. Let $\mathrm{NR}_\lambda$ say
+that every two-coloring of pairs of every non-WO set has a homogeneous
+subset of cardinality $\lambda$. Throughout the audited parameter family,
+\[
+                 \mathrm{NR}_\lambda
+                          \quad\Longleftrightarrow\quad\lambda\leq\kappa
+                 \quad(\lambda\text{ infinite WO}).            \tag{15}
+\]
+For the positive part pull a coloring back to a $\kappa^+$-subset of
+$A$. An inner $L[C]$ containing its ordinal code and the required small
+sequence enumerations satisfies the appropriate Erd\H{o}s--Rado theorem;
+its witness remains in $W$. The first-difference parity coloring on
+$A\subseteq\mathcal P(\kappa)$ gives the negative part: fresh-copy
+arguments make every homogeneous set WO, and a Cohen-condition
+$\Delta$-system argument bounds its cardinal by $\kappa$. Each color
+also has a homogeneous set of size $\kappa$. The arbitrary-ground pair
+proof uses the separately audited collapse of $2^{<\kappa}$ to $\kappa$
+in $W$; the $L$-ground cases need only their unchanged smaller power sets.
+
+The color-count boundary is also exact. For every ordinal cardinal
+$1\leq\eta<\kappa$, every $\eta$-coloring of pairs of a non-WO set has a
+$\kappa$-sized homogeneous subset. At $\eta=\kappa$ the coloring
+$\{a,b\}\mapsto\min(a\mathbin\triangle b)$ has no homogeneous triple:
+three distinct binary bits cannot be pairwise different at one coordinate.
+Thus $\kappa$ is the least WO number of colors permitting such a failure.
+
+For the $L$-ground family $M_{m,n}$, let
+$\mathrm{NR}^{r,\mathrm{fin}}_\lambda$ assert that every coloring of
+$[X]^r$ into any positive finite number of colors, for every non-WO $X$,
+has a homogeneous set of cardinality $\lambda$. Its exact spectrum is
+\[
+ M_{m,n}\models\mathrm{NR}^{r,\mathrm{fin}}_\lambda
+ \quad\Longleftrightarrow\quad
+ \lambda\leq\aleph_{\max(m-r+2,0)},\qquad r\geq2.             \tag{16}
+\]
+Here $\lambda$ ranges over infinite WO cardinals. Inner-model Erd\H{o}s--Rado
+supplies the positive bound; a generalized Sierpi\'nski coloring and
+first-difference stepping up give the negative bound~\cite{ErdosRado,BHT}.
+The proof checks that homogeneous sets in the stepping-up construction
+are well-ordered by lexicographic order or its reverse, rather than
+assuming this in advance. The triple obstruction uses \emph{four colors}.
+The exact two-color triple question remains unresolved here; the audit
+of simple binary coarsenings does not settle it.
+
+For example, $M_{1,3}$ and $M_{2,3}$ have the same
+$w(A)=\aleph_3$, $h(A)=\aleph_4$, and the same entire threshold (4).
+Their pair homogeneous thresholds are $\aleph_1$ and $\aleph_2$;
+their finite-color triple thresholds are $\aleph_0$ and $\aleph_1$.
+Both retain PP, FB, NDS, $\mathsf{AC}_{\mathrm{WO}}$, DC and failure of
+$\mathsf{DC}_{\omega_1}$ and AC. This separates the stronger Ramsey
+statements within that shared package. It is not a claim that the
+classical colorings or partition calculus are new.
+
+\subsection{Comparability, cancellation, and historical boundaries}
+
+All power sets in $W$ have comparable cardinalities. An infinite set
+doubles, so its power set squares to itself. Every non-WO power set
+therefore has record $(\theta,\theta)$, and these form a chain. A WO
+power set must have a WO base of cardinal below $\kappa$; otherwise it
+contains $A\leq\mathcal P(\kappa)$. Such smaller powers have ground
+enumerations below $\mu$, so lie below every non-WO power. Thus
+\[
+ \mathsf{PC}:\qquad
+  \forall X,Y\ [\mathcal P(X)\leq\mathcal P(Y)
+                  \ \text{or}\ \mathcal P(Y)\leq\mathcal P(X)]. \tag{17}
+\]
+Bare $\mathsf{PC}+\neg\mathsf{AC}$ is prior art: Glazer's publicly dated
+30 September 2025 answer proves it in Cohen's first model~\cite{Glazer}.
+The joint PP/FB/DC package and exact coefficients are the application
+under discussion here; no exhaustive novelty guarantee is claimed.
+In ZF, PC also implies $\mathsf{KWP}_1$: compare $\mathcal P(X)$
+with $\mathcal P(\theta)$ for $\theta=h(\mathcal P(X))$. The latter
+cannot inject into the former, so $X\leq\mathcal P(X)\leq\mathcal P(\theta)$.
+This observation appears in Wojowu's comment on the cited question.
+
+The Injective Continuum Function assertion
+$\mathsf{ICF}:\mathcal P(X)\cong\mathcal P(Y)\Rightarrow X\cong Y$
+fails already in ZFC at a permissible continuum plateau, and is not a
+consequence of AC. Here it fails more specifically at the strict pair
+$\mu<A$, by (10). The order-reflecting variant
+$\mathcal P(X)\leq\mathcal P(Y)\Rightarrow X\leq Y$ fails as well.
+For finite Kinna--Wagner principles,
+\[
+          \mathsf{ICF}+\mathsf{KWP}_{n+1}
+                           \Rightarrow\mathsf{KWP}_{n}\quad(n<\omega),
+                                                                  \tag{18}
+\]
+so ICF plus any finite $\mathsf{KWP}_n$ implies AC.
+Apply $\mathsf{KWP}_{n+1}$ to $\mathcal P(X)$ to get
+$\mathcal P(X)\leq\mathcal P(B)$ with $B=\mathcal P^n(\theta)$,
+$\theta$ infinite. Since $B$ doubles,
+$\mathcal P(X\sqcup B)\cong\mathcal P(B)$; ICF gives $X\leq B$.
+Here $\mathsf{KWP}_0=\mathsf{AC}$. No transfinite version or priority
+claim is asserted~\cite{KS,ICFquestion}. The corresponding finite
+surjective principles $\mathsf{KWP}^{*}_n$ imply $\mathsf{KWP}_{n+1}$
+by taking inverse images under the presentation surjection. Thus ICF
+combined with any finite $\mathsf{KWP}^{*}_n$ implies AC as well.
+
+For clarity, distinguish two all-base assertions: (EC) if
+$Y^X\cong Y^Z$ for every $Y$, then $X\cong Z$; and (SES) if $X<Z$,
+some $Y$ satisfies $Y^X<Y^Z$. These are descriptive labels, not asserted
+standard names. Both hold in ZFC. For infinite cardinals $\alpha<\beta$,
+choose $\nu=\beth_{\alpha^+}$, a strong limit of cofinality $\alpha^+$;
+then $\nu^\alpha=\nu<\nu^\beta$ by bounded ranges and K\"onig's theorem.
+Finite cases use base $2$. Equation (10) refutes both in $W$.
+
+Bare comparable all-base plateaux have an older mechanism. Mutual
+surjections induce injections between function spaces by precomposition
+at every base. From an infinite Dedekind-finite set $D$, let $S$ be its
+finite injective lists. Deleting the first entry, with the empty list
+sent to an extra point, maps $S$ onto $S\sqcup1$; a retraction maps back.
+But $S<S\sqcup1$, so their powers agree at every base. Hamkins's 2012
+answer records this list construction; the all-base conclusion is the
+immediate precomposition extension~\cite{Hamkins}. Thus bare failure of
+EC or SES is not a new consistency phenomenon. The distinction in (10)
+is its compatibility with PP, DC and dual CSB, and its one well-orderable
+exponent; it cannot arise from unequal mutually surjective sets.
+For the logical record, ZF proves
+$\mathrm{EC}\Rightarrow\mathrm{SES}$: on a comparable nonempty pair,
+function extension gives the forward injections for every nonempty base;
+if none were strict, EC would give equality of the exponents. An empty
+smaller exponent is separated by base $2$. It also proves
+$\mathrm{EC}\Rightarrow\mathsf{CSB}^*$, by the precomposition argument,
+and either EC or SES implies that every infinite set is
+Dedekind-infinite, by the finite-list counterexample just given.
+No converse or general equivalence with AC is established here.
+Finally strict \emph{reflection},
+$p^x<p^y$ and $p\ne0\Rightarrow x<y$, is a different statement, listed
+as equivalent to AC by Lindenbaum--Tarski~\cite[No.~82(A5)]{LT}.
+Its direction and quantifiers do not identify the strength of EC or SES.
+
+The general implication $\mathsf{PP}\Rightarrow\mathsf{NDS}$ has not been
+proved by these model calculations. Nor do they prove PP alone implies
+FB, the exact arithmetic, or the stronger Ramsey statements. Earlier
+phase notes that left BPI in this concrete model undecided are superseded
+by the separate negative result in this report. Positive BPI in a different
+PP model, and the global choice classification of the later extension,
+remain distinct questions.
+
+\paragraph{Proof-file map and verification scope.}
+Detailed records are in \nolinkurl{evidence/original_model/}:
+\nolinkurl{T_ACTION_FIBERS_AND_SQUARE_COEFFICIENT_DRAFT.txt};
+\nolinkurl{T_ACTION_INDEPENDENT_AUDIT_AND_DC_OMEGA1.txt};
+\nolinkurl{EXACT_EXPONENTIALS_AND_UNIVERSAL_EXPONENT_COLLAPSE_AUDIT.txt};
+\nolinkurl{COMPLETE_GCH_GROUND_EXPONENT_TABLE.txt};
+\nolinkurl{FB_NDS_FAC_EXACT_CHOICE_AUDIT.txt};
+\nolinkurl{COUNTABLE_MEMBER_CHOICE_SECOND_INDEPENDENT_AUDIT.txt};
+\nolinkurl{GLOBAL_NON_WELL_ORDERABLE_RAMSEY_THRESHOLD.txt};
+\nolinkurl{HIGHER_ARITY_ROOT_INDEPENDENT_AUDIT.txt}; and
+\nolinkurl{ALL_BASE_EXPONENT_CANCELLATION_LITERATURE_AUDIT.txt}.
+The lattice and root-depth proofs are in
+\nolinkurl{evidence/finite_basis/PROOFS_cardinal_lattice_and_power_roots.txt}.
+These files preserve source dependencies and search limits. The new results
+in this section are mathematical deductions, not a certification of
+novelty or a claim that all of them have been formally verified.

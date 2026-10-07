@@ -1,0 +1,584 @@
+% Consolidation only. No preamble. Requires amsmath, amssymb and hyperref.
+% Saved audits, not new research; 7 October 2026.
+\section{Boolean prime ideals, compactness, and model variations}
+\label{sec:bpi-variants}
+
+This section records consequences of the released OpenAI construction
+and adaptations checked in the present research. The construction itself
+is credited to OpenAI, at commit
+\href{https://github.com/openai/math/commit/adc7f1241b42e322a6451854ab7e4b4c146bf78a}{\texttt{adc7f124}}.
+The new arguments below have mathematical drafts and separate internal
+AI-agent audits. That is distinct from external peer review and from a
+formal proof of their full statements. Their novelty has not been
+certified. Older working notes saying that BPI in this model is
+``undecided'' are superseded by the six-cycle theorem below.
+
+Write $X\simeq Y$ for equipotence, and $X\preccurlyeq Y$ for the existence
+of an injection. The relevant established package in the original model
+$W$ is
+\[
+ \mathsf{ZF}+\mathsf{PP}+\mathsf{AC}_{\rm WO}+\mathsf{DC}
+ +\mathsf{FB}+\mathsf{NDS}+\neg\mathsf{AC}.
+\]
+Here $\mathsf{FB}$ is the finite cardinal basis property defined earlier,
+not an abbreviation for finite choice. The additional structural inputs
+are $\mathsf{SVC}(A)$, the quotient dichotomy $Q(A)$, and the least
+non-well-orderable cardinal $|A|$. Every set embeds into $A\times\eta$
+for an ordinal $\eta$, every non-well-orderable set contains a copy of
+$A$, and $A^{<\omega}\simeq A^2\simeq A$. The right action of the ground
+monoid $T$ on $A$ is free on each orbit. The native order is
+\[
+ a\leq_T b\quad\Longleftrightarrow\quad
+ (\exists t\in T)\ a\cdot t=b.
+\]
+Left cancellation and conicality of $T$ make this a partial order.
+Its graph is an internal hereditarily symmetric object; its definition
+does not require treating the generic filter as an internal parameter.
+
+\subsection{A partial order with no linear extension}
+
+\textbf{Audited theorem.}
+The native partial order on $A$ has no linear extension in $W$.
+Consequently
+\[
+ W\models\neg\mathsf{OEP}+\neg\mathsf{BPI},
+\]
+where OEP says that every partial order has a linear extension and BPI
+says that every nontrivial Boolean algebra has a prime ideal. The same
+argument applies to the parameter variants described below. The
+Ordering Principle still holds: every set can be linearly ordered,
+but an arbitrary prescribed partial order need not be extended.
+
+\emph{Proof sketch with the compatibility step.}
+The source monoid has a distinguished $e\ne1$ and $\mu$ many probes
+$m_\xi$ satisfying
+\[
+ m_\xi e=e,\qquad m_\xi\ne1,\qquad
+ m_\xi T\cap m_\zeta T=eT\quad(\xi\ne\zeta).
+\]
+It also realizes every valid finite prescription of principal-cone
+overlaps, with exactly the prescribed identifications. A diagram is a
+ground injection $q:T\to I$; write $q_t(x)=q(tx)$ and $D_q=q[T]$.
+Cohen conditions mention fewer than $\mu$ coordinate labels.
+
+Suppose a name for a linear extension $L$ is supported by $D_p$ and
+$(c_0,p)$ forces its asserted properties. Restrict $c_0$ to $D_p$.
+Choose $q$ with $q_e=p$ and two probes $a,b$. The source local-decision
+lemma lets $q$ decide their comparison after the Cohen generic is fixed.
+A Cohen strengthening $d$, restricted to $D_q$, therefore forces, after
+possibly exchanging $a,b$,
+\[
+ q\Vdash A_{q(a)}<_L A_{q(b)}.
+\]
+This fixes the diagram before choosing the following native step.
+
+The cones $bm_\xi T\setminus eT$ are pairwise disjoint. Hence some
+probe $t\ne1$ has
+\[
+ \operatorname{supp}_I(d)\cap q[btT\setminus eT]=\varnothing.
+\]
+Set $h=bt$. Then $he=e$, $aT\cap hT=eT$, and $b<_T h$.
+On three copies, indexed modulo $3$, prescribe
+\[
+                   (i,hx)\sim(i+1,ax)\qquad(x\in T).
+\]
+This prescription is valid. Indeed, a two-step passage through the
+middle copy must lie in $aT\cap hT=eT$; if $ax=hy=ez$, cancellation
+and $ae=he=e$ give $x=y=ez$. Thus the indicated relation is already
+transitive, its common root has identical parameters, and no copy
+collapses onto itself.
+
+Place these copies as diagrams $q_i$, all with $(q_i)_e=p$, and transport
+$d$ to conditions $d_i$ by coordinate permutations fixing $D_p$.
+The $d_i$ agree on the root. Off the root, each outgoing overlap is
+silent in the corresponding $d_i$ by the choice of $t$. Their union
+is therefore a valid Cohen condition. This is the essential step:
+a bare swap of two diagrams would not guarantee compatible Cohen bits.
+The diagram merger gives a common extension of the $q_i$. With
+$x_i=A_{q_i(a)}$ and $y_i=A_{q_i(b)}$, it forces
+\[
+ x_i<_L y_i<_T x_{i+1}\quad(i\bmod3),
+\]
+and hence a strict six-cycle in $L$, a contradiction.
+
+Forcing automorphisms here transport names and conditions. They are
+not asserted to be automorphisms of the actual pure ZF universe.
+The implication $\mathsf{BPI}\Rightarrow\mathsf{OEP}$ is classical
+propositional compactness; see Jech, \emph{The Axiom of Choice} (1973),
+Example 2.3.2, p.~19. Jech's \S7.2 already uses finite symmetry cycles
+in models with OP and without OEP. The model-specific contribution here
+is the silent probe cone and its exact Cohen-compatible merger.
+
+\emph{Verification scope.}
+The auxiliary \path{SixCycleAudit.lean} proves validity of this cyclic
+overlap using the pinned source's actual
+\texttt{OverlapPrescription.Valid}, exact root intersections, absence
+of within-copy collapse, and compatibility of copied partial assignments.
+Its compilation reported no \texttt{sorryAx}. It does \emph{not}
+formalize the full symmetric-forcing argument or the conclusion
+$W\models\neg\mathsf{BPI}$.
+The principal records are
+\path{NATIVE_ORDER_EXTENSION_SIX_CYCLE_PROOF.txt},
+\path{INDEPENDENT_AUDIT_SIX_CYCLE_OEP_FAILURE.txt}, and
+\path{SIX_CYCLE_LEAN_SCOPE.txt}.
+
+\subsection{Explicit Boolean-algebra and graph witnesses}
+
+\textbf{Boolean algebra.}
+There is a nontrivial Boolean algebra $B_{\rm ord}$ of cardinality
+exactly $|A|$ with no prime ideal. Use variables $p_{ab}$, $a,b\in A$,
+and impose
+\[
+ \neg p_{aa},\quad p_{ab}\vee p_{ba}\ (a\ne b),\quad
+ \neg(p_{ab}\wedge p_{ba})\ (a\ne b),\quad
+ (p_{ab}\wedge p_{bc})\Rightarrow p_{ac},\quad
+ p_{ab}\ (a<_T b).
+\]
+Take the free Boolean algebra modulo the ideal generated by the
+negations of these constraints. Every finite subtheory is satisfiable:
+linearly extend the native partial order on its finitely many mentioned
+points. Thus the quotient is nontrivial. A prime ideal would give a
+homomorphism to $2$, hence a forbidden native linear extension.
+
+Finite terms have cardinality $A$, so $A$ surjects onto $B_{\rm ord}$.
+Every well-orderable nontrivial Boolean algebra has a prime ideal in ZF:
+recursively include the next enumerated element in a growing proper
+ideal whenever this preserves properness. If it cannot be included,
+its complement already belongs to the ideal. Limit unions stay proper.
+Consequently $B_{\rm ord}$ is not well-orderable, and $Q(A)$ gives
+$B_{\rm ord}\simeq A$. It has the least possible injection-cardinality
+of any prime-ideal-free nontrivial Boolean algebra. In particular, for
+every set $X$ in this model,
+\[
+ \begin{split}
+ X\text{ is well-orderable}\quad\Longleftrightarrow\quad&
+ \text{every nontrivial Boolean algebra }B\preccurlyeq X\\[-2pt]
+ &\text{has a prime ideal}.
+ \end{split}
+\]
+
+\textbf{Finite-cone realization and an unavoidable new subset.}
+Put $S=[A]^{<\omega}$, $C_F=\{E\in S:F\subseteq E\}$, and
+\[
+ \mathcal I=\{D\subseteq S:(\exists F\in S)\ D\cap C_F=\varnothing\}.
+\]
+Canonically linearly extend each finite native order on $E$ by repeatedly
+taking its lexicographically least remaining minimal point; call the
+result $L_E$. The old sets
+\[
+ D_{ab}=\{E\in S:a,b\in E\text{ and }a<_{L_E}b\}
+\]
+satisfy the order constraints modulo $\mathcal I$. The subalgebra
+generated by their classes inside $\mathcal P(S)/\mathcal I$ is another
+size-$A$ algebra with no prime ideal. The entire quotient need not
+have size $A$.
+
+Even an ultrafilter on the \emph{old} algebra $\mathcal P(S)^W$ containing
+all $C_F$ defines a native linear extension by
+$a<_U b\Longleftrightarrow D_{ab}\in U$. Thus forcing with the positive
+part of $\mathcal P(S)^W/\mathcal I$ necessarily adds a new subset of
+$A^2$, and therefore of $A$. Moreover, the $A^2$-indexed dense open
+sets deciding the Boolean values $[D_{ab}]$ have empty intersection.
+In the Boolean completion they witness failure of binary distributivity
+indexed by $A$. No claim about countable distributivity follows.
+Genericity decides old subsets; it does not automatically give an
+ultrafilter on the enlarged final powerset.
+
+\textbf{Graph compactness.}
+There is a graph $G$ with $|G|=|A|$ such that every finite subgraph is
+$3$-colorable but $\chi(G)=4$. The order theory above is a finitely
+satisfiable $3$-CNF theory after repeating literals. Encode Boolean
+variables by opposite vertices adjacent to a fixed base vertex in a
+triangle of colors $T,F,B$. A clause $x\vee y\vee z$ is equivalent to
+\[
+ \exists w\;\bigl(\operatorname{NAE}(x,y,w)
+ \wedge\operatorname{NAE}(\neg w,z,F)\bigr),
+\]
+where NAE means ``not all equal.'' Each NAE constraint is represented
+by a fresh triangle whose three vertices are respectively adjacent
+to the three Boolean terminals. It has an extending $3$-coloring
+exactly when NAE holds. A global $3$-coloring would solve the impossible
+order theory. Every finite subgraph is colorable by finite
+satisfiability, while a canonical $4$-coloring assigns Boolean values
+uniformly and colors each gadget greedily. Tagged finite powers of
+$A$ give the exact vertex cardinality.
+
+Well-orderable graphs satisfy finite-color compactness in ZF by
+transfinite recursion, choosing at each vertex the first color
+preserving finite satisfiability. Thus $A$ is again a least possible
+counterexample cardinal. In contrast, $2$-color compactness holds in
+$W$: finite bipartiteness gives a canonical pair of parity classes in
+each nontrivial connected component, and $\mathsf{AC}_2$ selects one
+class per component. Here $\mathsf{AC}_2$ follows from OP.
+For each fixed finite $k\geq3$, joining this graph with a complete graph on $k-3$ fresh vertices gives a graph whose finite subgraphs are $k$-colorable while its chromatic number is $k+1$. Thus finite-$k$ compactness fails for every such $k$.
+The general compactness connection is classical; see de Bruijn--Erd\H{o}s
+(1951) and Cowen--Hechler--Mihok (2002).
+The explicit gadgets and infinite argument are checked in
+\path{EXPLICIT_GRAPH_COMPACTNESS_INDEPENDENT_AUDIT.txt}; the Boolean
+proof is in
+\path{ORDER_OBSTRUCTION_BOOLEAN_ALGEBRA_AND_FINE_FORCING.txt}.
+
+\subsection{BPI, small violations of choice, and limits of compactness}
+
+Under $\mathsf{SVC}(A)$, BPI is equivalent to the existence of a fine
+ultrafilter on $[A]^{<\omega}$, equivalently a prime ideal in
+$\mathcal P([A]^{<\omega})/\mathcal I$. This is the Pincus--Blass local
+reflection recorded in Ryan-Smith, \emph{Local reflections of choice},
+Proposition 3.13. The preceding theorem settles this particular local
+test negatively in $W$; it does not prove the abstract implication
+$\mathsf{SVC}(A)+\mathsf{AC}_{\rm WO}+Q(A)+\mathsf{BPI}\Rightarrow
+\mathsf{AC}$.
+
+The model gives relative nonimplications
+\[
+ \mathsf{PP}\not\Rightarrow\mathsf{BPI},\qquad
+ \mathsf{NDS}\not\Rightarrow\mathsf{BPI},\qquad
+ \mathsf{FB}\not\Rightarrow\mathsf{BPI},
+\]
+and likewise with OEP as conclusion. In the reverse direction, the
+classical basic Cohen model satisfies BPI and SVC and has an infinite
+Dedekind-finite set. It fails PP, NDS, FB, and Ramsey's principle on
+arbitrary infinite sets. This is an old model, not a new construction;
+the SVC generator need not be its Cohen set. Tachtsis's 2024 Theorem
+6.4 supplies the stronger opposite-direction example
+$\mathsf{BPI}+\mathsf{AC}_\omega+\neg\mathsf{NDS}$, hence also
+$\neg\mathsf{FB}$ and ordinary infinite homogeneity. Its exact
+attribution was verified through Blass--Kulshreshtha's primary
+manuscript, Theorem 10.5; the full Tachtsis article was not obtained.
+These statements do not decide whether PP implies NDS in arbitrary
+ZF models, or whether PP and BPI can coexist with $\neg\mathsf{AC}$.
+
+Several useful subsidiary facts survived the unsuccessful positive-BPI
+routes. FB gives every proper filter a member of minimum injection
+cardinality; restricting an ultrafilter to that member makes it
+cardinal-uniform. This is not a cofinal filter base or an ultrafilter
+existence theorem. The native lower cones generate a proper filter
+closed under all internal well-ordered intersections and avoiding every
+well-orderable subset of $A$. An ultrafilter extending it need not retain
+that completeness. In the original model every nonprincipal ultrafilter
+on $A\subseteq\mathcal P(\omega_1)$ is countably incomplete: first
+push forward by the first disagreement with its coordinatewise
+ultrafilter decisions, obtaining a nonprincipal image on $\omega_1$;
+then use the ground injection $\omega_1\to\mathcal P(\omega)$ and
+repeat, obtaining a nonprincipal image on $\omega$.
+
+Likewise, BPI and PP give a valid small-carrier Henkin lemma:
+a finitely satisfiable finitary theory whose symbols inject into $A$
+has a model of cardinality at most $A$, provided $A^{<\omega}\simeq A$.
+This does not transport the original monoid action through an arbitrary
+bijection of carriers. Finite-factor ultraproduct arguments also do
+not force strict external cardinal descent: in ZFC every unbounded
+finite product $\prod_n k(n)/U$, for nonprincipal $U$ on $\omega$,
+has size $2^{\aleph_0}$, even after finitely many iterated logarithms
+of the factors. These boundaries are recorded in
+\path{STRUCTURAL_BPI_PHASE1.txt},
+\path{ANCESTOR_FILTER_COMPACTNESS_AND_ULTRAFILTER_INCOMPLETENESS.txt},
+\path{HENKIN_SMALL_CARRIER_AND_STRUCTURE_OBSTRUCTION.txt}, and
+\path{ULTRAPRODUCT_AND_QUOTIENT_OBSTRUCTIONS.txt}.
+
+\subsection{Parameter changes and preservation}
+
+\textbf{Audited parameter theorem.}
+Let the ground satisfy ZFC. Suppose $\kappa$ is regular uncountable,
+$\mu$ is regular, and
+\[
+ 2^{<\kappa}<\mu,\qquad
+ \lambda^{<\kappa}<\mu\quad
+ \text{for every infinite ground cardinal }\lambda<\mu.
+\]
+Use the source monoid of size $\mu$, $|I|=\mu^+$, Cohen conditions of
+size $<\kappa$, and diagram supports of size at most $\mu$. The audited
+adaptation yields the same SVC, ordinal-choice and quotient package,
+hence PP, FB, NDS and $\neg\mathsf{AC}$. The quotient proof requires
+an explicit repair: bounded arrays indexed below $\omega_1$ become
+arrays of size $<\kappa$, controlled by the strengthened no-new-ground-
+sequences lemma. The countable germ construction remains countable.
+The native six-cycle and real-height obstruction remain valid, giving
+$\neg\mathsf{BPI}$ and $\neg\mathsf{DC}_{\omega_1}$ in every variant,
+although ordinary DC holds.
+
+Two internal thresholds are distinct. If $W_\lambda$ says that every
+set is injection-comparable with the well-ordered cardinal $\lambda$,
+then
+\[
+ w(A)=\mu,\quad h(A)=\mu^+,\qquad
+ W_\lambda\ \Longleftrightarrow\ \lambda\leq\mu,
+ \qquad
+ \mathcal P(\alpha)\text{ is well-orderable}\
+ \Longleftrightarrow\alpha<\kappa.
+\]
+Here $w(A)$ denotes the largest well-ordered cardinal injecting into
+$A$. For $\alpha<\kappa$, the entire powerset equals its ground
+counterpart. Under $V=L$, write $M_{mn}$ for $\kappa=\aleph_m$,
+$\mu=\aleph_n$, $1\leq m<n<\omega$. All ground alephs are preserved:
+\begin{center}
+\begin{tabular}{c|cc|cc}
+Model & $\kappa$ & $\mu$ & $W_{\aleph_3}$ &
+$\mathcal P(\aleph_1)$ well-orderable\\\hline
+$M_{12}$ & $\aleph_1$ & $\aleph_2$ & no & no\\
+$M_{13}$ & $\aleph_1$ & $\aleph_3$ & yes & no\\
+$M_{23}$ & $\aleph_2$ & $\aleph_3$ & yes & yes
+\end{tabular}
+\end{center}
+These are specific separations over a common strong package, not
+unrestricted independent assignments of two sentences. The consistency
+interpretation uses the source's formula-by-formula forcing method over
+$L$; ordinary $\operatorname{Con}(\mathsf{ZF})$ suffices, with no
+inaccessible cardinal. The complete adaptation is not Lean-formalized.
+See \path{LARGER_MU_SECOND_INDEPENDENT_AUDIT.txt}.
+
+Without GCH, put $\theta=(2^{<\kappa})^V$. The ground Cohen forcing is
+$\theta^+$-cc and preserves $\kappa$ and its regularity. Every old
+binary string of length $<\kappa$ occurs as a block of any one generic
+row. The row's block map therefore collapses the old set of such strings,
+of size $\theta$, to cardinality $\kappa$ internally in $W$. Thus
+\[
+ (\kappa^+)^W=(\theta^+)^V,\qquad
+ (\kappa^{<\kappa})^W=\kappa.
+\]
+Ordinal-function locality transfers the relevant preservation from
+the Cohen extension, not from the full outer product extension.
+The exact no-GCH pair-coloring argument respects this identification;
+see \path{NO_GCH_HOMOGENEOUS_BOUND_RECHECK.txt}.
+
+\textbf{Preservation theorem.}
+If $W\subseteq N$ have the same ordinals, $N$ adds no subsets of $A$,
+and $N$ satisfies $\mathsf{SVC}(A)$, then $N$ retains
+$\mathsf{AC}_{\rm WO}+Q(A)+\neg\mathsf{AC}$ and its PP/FB consequences.
+Indeed, $A^2\simeq A$ makes every new map on $A$ have an old kernel.
+An old non-well-orderable quotient cannot become well-orderable without
+well-ordering $A$. Old ordinal-choice then supplies representatives for
+kernels of new ordinal-valued maps. SVC reduces general ordinal-choice
+to these maps. Ordinary set forcing always preserves SVC by evaluating
+a ground presentation of the set of subnames.
+
+This criterion has concrete instances. If the outer ZFC forcing has
+size $\chi$, take regular $\lambda>\chi$ and the ground forcing
+$\operatorname{Add}(\lambda,\delta)^V$. Easton's small-forcing argument
+makes it $<\lambda$-distributive in the outer extension. The audited
+intersection lemma $W[K]\cap V[F][H]=W$ then gives no new subsets of
+$A^2$ when $\lambda$ exceeds its outer size. Taking $\lambda$ also above
+the outer size of $\mathcal P([A]^{<\omega})^W$ preserves the BPI truth
+value; here that means preserving its failure. For the original
+$L$-ground model one may use $\lambda=\aleph_5^V$ and
+$\delta\geq\lambda^+$ with $\delta^\lambda=\delta$. The largest
+well-ordered cardinal injecting into $\mathcal P(\lambda)$ becomes
+$\delta$, while that powerset stays non-well-orderable. These are
+arithmetic variations, not further weak-choice separations by themselves.
+See \path{HIGH_FORCING_PRESERVATION_INDEPENDENT_AUDIT.txt}.
+
+\subsection{Exact pair and finite-arity Ramsey spectra}
+
+For an infinite well-ordered cardinal $\lambda$, use the temporary
+notation $\mathrm{NR}^{r,\mathrm{fin}}_\lambda$ for: every finite
+coloring of $[X]^r$, for every non-well-orderable $X$, has a homogeneous
+subset of cardinality $\lambda$. The requirement concerns all sets and
+colorings, not only a distinguished witness. Under AC it is vacuous.
+Ordinary Ramsey homogeneity with an unspecified infinite size already
+follows from DC here.
+
+\textbf{Pairs, without GCH.}
+Throughout the audited family, the largest $\lambda$ for binary pair
+colorings is exactly $\kappa$. More strongly, every pair coloring with
+an ordinal color cardinal $1\leq\eta<\kappa$ on a non-well-orderable
+set has a homogeneous subset of size $\kappa$. At $\eta=\kappa$,
+the coloring
+\[
+ c(\{a,b\})=\min(a\mathbin{\triangle}b),\qquad a,b\in A,
+\]
+has no homogeneous triple: three binary bits cannot be pairwise
+different at the same first-difference coordinate. Thus $\kappa$ is
+the exact least well-ordered color cardinal permitting a failure of
+infinite pair homogeneity on a non-well-orderable set.
+
+For the positive direction, encode a pulled-back coloring on
+$\kappa^+$, the enumeration of $\kappa^{<\kappa}$, and ordinal-sized
+injection witnesses into a set $C$ of ordinals. The inner model $L[C]$
+computes the required cardinals and $2^{<\kappa}=\kappa$ correctly.
+Apply the Erd\H{o}s--Rado theorem there, in the form
+$(2^{<\kappa})^+\to(\kappa+1)^2_\eta$ for $\eta<\kappa$.
+The resulting homogeneous set belongs to $W$. Use
+$\kappa^+\preccurlyeq A$ and then the copy of $A$ in every
+non-well-orderable set. The precise primary source is
+Baumgartner--Hajnal--Todorcevic, \emph{Extensions of the Erd\H{o}s--Rado
+Theorem}, Theorem 2.1, p.~4.
+
+For the negative direction, color $\{a,b\}$ by the parity of their
+first difference. Fresh-copy locality first makes every homogeneous
+subset well-orderable. A Cohen $\Delta$-system argument excludes size
+$\kappa^+$: thin conditions to equal row patterns and then prescribe
+a fresh first difference of the opposite parity. Both colors have
+homogeneous subsets of size $\kappa$, supplied by rows whose first $1$
+occurs at increasing coordinates of a fixed parity. In the no-GCH case
+the argument uses the preserved ground $\theta^+$, which is the
+internal $\kappa^+$. Consequently
+\[
+ \mathrm{NR}^{2,\mathrm{fin}}_\lambda
+ \quad\Longleftrightarrow\quad \lambda\leq\kappa.
+\]
+Sources and complete proofs are
+\path{EXACT_HOMOGENEOUS_CARDINAL_BOUND.txt} and
+\path{GLOBAL_NON_WELL_ORDERABLE_RAMSEY_THRESHOLD.txt}.
+
+\textbf{Higher arities over $L$.}
+In $M_{mn}$ the exact threshold for all finite color counts is
+\[
+ \boxed{\quad
+ \max\{\lambda:\mathrm{NR}^{r,\mathrm{fin}}_\lambda\}
+       =\aleph_{\max(m-r+2,0)},\qquad 2\leq r<\omega.
+ \quad}
+\]
+\begin{center}
+\begin{tabular}{c|cccc}
+Model & pairs & triples & $4$-tuples & $5$-tuples\\\hline
+$M_{12},M_{13}$ & $\aleph_1$ & $\aleph_0$ & $\aleph_0$ & $\aleph_0$\\
+$M_{23}$ & $\aleph_2$ & $\aleph_1$ & $\aleph_0$ & $\aleph_0$\\
+$M_{34}$ & $\aleph_3$ & $\aleph_2$ & $\aleph_1$ & $\aleph_0$
+\end{tabular}
+\end{center}
+The positive proof applies finite-arity Erd\H{o}s--Rado inside $L[C]$;
+all powersets needed for its finite GCH calculation lie strictly below
+$\kappa$ and are unchanged. The negative proof begins with Sierpi\'nski's
+comparison of a ground ordinal enumeration and binary lexicographic
+order, then steps up using consecutive first differences. A tuple is
+colored by the preceding color together with an increasing/decreasing
+tag, or by an additional nonmonotone color. Finite Ramsey excludes an
+infinite homogeneous set of the latter color. DC makes a homogeneous
+set in either remaining orientation well-ordered by lex or reverse lex;
+its first differences yield a forbidden homogeneous set for the prior
+coloring. This avoids an auxiliary well-order of $\mathcal P(\kappa)$.
+The negative triple witness uses four colors; successive constructions
+use at most $5\cdot2^{r-3}-1$ colors, not claimed optimal.
+See \path{HIGHER_ARITY_ROOT_INDEPENDENT_AUDIT.txt} and Erd\H{o}s--Rado
+(1956), Theorem 39, pp.~467--469.
+
+\textbf{Binary triples remain a separate question.}
+The saved bounds are
+\[
+\begin{array}{c|ccc}
+ &\text{proved positive}&\text{unresolved here}&\text{proved negative}\\\hline
+ M_{12},M_{13}&\omega&\omega_1&\omega_2\\
+ M_{23}&\omega_1&\omega_2&\omega_3
+\end{array}
+\]
+for homogeneous cardinalities of arbitrary binary triple colorings on
+non-well-orderable domains. The binary orientation coloring of adjacent
+first differences has exact largest homogeneous cardinality $\kappa$,
+in both colors; this gives the stated negative upper bounds, not a
+universal positive theorem at $\kappa$. Every one of the sixteen maps
+merging the particular four-color triple witness into two colors has
+an $\omega_1$-sized homogeneous set in $M_{12}$ and $M_{13}$. Projections
+use row patterns; the XOR case uses a countable binary tree of
+coordinates labeled by nested real intervals. Thus simple color merging
+cannot settle the missing negative result. The classical binary
+stepping-up proof uses an auxiliary well-order unavailable internally.
+See \path{BINARY_TRIPLE_ROOT_INDEPENDENT_AUDIT.txt}. No claim is made
+that the unresolved sentences are open in the entire literature.
+
+\subsection{No-go results for repairing the model}
+
+Increasing $|I|$ alone cannot produce BPI while retaining the absorption
+probes, all valid three-copy mergers, root-fixing transport, local
+decision, and Cohen conditions mentioning fewer than $\mu$ labels.
+Those ingredients already prove the six-cycle obstruction. More
+abstractly, the literal infinite-product version of finite Ramsey
+homogeneity is false: parity relative to representatives modulo finite
+coordinate disagreement gives a binary coloring with no monochromatic
+rectangle having infinitely many nonsingleton factors.
+
+Two concrete order-based changes were audited. Replacing the full
+coordinate group by automorphisms of a saturated dense linear order
+adds a supported cut map $A\twoheadrightarrow\mu^+$, while support
+locality still forbids $\mu^+\hookrightarrow A$. Thus PP and
+$\mathsf{AC}_{\rm WO}$ fail. Alternatively, decorate every entire
+diagram with a ground linear extension of $T$, preserving that order
+under restriction. The root-pair amalgamation survives, but the
+internal profile map surjects onto all ground linear extensions of
+$T$, a set of ground size $2^\mu$. Again PP and ordinal-choice fail.
+This differs from finite order forcing over $W$, discussed elsewhere
+in this report, whose orbit profiles are new and need not be ground.
+See \path{ORDERED_SUBGROUP_CUT_QUOTIENT_OBSTRUCTION.txt} and
+\path{ORDER_REPAIR_ROOT_AUDIT.txt}.
+
+For restricted palettes $\mathcal C$ of orders on $T$, closed under
+$\vartheta\mapsto\vartheta_t$ with
+$x\mathrel{\vartheta_t}y\Longleftrightarrow tx\mathrel\vartheta ty$,
+there is no nonempty finite palette, even without requiring extension
+of native divisibility. Finite Ramsey produces four probes monotone
+up to reversal in every palette order; a five-chart tournament merger
+would give a finite set with no least element. For infinite
+$|\mathcal C|=\lambda$, the same argument and Erd\H{o}s--Rado give the
+necessary bound $\mu\leq2^{2^\lambda}$. It is not an optimal bound.
+Palettes of size at most $\mu$ can satisfy pullback closure and every
+acyclic finite request. A universal lift can also be constructed for
+one prescribed palette, using cross-denominator probe cones sharing
+exactly the root. The unresolved issue is closure of one final palette
+under universal lifts for all its own witness types, followed by support
+descent and quotient classification. No positive-BPI model or universal
+impossibility theorem results. See \path{ORDER_PALETTE_ROOT_AUDIT.txt}.
+
+Ransom's 2026 dissertation gives an exact forcing-aware criterion for
+BPI (Definition 4.3.1 and Theorem 4.3.3, pp.~93--99), involving dense
+sets, bases for the normal filter, orbit colorings, and compatibility
+below all common extensions of finitely many translated conditions.
+The criterion concerns the full Cohen--diagram product. A Ramsey
+property of the abstract monoid alone does not verify it. Its
+finite-support examples do not automatically cover these $\mu$-sized
+supports. The six-cycle theorem now rules out a successful verification
+for the unchanged model. The earlier precise compatibility obligations
+remain documented in \path{SYMMETRIC_FILTER_PHASE3.txt} and
+\path{SYMMETRIC_FILTER_PHASE4_LARGE_I.txt}.
+
+\subsection{Source corrections, attribution, and remaining boundaries}
+
+The implication $\mathsf{AC}_{\rm WO}\Rightarrow\mathsf{DC}$ is valid
+in pure ZF: Jech, Theorem 8.2, pp.~121--122, attributes it to Jensen.
+An early apparent contrary table entry was an erroneous HTML
+reconstruction, corrected by inspecting the actual primary PDF and
+its prose. Here ordinal-choice means choice for well-orderable
+\emph{index families}, not arbitrary families of well-orderable
+members. The verified chain is
+$\mathsf{PP}\Rightarrow\mathsf{AC}_{\rm WO}\Rightarrow\mathsf{DC}$;
+it does not yield $\mathsf{DC}_{\omega_1}$.
+
+A different source conflict remains recorded rather than resolved by
+recency. Pincus's original announcement and publisher summary, Ransom's
+2025 paper, and Asper\'o--Karagila's 2020 manuscript explicitly attribute
+models of $\mathsf{ZF}+\mathsf{DC}+\mathsf{BPI}+\neg\mathsf{AC}$ to
+Pincus. Kowalczyk--Zapletal, arXiv:2607.16747v1, instead calls the
+corresponding implication to AC open; its actual theorem establishes
+a restricted compactness fragment. The complete relevant Pincus proof
+was not retrieved in this investigation. This discrepancy is not used
+as a premise, and no claim that a positive BPI variant would solve
+that historical problem is made. See
+\path{DC_BPI_SOURCE_CONFLICT.txt}.
+
+The bounded novelty check found no BPI or order-extension statement in
+the twelve text files of the pinned PP manuscript and no prior assertion
+of this particular PP/FB/NDS countermodel to BPI in the sources checked.
+That is limited search evidence, not a priority certificate. The
+classical compactness implications, symmetry-cycle method, Ramsey
+theorems and coloring constructions retain their established
+attributions. The source construction, not this report, proves the
+foundational PP consistency theorem. The additional results here are
+model consequences and explicitly audited adaptations.
+
+\paragraph{Primary references used in this section.}
+Stable source links are:
+\href{https://gwern.net/doc/math/1973-jech-theaxiomofchoice.pdf}{Jech (1973)};
+\href{https://doi.org/10.2307/2586759}{Felgner--Truss (1999), OEP and BPI};
+\href{https://academic.calliope.mx/files/papers/2412.13785.pdf}{Ryan-Smith, Proposition 3.13};
+\href{https://arxiv.org/abs/2511.21684v1}{Ransom (2025)} and
+\href{https://escholarship.org/uc/item/0b35t7sd}{Ransom's 2026 dissertation};
+\href{https://doi.org/10.1215/00294527-2024-0020}{Tachtsis (2024)} and
+\href{https://arxiv.org/abs/2310.09643v3}{Blass--Kulshreshtha, version 3};
+\href{https://arxiv.org/pdf/math/9311207}{Baumgartner--Hajnal--Todorcevic,
+Theorem 2.1};
+\href{https://www.renyi.hu/~p_erdos/1956-02.pdf}{Erd\H{o}s--Rado (1956)};
+\href{https://users.renyi.hu/~p_erdos/1965-14.pdf}{Erd\H{o}s--Hajnal--Rado
+(1965), Lemma 5A}; and
+\href{https://www.jams.jp/notice/scmj/56-2.html}{Cowen--Hechler--Mihok (2002)}.
+All named local audit files belong to the accompanying
+\path{evidence/original_model/} archive directory (mapped from the original \path{BPI_RPP_five_hour_research/} record). Their original
+intermediate statuses are preserved; the later independent audits and
+this consolidation specify which claims supersede them.

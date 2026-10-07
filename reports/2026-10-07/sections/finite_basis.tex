@@ -1,0 +1,111 @@
+\section{Finite bases, NDS and cardinal antichains}\label{defs}
+
+All arguments take place in classical $\ZF$. Write $X\preccurlyeq Y$ if there is an injection $X\inj Y$, and $X\prec Y$ if $X\preccurlyeq Y$ and $Y\not\preccurlyeq X$. Write $X\cong Y$ for the existence of a bijection. The disjoint union is denoted by $\sqcup$.
+
+\begin{definition}
+The following are statements about sets.
+\begin{enumerate}[label=(\roman*)]
+\item $\NDS$: there is no sequence $(X_n)_{n<\omega}$ with $X_{n+1}\prec X_n$ for every $n$.
+\item The finite-antichain principle: every set family $\mathcal F$ whose distinct members have incomparable cardinalities is finite.
+\item $\FB$: for every nonempty set family $\mathcal F$, there is a nonempty finite $\mathcal F_0\subseteq\mathcal F$ such that
+\begin{equation}\label{FBdef}
+ \forall X\in\mathcal F\ \exists Y\in\mathcal F_0\quad Y\preccurlyeq X.
+\end{equation}
+\end{enumerate}
+No simultaneous choice of all the injections in~\eqref{FBdef} is part of the assertion. Likewise, $\NDS$ quantifies over sequences of sets, not sequences already equipped with injection witnesses. This is the formulation $\mathsf{WF}_{i3}^{i}$ of \cite{BK}; distinct formulations must not be interchanged in bare $\ZF$.
+\end{definition}
+
+For statements phrased directly about cardinalities, one may use Scott representatives: the set of all representatives of the least possible rank. If $\mathcal C$ is a set of Scott cardinalities, its union is a set of representatives. Applying $\FB$ to that union avoids choosing one set for each cardinality.
+
+\begin{definition}\label{package}
+Fix a nonempty set $A$. The \emph{homogeneous-image hypotheses} are:
+\begin{enumerate}[label=(\Alph*)]
+\item\label{S} $\SVC(A)$: every nonempty set $X$ is the image of a surjection $A\times\eta\onto X$ for some ordinal $\eta$.
+\item\label{W} $\ACWO$: every ordinal-indexed family of nonempty sets has a choice function.
+\item\label{Q} Every non-well-orderable surjective image of $A$ is bijective with $A$.
+\end{enumerate}
+Non-well-orderability of $A$ itself is required for the consistency application, but not for the abstract finite-basis implication.
+\end{definition}
+
+\begin{theorem}[Central implication]\label{central}
+In $\ZF$, the hypotheses of Definition~\ref{package} imply $\FB$. Hence every sequence of sets has a forward-comparable pair, $\NDS$ holds, and every set-sized cardinal antichain is finite.
+\end{theorem}
+
+The proof is given in Subsections~\ref{normal}--\ref{finitebasis}. The resulting application is
+\begin{equation}\label{newcons}
+ \Con(\ZF)\ \Longrightarrow\
+ \Con(\ZF+\PP+\ACWO+\FB+\NDS+\neg\AC),
+\end{equation}
+with finiteness of all set-sized cardinal antichains in the same model. The construction in \cite{OpenAI} is the external input for~\eqref{newcons}.
+
+\subsection{Extracting the cardinal normal form}\label{normal}
+
+\begin{lemma}\label{NF}
+Under Definition~\ref{package}, every set $X$ has a representation
+\begin{equation}\label{normalform}
+ X\cong(A\times\alpha)\sqcup\beta,
+ \qquad \alpha,\beta\in\Ord.
+\end{equation}
+The two parameters may be chosen to be initial ordinals; their particular values need not be unique.
+\end{lemma}
+\begin{proof}
+The empty set uses $\alpha=\beta=0$. Otherwise fix one surjection $s:A\times\eta\onto X$. Put
+\[
+ B_i=s[A\times\{i\}],\qquad
+ T_i=B_i\setminus\bigcup_{j<i}B_j\quad(i<\eta).
+\]
+The $T_i$ partition $X$. Each nonempty $T_i$ is a surjective image of $A$: fix one $t\in T_i$, keep $s(a,i)$ when it belongs to $T_i$, and send all other arguments to $t$. This proves existence for one slice at a time; it does not choose default elements simultaneously.
+
+Let $I$ consist of those $i<\eta$ for which $T_i$ is not well-orderable. For $i\in I$, hypothesis~\ref{Q} supplies a bijection $A\to T_i$; for $i\notin I$, take a well-order of $T_i$, including the empty relation when the slice is empty. The candidate bijections lie in $\calP(A\times X)$ and the candidate orders in $\calP(X\times X)$. Thus $\ACWO$ selects witnesses from a set-sized, well-orderably indexed family.
+
+The union of the non-well-orderable slices is bijective with $A\times I$, hence with $A\times\alpha$ for an ordinal $\alpha$. The remaining slices have a well-orderable union: order by slice index first, then by the selected well-order inside each slice. That union is bijective with an ordinal $\beta$. The two pieces are disjoint and cover $X$. Replacing each ordinal by its initial ordinal preserves the representation.
+\end{proof}
+
+The slicing mechanism is an extraction of the method already used in \cite[Lemma 7.1]{OpenAI}, which in turn credits Ryan-Smith's local-to-global argument \cite{RyanSmith}. The next finite-basis step is the additional application needed here.
+
+For each $X$, choose its parameters \emph{definably}: let $\alpha(X)$ be the least ordinal admitting any representation~\eqref{normalform}, and let $\beta(X)$ be the least ordinal witnessing it for that $\alpha(X)$. These exist because any one witness bounds a nonempty set in which to minimize. Replacement collects the pairs for any set family. No class choice or simultaneous selection of normal-form bijections is being made. Arbitrary representations need not be unique; only the chosen least pair is canonical.
+
+\subsection{A finite basis and its consequences}\label{finitebasis}
+
+\begin{lemma}[Ordinal pairs, in $\ZF$]\label{ordpairs}
+Every nonempty set $R\subseteq\Ord^2$ has a nonempty finite subset $R_0$ such that every pair in $R$ is coordinatewise above a pair in $R_0$.
+\end{lemma}
+\begin{proof}
+Choose the lexicographically least residual pair, delete its coordinatewise upper cone, and repeat while a pair remains. The rule is unique, so recursion on $\omega$ requires no choice. If it never stopped, the selected first coordinates would be nondecreasing: removal cannot introduce a smaller first coordinate. Since every later pair survived deletion of each earlier upper cone, its second coordinate would be strictly smaller than the preceding second coordinate. This would be an infinite descending sequence of ordinals. The process therefore stops after finitely many selections. Every deleted pair lies above a selected pair, proving the assertion.
+\end{proof}
+
+\begin{proof}[Proof of the finite-basis assertion in Theorem~\ref{central}]
+For a nonempty set family $\mathcal F$, apply Lemma~\ref{ordpairs} to
+\[
+ R=\{(\alpha(X),\beta(X)):X\in\mathcal F\}.
+\]
+Choose one member of $\mathcal F$ for each of the finitely many basis pairs. This is finite choice, a theorem of $\ZF$. Let $\mathcal F_0$ be the resulting finite family. If the profile of $Y\in\mathcal F_0$ is coordinatewise below that of $X\in\mathcal F$, the coordinate inclusions give
+\[
+ (A\times\alpha(Y))\sqcup\beta(Y)
+ \inj (A\times\alpha(X))\sqcup\beta(X).
+\]
+Composing with two normal-form bijections gives $Y\preccurlyeq X$. This proves~\eqref{FBdef}. The injections need only exist separately.
+\end{proof}
+
+\begin{corollary}\label{seq}
+Under $\FB$, every sequence $(X_n)_{n<\omega}$ has indices $i<j$ such that $X_i\preccurlyeq X_j$. In particular, $\NDS$ holds.
+\end{corollary}
+\begin{proof}
+Apply $\FB$ to the range of the sequence. Each member of its finite basis has a least occurrence index. Choose $j$ larger than all these indices. A basis member injects into $X_j$, and its least index $i$ is smaller than $j$.
+
+If the sequence were strictly decreasing, finitely many downward injections would give $X_j\preccurlyeq X_{i+1}$. Composing contradicts $X_i\not\preccurlyeq X_{i+1}$. Only finitely many witnesses are used, not countably many chosen injections.
+\end{proof}
+
+\begin{corollary}\label{antichain}
+Under $\FB$, every set-sized cardinal antichain is finite. More generally, every nonempty set family represents finitely many minimal cardinalities, and each of its cardinalities lies above one of them.
+\end{corollary}
+\begin{proof}
+For an antichain, a basis member can inject into another member only when they represent the same cardinality. Hence the finite basis accounts for every cardinality in the antichain. For a general family, remove redundant cardinalities from a finite basis, leaving its minimal ones. They remain coinitial. If a family cardinality lay strictly below one of them, another basis member would lie below that smaller cardinality, contradicting minimality in the finite basis. Conversely every minimal family cardinality must coincide with a basis cardinality.
+\end{proof}
+
+There can still be infinitely many distinct sets representing a single minimal cardinality. Corollary~\ref{antichain} concerns the number of cardinalities, not the number of such representatives. The Scott-set formulation follows by applying $\FB$ to the union of the sets of representatives.
+
+
+\paragraph{Relationship with well-foundedness.} Over $\ZF$, $\FB$ is equivalent to well-foundedness of the injection order on each set of cardinalities together with finiteness of all cardinal antichains. For the converse, the minimal members of a nonempty family form a finite antichain, and well-foundedness supplies a minimal member below each given member. Under $\mathsf{DC}$, absence of an infinite strict descending sequence is equivalent to this set-sized well-foundedness: a nonempty downward set with no minimal member would yield a descending sequence by dependent choice. Consequently, over $\ZF+\mathsf{DC}$, $\FB$ is equivalent to $\NDS$ plus finite cardinal antichains. The qualification by $\mathsf{DC}$ cannot simply be erased.
+
+\paragraph{Relative consistency.} Applying the theorem to the stronger source package and retaining the source's non-well-orderable $A$ yields $\Con(\ZF)\Rightarrow\Con(\ZF+\PP+\FB+\NDS+\neg\AC)$. Under the same $\PP$, the well-foundedness equivalence of \cite[Proposition 9.8]{BK} gives the other 23 formulations. These are consequences in this model; neither $\PP\Rightarrow\NDS$ nor $\NDS\Rightarrow\PP$ is established generally here.

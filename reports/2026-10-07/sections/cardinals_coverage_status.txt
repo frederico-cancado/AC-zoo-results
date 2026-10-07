@@ -1,0 +1,95 @@
+CARDINALS SECTION: COVERAGE AND STATUS CHECKLIST
+7 October 2026. Retrospective reporting/publication work only; no resumed
+open-ended research. Do not treat this file as an independent novelty claim.
+
+DELIVERABLE
+  sections/cardinals.tex (no preamble)
+  Target: 7--10 readable pages. Temporary standalone A4/11pt/26mm build:
+  eight section pages, with bibliography beginning on page 8; ten pages
+  including the complete shared bibliography. The combined report's final
+  pagination and visual QA are the root editor's responsibility.
+
+COVERED RESULTS
+[x] Source input package, pinned construction attribution, original W vs N.
+[x] Free T-action, onto translations, non-WO fibers, fresh-copy support detail.
+[x] Exact w(A)=mu, h(A)=mu+, A times mu=A, A^2=A, and chart locality.
+[x] Raw and canonical normal forms; exact componentwise injection comparison.
+[x] Least non-WO cardinal; w/h and Hartogs--Lindenbaum agreement.
+[x] Set-sized suprema, nonempty set-sized infima, binary distributivity;
+    no largest cardinal, no empty infimum or complete-distributivity claim.
+[x] FB/NDS/FAC consequences and exact DC-qualified equivalence;
+    Scott-cardinal/actual-representative distinction retained.
+[x] All 24 Blass--Kulshreshtha WF variants via their equivalence under PP.
+[x] Arbitrarily large finite antichains; no uniform finite size bound.
+[x] Exact fixed-cardinal comparability W_lambda iff lambda<=mu.
+[x] Infinite countable absorption/doubling; X^n=X^2 for finite n>=2;
+    explicit failure of universal square idempotence.
+[x] Bounded iterated power-set-root depth, with finite-basis proof.
+[x] Globally total, equivariant, bounded-rank function normalization.
+[x] Partial-VALUE support codes; both locality clauses; representatives;
+    all WO families covered by common-support enumeration.
+[x] Exact arbitrary-ground large-domain exponent/power coefficients.
+[x] Universal Y^X=Y^{w(X)} for NW X, all internal Y including 0/1;
+    strict mu<A with same powers at every base, no naturality/class choice.
+[x] Complete L-ground power-set table, small ordinal plateau, original M12.
+[x] Complete exponent table including empty/singleton/finite edge cases.
+[x] Explicit ground-GCH coefficient evaluation including singular bases.
+[x] PP, AC_WO, DC, KWP1, OP, AC_fin; source CSB*/WPP attribution.
+[x] C(infinity,<=aleph0), Form85A, newly independently audited for original W.
+[x] DC_omega1 failure through native lower bounds and real heights.
+[x] Ordinary RPP definition and proof; NDS=>IDI=>RPP proof route.
+[x] Exact global pair/cardinality and ordinal color-number thresholds.
+[x] Higher finite-arity/all-finite-color spectrum and M13/M23 comparison.
+[x] Four-color triple obstruction and unresolved exact binary distinction.
+[x] PC; exact coefficient explanation; Glazer2025 prior-art boundary.
+[x] ICF/HCF negatives; finite KWP and starred-KWP/ICF implications.
+[x] PC=>KWP1 with Wojowu comment attribution.
+[x] EC/SES definitions, ZFC proof, EC=>SES, EC=>CSB*, EC or SES=>IDI.
+[x] Hamkins2012/Dedekind-finite mutual-surjection prior mechanism;
+    PP-compatible well-orderable-exponent distinction made explicit.
+[x] Lindenbaum--Tarski strict reflection distinguished from EC/SES.
+[x] General PP=>NDS and other unproved global implications left unresolved.
+[x] Public evidence map uses evidence/original_model/ and evidence/finite_basis/.
+
+COUNTABLE-MEMBER CHOICE AUDIT
+Read Sections1--3 of COUNTABLE_MEMBER_CHOICE_AND_RAY_REFINEMENT_AUDIT.txt,
+checked the exact Form85A entry in the saved Howard--Rubin catalog, and
+independently reconstructed the proof. PASS. The first-difference bound
+uses an enumeration of ONE countable set only; least restriction and a
+single ground family of small powerset well-orders make the selector
+uniform. Transfer uses ONE embedding of the ambient union. No choice of
+all countable enumerations or all presentations is hidden.
+Saved second audit: evidence/original_model/
+COUNTABLE_MEMBER_CHOICE_SECOND_INDEPENDENT_AUDIT.txt.
+No transfer to N or unaudited general larger-kappa member theorem is claimed.
+
+BIBLIOGRAPHY
+Added ONLY the three requested missing keys to sections/bibliography.tex:
+  Blass1977 -- JSL42(3)(1977),387--390, DOI10.2307/2272866.
+  ErdosRado -- BulletinAMS62(1956),427--489; checked Theorem39(iii),
+              original scanned pp.467--469, renyi.hu primary PDF.
+  BHT -- Baumgartner/Hajnal/Todorcevic, Extensions of the Erdos--Rado
+         theorem, inspected arXiv:math/9311207 manuscript (1993),
+         Theorem2.1 p.4. No unverified journal metadata added.
+All remaining keys reuse the existing shared bibliography.
+
+QA
+The temporary section wrapper compiled successfully. No overfull boxes
+or undefined citations remain after adding the shared bibliography.
+One underfull box belongs to the existing shared bibliography paragraph,
+not cardinals.tex. All eight content pages were rendered and visually
+inspected; formulas, records and tables fit without clipping. The later
+short completeness additions preserve successful compilation and page count.
+The final combined PDF must still receive its own visual inspection.
+The temporary wrapper/PDF is QA material, not a deliverable or public upload.
+
+No other completed publication artifact was modified; no external posting
+was performed by this agent. The underlying original imported files remain
+unchanged. Earlier phase-note uncertainty is superseded where the report
+explicitly records a completed later proof.
+
+Citation keys: BHT, BK, Blass1977, ErdosRado, Glazer, Hamkins, ICFquestion, Jech, KS, LT, OpenAI
+Missing bibliography keys: []
+Missing named evidence files: []
+Finite-basis lattice proof present: True
+cardinals.tex SHA256: cb639d4b9d26f957178454ed077da5a0fde468e330b07583df0dac641642e51c

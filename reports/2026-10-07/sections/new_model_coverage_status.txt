@@ -1,0 +1,79 @@
+NEW-MODEL REPORT SECTION: COVERAGE AND STATUS
+Prepared 7 October 2026 solely from saved results; no new research or
+publication action performed by this subagent.
+
+Deliverable: sections/new_model.tex (no preamble).
+Approximately 3,300 whitespace-separated words/tokens including TeX,
+proof register and citations; intended for 6--9 pages under the parent
+report's normal 11-point layout. Exact length depends on its preamble.
+Needs amsmath, amssymb and url/hyperref. No custom theorem environments,
+bibliography keys, or report-specific mathematical macros are assumed.
+Internal label: sec:complete-new-model.
+
+COVERED AS AUDITED OR AS DEDUCTIONS FROM AUDITED INPUTS
+[x] Setting W subset N; native action, charts, finite-order forcing.
+[x] CCC2 and stronger CCC3; local height/Ramsey and regular-chart proof
+    sketches; source-specific petal/gate dependency explicit.
+[x] Old ordinal cardinal/cofinality, non-WO and Hartogs preservation.
+[x] Old WO covering of new WO subsets; canonical countable value covers.
+[x] AC_WO preservation without the maximum principle; DC; not DC_omega1.
+[x] Failure of Cofinality Principle; L has no WO coinitial subset.
+[x] Old complete atomless ccc Boolean algebra of cardinal A: no old
+    ultrafilter; generic adds one; no global BPI conclusion.
+[x] A injects into new reals; A surjects onto new reals; no illicit
+    reverse injection inferred.
+[x] R non-WO, w(R)=mu, h(R)=ell(R)=mu+; original h(R)=aleph3.
+[x] NEW A^omega approximately R, distinguished from OLD A^omega=A.
+[x] Local fields R_a, uniform ground name-set definition, exact size mu.
+[x] Exact field inclusion/native-order reflection and stronger profile
+    exclusion from W[K_b].
+[x] Every new WO real family contained in a field; every new ordinal
+    subset belongs to an intermediate W[K_a].
+[x] Containment versus membership, V versus outer V[F], and equal
+    field cardinalities versus proper inclusions explicitly separated.
+[x] All old injection/bijection/surjection comparisons preserved.
+[x] Old normal-form records; relative PP and relative finite bases for
+    new families of old sets; no promotion to all new cardinalities.
+[x] Preserved nonsplitting and absence of countable multisections.
+[x] Real self-surjection without a right inverse, explicitly NOT a
+    counterexample to PP.
+[x] SVC(A), SVC(R), KWP*_1 and KWP_2; ICF/HCF fail by finite descent.
+[x] Initial segments, final segments, ALL open intervals have cardinal A.
+[x] Anchored cancellation and interval proof sketch; old tail square-root
+    question correctly marked resolved.
+[x] L has countable cofinality; no tail/interval contains an old non-WO
+    subset; finite and countable power consequences.
+
+SEPARATELY FLAGGED PRELIMINARY / BOUNDED ITEMS
+[x] Final-segment countable order-density: written proof exists, but the
+    saved independent segment audit does not cover that last refinement.
+    Explicitly marked and not used as an input elsewhere.
+[x] Hypothetical R->A support/chart locality and real codes for all new
+    directed ideals: recorded local deductions, not a new coherent
+    quotient theorem. The filename register identifies their status.
+
+OPEN BOUNDARIES EXPLICITLY RETAINED
+[x] R injects into A; global Q(A), PP, NDS, FB, finite-antichain property.
+[x] BPI and full Order Extension Principle in N.
+[x] KWP1, Ordering Principle, global finite choice, and transfer of old
+    countable-member choice.
+[x] Availability/support-descent/exact-fiber coherence obligations.
+[x] No novelty, priority, peer-review or full formal-verification claim.
+
+SOURCES / AUDIT REGISTER
+[x] Exact saved filenames grouped as [N1]--[N10].
+[x] Pinned forcing.tex, monoid.tex, quotients.tex and OpenAI repository.
+[x] Karagila--Schweber 2022 chain-condition reference with DOI.
+[x] Karagila--Schilhan 2026 KWP reference with DOI and primary preprint.
+[x] Ryan-Smith 2025 comparison with correct published/preprint numbering;
+    explicitly a different model, not a PP failure for N.
+
+VALIDATION PERFORMED
+- Read the relevant saved proof/audit notes and incorporated supersession
+  of the tail-cardinality gap.
+- Checked balanced braces and display delimiters in the authored section.
+- No PDF compilation or rendering performed here; parent integrates and
+  compiles the whole report with its own page numbering and layout.
+- Only the requested new_model.tex and this checklist were authored for
+  this reporting assignment. No existing research note, publication
+  bundle, GitHub resource, or imported file was changed.

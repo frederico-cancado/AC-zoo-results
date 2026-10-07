@@ -1,0 +1,174 @@
+BPI / MODEL-VARIANT SECTION: COVERAGE AND STATUS CHECKLIST
+7 October 2026. Consolidation only; no new research or publication.
+
+DELIVERABLE / VALIDATION
+- sections/bpi_variants.tex: no preamble, 3,754 whitespace-delimited words after initial integration edits.
+- Standard amsmath/amssymb/hyperref; no custom environments or bibliography keys.
+- Temporary standalone compile: 7 A4 pages, 11pt, 25mm margins; two successful
+  pdflatex passes, no overfull boxes/errors. One underfull filename paragraph.
+- All seven pages rendered and visually inspected: no clipping or overlap.
+- Temporary wrapper, PDF and images: tmp/pdfs/bpi_variants_check/.
+  They are not publication deliverables; parent validates the combined PDF.
+
+STATUS KEY
+A = mathematical proof and separate internal audit saved; neither external
+    peer review nor a claim of full formal verification.
+C = conditional/abstract theorem, hypotheses explicitly stated.
+L = literature result, source-access limitations disclosed.
+U = unresolved here, not asserted open throughout the literature.
+H = historical/superseded working status retained in the source notes.
+
+COVERAGE INCLUDED
+
+[A] Native ancestor partial order is internal and has no linear extension.
+Silent-petal six-cycle proof includes exact overlap validity and Cohen
+compatibility. Forcing automorphisms are not actual model automorphisms.
+Sources: NATIVE_ORDER_EXTENSION_SIX_CYCLE_PROOF.txt;
+INDEPENDENT_AUDIT_SIX_CYCLE_OEP_FAILURE.txt;
+BPI_SIX_CYCLE_ROOT_INDEPENDENT_AUDIT.txt.
+
+[A/L] Failure of OEP/BPI in original W and all audited parameter variants.
+OP still holds. PP/NDS/FB do not imply BPI/OEP, relative to Con(ZF).
+No universal PP -> notBPI or PP -> NDS inference. BPI -> OEP and prior
+OP+notOEP symmetry methods credited to Jech; source PP model to OpenAI.
+
+[A, partial formal check] SixCycleAudit.lean proves finite-overlap geometry
+and copied partial-assignment compatibility against exact pinned Valid.
+No sorryAx reported; full symmetric-forcing theorem not newly formalized.
+Source: SIX_CYCLE_LEAN_SCOPE.txt.
+
+[A] Explicit size-A nontrivial Boolean algebra without prime ideal;
+concrete generated subalgebra of finite-cone quotient; least possible
+counterexample cardinal; model-specific well-orderability characterization.
+Sources: ORDER_OBSTRUCTION_BOOLEAN_ALGEBRA_AND_FINE_FORCING.txt;
+BOOLEAN_ALGEBRA_ROOT_AUDIT.txt.
+
+[A] Fine ultrafilter on OLD P(Fin(A)) already yields a new native order;
+noncofinal-ideal forcing necessarily adds a new subset of A; A-indexed
+binary decision dense sets have empty intersection; failure of binary
+A-distributivity in the Boolean completion. Not omega-distributivity.
+Genericity on an old algebra is not full final-powerset ultrafilterhood.
+
+[A] Explicit size-A graph with every finite subgraph 3-colorable and exact
+chromatic number 4; finite NAE gadget proof; least witness cardinality.
+Two-color compactness survives from AC_2. Classical literature credited.
+Sources: EXPLICIT_GRAPH_COMPACTNESS_COUNTEREXAMPLE.txt;
+EXPLICIT_GRAPH_COMPACTNESS_INDEPENDENT_AUDIT.txt.
+
+[L] SVC(A): BPI iff a fine ultrafilter on Fin(A), Ryan-Smith Prop.3.13.
+Original W fails this test. No abstract package+BPI -> AC theorem claimed.
+
+[L] Basic Cohen model: BPI+SVC but not PP/NDS/FB/ordinary RPP, with its SVC
+generator caveat. Tachtsis 2024: BPI+AComega+notNDS, hence notFB, using
+exact theorem attribution in Blass--Kulshreshtha v3; full Tachtsis article
+not obtained. Old models and classical tools not claimed as new results.
+Sources: BPI_SVC_AND_HIGHER_CHOICE_PHASE2.txt;
+NATIVE_OEP_BPI_NOVELTY_AUDIT.txt.
+
+[A/C] Filter/compactness boundaries: FB gives minimum cardinal carriers,
+not bases; native cone filter closed under internal WO intersections;
+every nonprincipal ultrafilter on original A countably incomplete;
+BPI+PP small-carrier Henkin lemma; finite-factor ultraproduct logarithms
+need not decrease external cardinalities.
+Sources: STRUCTURAL_BPI_PHASE1.txt;
+ANCESTOR_FILTER_COMPACTNESS_AND_ULTRAFILTER_INCOMPLETENESS.txt;
+HENKIN_SMALL_CARRIER_AND_STRUCTURE_OBSTRUCTION.txt;
+ULTRAPRODUCT_AND_QUOTIENT_OBSTRUCTIONS.txt.
+
+[A] Parameter theorem with regular kappa, regular mu, 2^{<kappa}<mu and
+lambda^{<kappa}<mu for all infinite lambda<mu; explicit <kappa-array repair,
+countable germs; full strong package; w(A)=mu, h(A)=mu+;
+W_lambda iff lambda<=mu; WO(P(alpha)) iff alpha<kappa;
+DC but notDC_omega1 throughout.
+Sources: LARGER_MU_AND_KAPPA_PARAMETER_AUDIT.txt;
+LARGER_MU_SECOND_INDEPENDENT_AUDIT.txt;
+T_ACTION_INDEPENDENT_AUDIT_AND_DC_OMEGA1.txt.
+
+[A] M12/M13/M23 L-ground table separates displayed cardinal-comparability
+and powerset-well-orderability sentences over the common package.
+Con(ZF) interpretation, no inaccessible; not a new Lean-verified theorem.
+
+[A] No-GCH theta-collapse and internal successor identification.
+Cardinal preservation is through Cohen extension/ordinal locality, not
+an assertion about the entire outer diagram product.
+Source: NO_GCH_HOMOGENEOUS_BOUND_RECHECK.txt.
+
+[C/A] No-new-P(A)+SVC(A) preservation; ordinary set forcing preserves SVC;
+actual high Cohen forcing via Easton plus intersection lemma. Explicit
+lambda=aleph5 example; BPI stays false. High powerset coefficients are
+arithmetic variations, not automatically weak-choice separations.
+Sources: FINE_IDEAL_FORCING_PRESERVATION_AND_CLOSURE_AUDIT.txt;
+HIGH_FORCING_PRESERVATION_INDEPENDENT_AUDIT.txt.
+
+[A] Exact global pair homogeneous-cardinality threshold kappa without GCH;
+exact ordinal color-number threshold kappa; local binary parity coloring
+has largest homogeneous size kappa in both colors.
+Sources: EXACT_HOMOGENEOUS_CARDINAL_BOUND.txt;
+GLOBAL_NON_WELL_ORDERABLE_RAMSEY_THRESHOLD.txt;
+RAMSEY_AND_FINITE_BASIS_ROOT_AUDIT.txt.
+
+[A] Exact L-ground all-finite-color arity spectrum
+aleph_max(m-r+2,0), table and positive/negative proof sketches.
+Sources: HIGHER_ARITY_GLOBAL_RAMSEY_SPECTRUM_DRAFT.txt;
+HIGHER_ARITY_ROOT_INDEPENDENT_AUDIT.txt.
+
+[A/U] Binary triples: exact positive/unknown/negative bounds table;
+particular orientation witness has exact maximum kappa; all 16 binary
+coarsenings of the four-color witness admit omega1 homogeneous subsets
+in M12/M13. Exact binary spectrum unresolved. Auxiliary-well-order gap
+in classical binary stepping up explained; not a global-open claim.
+Sources: BINARY_TRIPLE_RAMSEY_AUDIT_AND_COARSENING_NO_GO.txt;
+BINARY_TRIPLE_ROOT_INDEPENDENT_AUDIT.txt.
+
+[A] No-go approaches: increase I alone; literal infinite-product Ramsey
+rectangles; ordered coordinate subgroup creates A -> mu+ cut quotient;
+full ground order decorations create a quotient onto ground LEXT(T)
+of size 2^mu. Last two modifications lose PP and ACWO.
+Sources: SYMMETRIC_FILTER_PHASE4_LARGE_I.txt;
+ORDERED_SUBGROUP_CUT_QUOTIENT_OBSTRUCTION.txt;
+ORDER_REPAIR_ROOT_AUDIT.txt.
+
+[A/U] Restricted palettes: no finite pullback-closed palette; necessary
+mu<=2^(2^lambda) for infinite palette size lambda; small finite-request
+closures and one-stage universal packing exist. Final universal lifting,
+support descent and quotient theorem still unresolved.
+Source: ORDER_PALETTE_ROOT_AUDIT.txt.
+
+[L/U] Ransom 2026 exact forcing-aware BPI criterion: full product and
+all-common-extension compatibility matter; finite-support examples do
+not automatically apply. No positive BPI model produced here.
+Source: SYMMETRIC_FILTER_PHASE3.txt.
+
+[L/H] ACWO -> DC source correction resolved affirmatively in pure ZF.
+Index families distinguished from WO members; original apparent negative
+arrow was a faulty HTML reconstruction, corrected against primary PDF.
+Source: AC_WO_DC_PRIMARY_SOURCE_RECONCILIATION.txt.
+
+[L/U] DC+BPI source conflict recorded with original Pincus announcement,
+publisher summary, Ransom/Aspero--Karagila versus July 2026 paper wording.
+Full Pincus proof not retrieved; discrepancy not used as premise.
+Source: DC_BPI_SOURCE_CONFLICT.txt.
+
+[L/H] Bounded novelty/source check: no BPI/OEP statement in 12 pinned PP
+text sources; no prior specific model consequence located in checked
+literature. Search evidence not a priority certificate. All older notes
+saying BPI undecided are explicitly superseded.
+Source: NATIVE_OEP_BPI_NOVELTY_AUDIT.txt.
+
+HANDOFF: OTHER SECTIONS SHOULD COVER
+- Cardinal normal forms, finite bases, exact exponentiation, PC/ICF/HCF,
+  EC/SES, and historical references.
+- Detailed action/fiber/nonsplitting proofs, countable multisections,
+  and original-model Form 85A countable-member choice.
+- Finite order forcing: CCC3, covering/preservation, complete ccc Boolean
+  algebra, generic real profiles, local fields, and generic interval sizes.
+- That forcing's still-unresolved new PP/NDS/BPI, distinguished from the
+  NEGATIVELY settled no-new-A route for the DIFFERENT Fin(A) quotient.
+- Imported documents, authorship/priority/license/publication material.
+
+INTEGRATION
+All cited local filenames are in outputs/BPI_RPP_five_hour_research/.
+The parent has mapped these notes into evidence/original_model/ in the
+release and updated the section locator accordingly. Direct primary source
+hyperlinks avoid dependence on the shared bibliography. Section numbers adjust on
+input into the master. No other publication artifacts were modified.

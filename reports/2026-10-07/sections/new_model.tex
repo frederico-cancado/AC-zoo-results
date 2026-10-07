@@ -1,0 +1,528 @@
+\section{The ordinary extension by finite linear orders}
+\label{sec:complete-new-model}
+
+This section reports the second model studied in the workspace.  Starting
+with the OpenAI symmetric model $W$, we force a linear extension of its
+native partial order and obtain $N=W[G]$.  The established conclusions
+include
+\[
+ N\models\mathsf{ZF}+\mathsf{AC}_{\mathrm{WO}}+\mathsf{DC}
+       +\neg\mathsf{AC}+\neg\mathsf{DC}_{\omega_1},
+ \qquad \mathsf{SVC}(A)+\mathsf{SVC}(\mathbb R_N),
+\]
+where $\mathbb R_N=\mathcal P(\omega)^N$.  All old cardinal comparisons
+survive, but the new real set is not well-orderable.  Whether $N$ satisfies
+\emph{global} PP, NDS, FB, or BPI remains unresolved.  In particular, this
+section does not present a model of BPI together with failure of Choice.
+
+Here $X\approx Y$ means equipotence, $X\preccurlyeq Y$ means the existence
+of an injection, and ``old'' means belonging to $W$, rather than merely
+to the earlier ZFC construction ground $V$.  A result described as
+audited has a written mathematical proof and a separate workspace
+check; this is neither external peer review nor a formal verification
+of the whole forcing construction.  The proofs below are summaries of
+the saved arguments.  The audit register at the end supplies their
+exact filenames.
+
+\subsection{Construction and the chain conditions}
+
+The starting model has a non-well-orderable set $A$ and a ground monoid
+$T$ of well-orderable cardinality $\mu$.  There is an internal free right
+action $(a,t)\mapsto a\cdot t$ of $T$ on $A$.  ``Free'' here means that
+$t\mapsto a\cdot t$ is injective for each fixed $a$; it does not mean
+that right multiplication $a\mapsto a\cdot t$ is injective.  Define
+\[
+ a\leq_T b\quad\Longleftrightarrow\quad
+       (\exists t\in T)\ b=a\cdot t.
+\]
+This is a partial order.  Its principal upset $aT$ is called a
+\emph{chart}; it is an old well-orderable set of cardinality $\mu$.
+Every old well-orderable subset of $A$ lies in one chart.  The results
+used from $W$ include
+\[
+ A^2\approx A,\qquad A\times\mu\approx A,\qquad
+ (A^\omega)^W\approx A,\qquad h^W(A)=\mu^+.
+\]
+Every old set has a normal form $(A\times\alpha)\sqcup\beta$, with
+ordinal coefficients.  Here $h(X)$ is the least ordinal not injecting
+into $X$; $w(A)=\mu$ means that $\mu$ is the largest well-orderable
+cardinal represented by a subset of $A$.
+
+Let $\mathbb P_{\mathrm{ext}}$ consist of finite strict linear orders on
+finite subsets of $A$ which extend the strict part $<_T$ of the native order on their domains.
+A stronger condition extends the domain and the finite order.  The
+generic union $<_L$ is a strict linear order on all of $A$ extending $<_T$; we also write $L$ for this order.
+Set
+\[
+              N=W[G],\qquad G\subseteq\mathbb P_{\mathrm{ext}}.
+\]
+This is ordinary set forcing over the choiceless model $W$.  Its
+construction and its preservation properties require separate proofs.
+
+\paragraph{Audited chain-condition theorem.}
+Every antichain in $\mathbb P_{\mathrm{ext}}$ is countable, and every
+predense subset has a countable predense subset.  We call these
+properties $\mathrm{CCC}_2$ and $\mathrm{CCC}_3$, respectively.  The
+second is not inferred from the first in arbitrary ZF models.
+
+The local proof uses the source monoid's height $\rho:T\to(0,1)$,
+positive costs $\epsilon_t$, and conditional joins.  Two conditions
+$(x_0<\cdots<x_{n-1})$ and $(y_0<\cdots<y_{m-1})$ are incompatible
+exactly when a reversed rectangle occurs:
+\[
+ i<j,\ l<k,\qquad x_j\leq_T y_l,
+                         \quad y_k\leq_T x_i.
+\]
+After bounding the finite lengths and bounding the costs away from zero,
+finite Ramsey theory turns a sufficiently large antichain into a
+triangular pattern.  Successive finite joins would then increase
+$\rho$ by more than a fixed positive amount at every step, contradicting
+$0<\rho<1$.  This proves a local $\sigma$-bounded chain condition on a
+chart.  An alleged $\omega_1$-indexed global antichain localizes to one
+chart.  In $W$ every uncountable set contains $\omega_1$, so this excludes
+all uncountable antichains.
+
+Each chart subforcing is regular in $\mathbb P_{\mathrm{ext}}$.
+A finite condition has a finite reduction to the chart: its constraints
+are projected to the least native successors in that chart, using
+conditional joins.  The stronger $\mathrm{CCC}_3$ proof then uses the
+actual source construction's petal-separation lemma.  If a predense set
+has supporting diagram $p$, choose a larger diagram $q$ with $q_e=p$.
+Its part inside the chart of $q$ is globally predense.  A greedy
+well-ordered construction in that chart produces a countable predense
+subfamily.  The source-specific petal and gate calculations are material
+hypotheses of this argument [N1].
+
+\subsection{Preservation and the remaining failures of Choice}
+
+\paragraph{Audited preservation theorem.}
+The extension preserves all ordinal cardinals and cofinalities, the
+Hartogs number of every old set, and the non-well-orderability of every
+old non-well-orderable set.  More precisely, every new well-orderable
+subset of an old set $X$ is contained in an \emph{old} well-orderable
+subset of $X$ [N2].
+
+For the proof let $\mathbb B=\operatorname{RO}^W(\mathbb P_{\mathrm{ext}})$.
+Its antichains are countable: an uncountable Boolean antichain would
+contain an $\omega_1$-indexed subfamily, and old
+$\mathsf{AC}_{\mathrm{WO}}$ would select incompatible forcing conditions
+below its members.  If a name is forced below $b_0$ to be a function
+$f:X\to Y$ between old sets, put
+\[
+ g(x)=\{y\in Y:b_0\wedge\Vert\dot f(\check x)=\check y\Vert>0\}.
+\]
+For fixed $x$ the nonzero Boolean values are disjoint.  Thus $g(x)$ is
+countable in $W$, and $g$ is one canonically defined old function with
+$f(x)\in g(x)$.  For an ordinal domain, old
+$\mathsf{AC}_{\mathrm{WO}}$ well-orders the union of these possible-value
+sets.  This gives the asserted covering property, from which the
+cardinal, cofinality and Hartogs conclusions follow.  In particular
+\[
+                w^N(A)=\mu,\qquad h^N(A)=\mu^+,
+                \qquad N\models\neg\mathsf{AC}.
+\]
+The complete-Boolean-algebra covering argument is related to the
+choiceless chain-condition analysis of Karagila--Schweber; the saved
+proof checks the extra hypotheses needed here, instead of importing
+ZFC preservation wholesale.\footnote{A.~Karagila and N.~Schweber,
+``Choiceless chain conditions,'' \emph{European Journal of Mathematics}
+8, Supplement 2 (2022), S393--S410,
+\url{https://doi.org/10.1007/s40879-022-00564-2}.}
+
+The stronger chain condition separately preserves
+$\mathsf{AC}_{\mathrm{WO}}$.  For each member of a new ordinal-indexed
+family, use a countable predense set of conditions carrying witness
+names.  Collection first bounds those names in one old set.  Old
+ordinal-indexed choice selects the countable lists and witnesses;
+in the generic extension, the first successful condition supplies the
+chosen element.  This uses local witness density, not the choiceless
+maximum principle.  Consequently $N$ also satisfies ordinary DC,
+by the established implication $\mathsf{AC}_{\mathrm{WO}}\Rightarrow
+\mathsf{DC}$ [N2].
+
+Every new ordinal sequence of $A$-points is contained in one old chart.
+It therefore has a strict common native predecessor.  A descending
+$\omega_1$-sequence would produce, in that chart, a strictly decreasing
+$\omega_1$-sequence of real heights, which is impossible.  The resulting
+countably closed tree of descending native sequences witnesses
+$\neg\mathsf{DC}_{\omega_1}$.  Also $L$ has no well-orderable coinitial
+subset.  Its reverse witnesses failure of the Cofinality Principle,
+the assertion that every linear order has a well-orderable cofinal
+subset.  These statements concern new subsets as well as old ones.
+
+The old Boolean algebra $\mathbb B$ has cardinal $A$, is complete,
+atomless and ccc in $W$, and has no ultrafilter there: an ultrafilter
+would evaluate its comparison values to a forbidden native linear
+extension.  The generic extension supplies an ultrafilter on this
+\emph{old} algebra.  Its old completeness need not extend to all new
+families of Boolean elements.  Repairing this particular obstruction
+does not establish BPI for all Boolean algebras of $N$ [N3].
+
+\subsection{The new real set and the unresolved evaluation quotient}
+
+\paragraph{Audited real-cardinal theorem.}
+In $N$ there are maps
+\[
+            A\lhook\joinrel\longrightarrow\mathbb R_N,
+       \qquad A\twoheadrightarrow\mathbb R_N.
+\]
+The real set is not well-orderable and satisfies
+\[
+ w(\mathbb R_N)=\mu,\qquad h(\mathbb R_N)=\mu^+,
+ \qquad \ell(\mathbb R_N)=\mu^+,
+ \qquad (A^\omega)^N\approx\mathbb R_N.
+\]
+For the original parameters $\mu=\aleph_2$, this gives the non-well-orderable
+real set Hartogs number $\aleph_3$; parameter variants use their preserved
+$\mu$.  Here $\ell$ is the least positive ordinal not obtainable as a
+surjective image; the harmless empty-set convention does not affect
+the displayed infinite value [N4].
+
+For the injection, fix selected probes $m_n$ and encode the order
+pattern of $\{a\cdot m_n:n<\omega\}$ as a real $r_a$.
+The probe geometry implies that the sets at two distinct centers
+intersect in at most one point.  A finite-order swap can change a
+comparison at one center while keeping the corresponding comparison
+at the other unchanged.  These separating extensions are dense, so
+$a\mapsto r_a$ is injective.
+
+For the surjection, $\mathrm{CCC}_3$ expresses every old Boolean value
+as a countable join of forcing conditions.  Since
+$|\mathbb P_{\mathrm{ext}}|=|A|$ and $(A^\omega)^W\approx A$, one old
+$A$-sized set codes all old sequences of Boolean values.  Evaluation
+under the generic ultrafilter covers every new subset of $\omega$.
+This produces a surjection, not an injection in the opposite direction.
+
+If $\mu^+$ injected into $\mathbb R_N$, new
+$\mathsf{AC}_{\mathrm{WO}}$ would choose preimages under
+$A\twoheadrightarrow\mathbb R_N$, contradicting the preserved Hartogs
+number of $A$.  This proves the upper threshold; the profile injection
+gives the lower bound.  Finally,
+$\mathbb R_N\preccurlyeq A^\omega\preccurlyeq
+\mathbb R_N^\omega\approx\mathbb R_N$ proves the countable-power
+identity.  The left-hand power here is computed in $N$, not in $W$.
+
+The central unresolved comparison is
+\[
+                         \mathbb R_N\preccurlyeq A\ ?
+\]
+An injection and a surjection from $A$ to the same target do not
+settle this in ZF.  Least choices of ground code \emph{types} do not
+choose centers in the remaining non-well-orderable fibers.  Even
+$\mathbb R_N\approx A$, if eventually proved, would settle one
+quotient instance and would not alone prove global PP.
+
+\subsection{Local real fields and exact localization}
+
+Put $Q=\mathbb P_{\mathrm{ext}}(T)^V$.  For each $a\in A$, the chart
+map $t\mapsto a\cdot t$ pulls the generic order back to a $Q$-generic
+filter $K_a$.  Chart regularity gives genericity over $W$, hence over
+$V$; it does not justify genericity over the external Cohen universe
+$V[F]$.  Fix in $V$ a $\mu$-enumerated set $\Gamma$ of all countable
+$Q$-names coding reals, and define internally
+\[
+ R_a=\{\tau^{K_a}:\tau\in\Gamma\}.
+\]
+Externally this is $\mathbb R_N\cap V[K_a]$.  The internal definition
+uses a set of names, not a predicate for the ground universe.
+
+\paragraph{Audited local-field theorem.}
+For every $a$, $|R_a|=\mu$.  Every new well-orderable subset of
+$\mathbb R_N$ is contained in some $R_a$.  Every new subset of an
+ordinal belongs to $W[K_a]$ for some $a$.  Moreover
+\[
+ R_a\subseteq R_b\quad\Longleftrightarrow\quad a\in bT,
+ \qquad
+ r_a\in R_b\quad\Longleftrightarrow\quad a\in bT.
+\]
+Indeed the stronger exclusion $r_a\notin W[K_b]$ holds whenever
+$a\notin bT$ [N5].
+
+The size bound comes from the ground enumeration of $\Gamma$; the
+$\mu$ profiles $r_{a\cdot t}$ give equality.  For localization, take
+the Boolean bits of an ordinal-indexed real family and choose their
+countable forcing codes using old ordinal-indexed choice.  All finite
+point domains form one old well-orderable subset of $A$, hence lie
+in one chart.  Each individual real then has a countable sequence of
+ground $Q$-conditions.  The original model adds no countable sequences
+of ground elements, so that code belongs to $V$ and evaluates in
+$V[K_a]$.  The full uncountable array need only belong to $W$; this
+explains the weaker $W[K_a]$ conclusion for arbitrary ordinal subsets.
+
+The inclusion-reflection proof uses a quotient-forcing argument.  If
+$a\notin bT$, infinitely many of the probes at $a$ have identical
+native comparison profiles to the entire chart $bT$.  Below any finite
+quotient condition, two remain interchangeable while all chart-order
+information is fixed.  Both orientations can still be forced, so the
+corresponding bit of $r_a$ is new over $W[K_b]$.
+
+Two distinctions are essential.  A well-orderable real family is
+\emph{contained in} $R_a$; the family itself need not belong to
+$V[K_a]$.  Also proper field inclusions do not give strict cardinal
+inequalities: all the $R_a$ have the same cardinal $\mu$.  Every
+well-orderable family of these fields is contained in one strictly
+larger field, by taking a strict native predecessor of its centers.
+Thus there is no well-orderable cofinal subfamily under inclusion.
+
+\subsection{All comparisons between old sets are preserved}
+
+For any old $X,Y$, the existence in $N$ of an injection, bijection, or
+surjection between them is equivalent to its existence in $W$.
+Every new surjection between old sets has the PP conclusion witnessed
+by an \emph{old} injection in the reverse direction.  Moreover every
+new set-family consisting of old sets has a finite coinitial cardinal
+basis [N6].
+
+Here is the comparison invariant.  An old well-orderable set of
+cardinality $\nu$ has record $(0,\nu)$.  Normalize a non-well-orderable
+old set as
+\[
+ X\approx(A\times\alpha)\sqcup\beta,\qquad
+ \alpha\geq\mu,\quad \beta=0\text{ or }\beta>\alpha,
+\]
+with ordinal cardinals as coefficients, and give it record
+$(\alpha,\varepsilon)$, where $\varepsilon=\max(\alpha,\beta)$.
+These records are unique and injection comparison is componentwise,
+both in $W$ and in $N$.
+
+For example, an injection from record $(\alpha,\varepsilon)$ into
+$(\gamma,\zeta)$ gives $\varepsilon\leq\zeta$ by Hartogs preservation.
+Each of the $\alpha$ source copies of $A$ must meet the target's
+$A$-part; otherwise that copy would become well-orderable.  New
+ordinal-indexed choice selects one point from each such disjoint
+intersection, giving $\alpha\leq\gamma$.  Conversely the two
+inequalities already construct an old injection.  A similar
+preimage selection proves preservation of surjections.
+
+Every set of ordinal pairs has a finite coinitial subset under the
+componentwise order: repeatedly choose a least first coordinate and
+then a least second coordinate not already dominated.  Continuing
+infinitely would strictly decrease the second coordinate infinitely.
+Applying this to the unique old records proves the relative FB claim.
+For a new family of old sets, first bound their ranks inside one old
+rank segment, so its old record assignment is a set function.
+
+Thus an infinite new cardinal antichain or descending chain cannot
+consist solely of old cardinalities.  This is not global FB or NDS
+for all new sets.  If $\mathbb R_N\not\approx A$, its cardinality is
+new: $A$ is the only old non-well-orderable cardinality with
+$w=\mu$.
+
+\subsection{Explicit nonsplitting and additional choice bounds}
+
+For every $t\neq1$, the old surjection $f_t:A\to A$,
+$f_t(x)=x\cdot t$, remains without a right inverse.  More strongly,
+there is no assignment of a nonempty countable subset of each fiber,
+even in $N$ [N7].  The old proof says that any countable-valued
+assignment on $A$ has some value contained in the forward chart of
+its argument.  A nonempty value consisting of predecessors would
+then contradict conicality of $T$.  For a new assignment,
+$\mathrm{CCC}_3$ supplies a canonical old countable cover of every
+possible value, reducing the contradiction to that old statement.
+
+Transport $f_t$ along $a\mapsto r_a$ and extend it by the identity
+outside that image.  This gives a surjection
+$g_t:\mathbb R_N\to\mathbb R_N$ without a right inverse, or even a
+countable multisection.  Consequently choice fails for real-indexed
+families of nonempty sets of reals.  This is not a failure of PP:
+PP does not split each specified surjection, and these two sets are
+already equipotent.
+
+Ordinary forcing preserves $\mathsf{SVC}(A)$.  The profile injection
+gives a retraction $\mathbb R_N\twoheadrightarrow A$, hence
+$\mathsf{SVC}(\mathbb R_N)$.  Coding
+$\mathbb R_N\times\eta$ into a power set of an ordinal yields
+\[
+             \mathsf{KWP}^{*}_1,\qquad \mathsf{KWP}_2
+             \quad\hbox{in }N.
+\]
+Here $\mathsf{KWP}_n$ means that every set injects into an $n$-fold
+power set of an ordinal; the starred version uses partial surjections.
+Inverse-image fibers give $\mathsf{KWP}^{*}_1\Rightarrow
+\mathsf{KWP}_2$.  These are the established bounds, not
+$\mathsf{KWP}_1$, the Ordering Principle, or global finite-choice
+preservation.\footnote{A.~Karagila and J.~Schilhan,
+``Intermediate models and Kinna--Wagner Principles,''
+\emph{Proceedings of the American Mathematical Society} 154 (2026),
+393--403, \url{https://doi.org/10.1090/proc/17425}; see Section 3.2
+and Proposition 4.1 of \url{https://arxiv.org/html/2409.07352v2}.}
+
+There are also definite negative continuum-function conclusions.
+Write ICF for
+$\mathcal P(X)\approx\mathcal P(Y)\Rightarrow X\approx Y$,
+and HCF for reflection of injection comparison by $\mathcal P$.
+ZF proves $\mathsf{ICF}+\mathsf{KWP}_{n+1}\Rightarrow
+\mathsf{KWP}_n$: apply the latter to $\mathcal P(X)$, obtaining
+$\mathcal P(X)\preccurlyeq\mathcal P(B)$ with
+$B=\mathcal P^n(\theta)$ and $\theta$ infinite.  Since $B$ absorbs
+two copies,
+$\mathcal P(X\sqcup B)\approx\mathcal P(B)$, so ICF gives
+$X\preccurlyeq B$.  Finite descent reaches AC.  Thus the proved
+$\mathsf{KWP}_2+\neg\mathsf{AC}$ package implies
+$\neg\mathsf{ICF}+\neg\mathsf{HCF}$ in $N$ [N8].
+
+\subsection{Initial segments, final segments, and open intervals}
+
+For $a<_L b$ put
+\[
+ I_a=\{x:x<_L a\},\qquad J_a=\{x:a<_L x\},\qquad
+ (a,b)_L=\{x:a<_L x<_L b\}.
+\]
+The final audited result is
+\[
+                  I_a\approx J_a\approx(a,b)_L\approx A.
+\]
+The earlier possibility that a final segment might be a proper
+square root of $A$ was resolved by an explicit injection, not by
+cancelling the established identity $J_a^2\approx A$ [N9].
+
+An initial segment contains the old $A$-sized fiber
+$\{x:x\cdot t=a\}$ for any $t\neq1$.  For an interval, choose selected
+probes $m_n$ with $m_ne=e$, pairwise cone intersection $eT$, and only
+identity common left divisors.  Fix $d$ with $d\cdot e=b$, and set
+$F=\{x:x\cdot m_0=d\}\approx A$.  For each $x\in F$ the ray
+\[
+                    S_x=\{x\cdot m_n:n\geq1\}
+\]
+lies strictly below $b$.  These rays are disjoint for different $x$:
+a shared ray point together with the shared anchor $d$ forces the
+common-chart join quotients to divide both $m_0$ and a later $m_n$,
+so both quotients are $1$.
+
+In a finite condition, a point below $b$ can dominate at most one
+point of $S_x$; dominating two would place it natively above $b$.
+A remaining ray point can therefore be inserted immediately before
+$b$.  Genericity makes $S_x$ cofinal below $b$.  Its least indexed
+point above $a$ injects $F$ into $(a,b)_L$, proving the theorem.
+Taking $b=a\cdot e$ also proves the final-segment case.
+
+The whole $L$ has countable cofinality.  A fixed countable sequence
+of fresh merger letters with disjoint cones gives, above any center,
+an old countable cofinal ray.  Every old non-well-orderable subset of
+$A$ is nevertheless $L$-coinitial: a point outside a chart covering
+a finite condition can be placed first.  Thus no final segment or
+bounded interval contains an old non-well-orderable subset.  The
+$A$-sized copies just constructed are new.
+
+All these segments have finite positive powers of cardinal $A$ and
+new countable power of cardinal $\mathbb R_N$.  They therefore yield
+no strict cardinal descent among themselves.  A further recorded
+refinement says that each final segment has an old countable
+order-dense subset, using the common-divisor and disjoint-cone
+properties of the merger rays.  That refinement has a written proof
+in [N9], but its separate independent audit is not part of the saved
+segment audit; it is not used in any theorem above.
+
+\subsection{Boundaries of the current classification}
+
+The unresolved global questions in $N$ are PP, the strong quotient
+property $Q(A)$, NDS, FB, the assertion that every cardinal antichain
+is finite, and BPI.
+Also unresolved are $\mathbb R_N\preccurlyeq A$,
+$\mathsf{KWP}_1$, the Ordering Principle, and Choice for arbitrary
+families of finite sets.  The original model's countable-member choice
+consequence has not been transferred to $N$.  Adding a native linear
+extension does not establish the Order Extension Principle for every
+partial order, and neither it nor the local fields settles BPI.
+
+Two bounded deductions sharpen the outstanding work.  First, a
+hypothetical map $j:\mathbb R_N\to A$ has a support root $d$ such
+that $j[R_a]\subseteq aT$ whenever $a\leq_T d$.  This produces a
+coherence requirement among local $\mu$-sized injections, rather than
+a cardinal contradiction.  Second, every directed ideal of $T$ in
+$N$ has a canonically chosen countable cofinal sequence: select least
+points in the old $T$-wellorder with heights approaching the supremum,
+then take finite joins.  The positive-cost inequality rules out an
+omitted divisor.  Hence all these ideals inject into
+$\mu^\omega\approx\mathbb R_N$ [N10].  These are saved local
+deductions; neither supplies the missing global coherent selector.
+
+The original quotient proof explicitly requires support descent and
+coherent matching across charts.  New availability ideals need not
+be ground objects, and arbitrary ordered three-chart amalgams can
+cycle.  A bound on local names or ideals by $\mathbb R_N$ is therefore
+not a proof of an injective presentation theorem.  Likewise the
+Truss-model comparison in Ryan-Smith's work shows why
+$\mathsf{AC}_{\mathrm{WO}}+\mathsf{SVC}(\mathbb R)$ alone must not be
+treated as PP.\footnote{C.~Ryan-Smith, ``Local reflections of choice,''
+\emph{Acta Mathematica Hungarica} 176 (2025), 244--257,
+\url{https://doi.org/10.1007/s10474-025-01533-3}.
+The relevant comparison is Proposition 3.19 in the published version,
+numbered 3.18 in the author-hosted preprint.  It concerns a different
+model; it is not a negative PP theorem about $N$.}
+
+\subsection*{Saved proof and status register for this section}
+
+All filenames below are in the public archive directory
+\path{evidence/original_model/}, mapped from the workspace record
+\path{outputs/BPI_RPP_five_hour_research/}.  The source references are
+the pinned OpenAI construction in \path{work/openai_math/}: in
+particular \path{forcing.tex} (diagram amalgamation, local decision,
+ordinal choice and no countable ground sequences), \path{monoid.tex}
+(probe gates, merger normal forms and the construction schedule), and
+\path{quotients.tex} (availability ideals and coherent quotient
+matching).  The external construction is credited to
+\url{https://github.com/openai/math}; the extensions and deductions
+reported here must be distinguished from statements made in that
+manuscript.
+
+\begingroup\small
+\noindent\textbf{[N1] Chain conditions and chart reduction, audited.}
+\path{FINITE_LINEAR_EXTENSION_FORCING_CCC.txt};
+\path{FINITE_LINEAR_EXTENSION_CCC_INDEPENDENT_AUDIT.txt};
+\path{FINITE_ORDER_FORCING_CCC3_CHART_REDUCTION.txt};
+\path{FINITE_ORDER_FORCING_CCC3_INDEPENDENT_AUDIT.txt}.
+
+\noindent\textbf{[N2] Preservation, audited.}
+\path{BOOLEAN_COMPLETION_COVERING_AND_HARTOGS_PRESERVATION_AUDIT.txt};
+\path{CCC3_PRESERVES_AC_WO_CONDITIONAL_AUDIT.txt};
+\path{AC_WO_DC_PRIMARY_SOURCE_RECONCILIATION.txt}.
+The ``conditional'' filename records an earlier checkpoint: its
+$\mathrm{CCC}_3$ hypothesis was subsequently verified in [N1].
+
+\noindent\textbf{[N3] The old complete Boolean algebra, audited.}
+\path{COMPLETE_CCC_BOOLEAN_ALGEBRA_EXACT_CARDINAL_A_AUDIT.txt};
+\path{BOOLEAN_ALGEBRA_ROOT_AUDIT.txt}.
+
+\noindent\textbf{[N4] Real maps and thresholds, audited.}
+\path{GENERIC_ORDER_PROFILES_INJECT_A_INTO_REALS.txt};
+\path{GENERIC_REAL_PROFILE_INDEPENDENT_AUDIT_AND_QUOTIENT_TEST.txt};
+\path{BOOLEAN_CODES_FOR_NEW_REALS_ROOT_DRAFT.txt};
+\path{BOOLEAN_CODES_REAL_QUOTIENT_INDEPENDENT_AUDIT.txt}.
+The retained ``draft'' filename is accompanied by the separate audit.
+
+\noindent\textbf{[N5] Local fields and localization, audited.}
+\path{LOCAL_REAL_FIELDS_REFLECT_NATIVE_ORDER.txt};
+\path{LOCAL_REAL_FIELDS_INDEPENDENT_AUDIT.txt};
+\path{LOCAL_ZFC_REAL_COVERS_AND_ORDINAL_LOCALIZATION_AUDIT.txt}.
+
+\noindent\textbf{[N6] Old comparisons and relative finite bases.}
+\path{OLD_CARDINAL_COMPARISONS_AND_RELATIVE_FINITE_BASIS.txt};
+\path{OLD_SURJECTIVE_COMPARISONS_AND_RELATIVE_PP.txt}.
+These are mathematical deductions from the audited preservation and
+normal-form results; the surjective comparison has a recorded second
+reconstruction.
+
+\noindent\textbf{[N7] Nonsplitting and multisections, audited.}
+\path{COUNTABLE_MULTISECTIONS_AND_NONSPLITTING_PRESERVATION.txt};
+\path{COUNTABLE_MULTISELECTOR_INDEPENDENT_AUDIT.txt}.
+
+\noindent\textbf{[N8] Choice bounds and continuum-function failure.}
+\path{NEW_MODEL_KWP_OP_FINITE_CHOICE_BOUNDARY.txt};
+\path{FINITE_KWP_ICF_COLLAPSE_INDEPENDENT_AUDIT.txt}.
+
+\noindent\textbf{[N9] Resolved segment cardinalities, audited.}
+\path{ANCHORED_RAYS_RESOLVE_TAIL_AND_INTERVAL_CARDINALS.txt};
+\path{GENERIC_ORDER_SEGMENTS_INDEPENDENT_AUDIT.txt}.
+The preliminary file
+\path{GENERIC_LINEAR_ORDER_SEGMENTS_AND_SQUARE_ROOTS.txt}
+now carries a supersession notice.  Its open tail alternative is not
+a current unresolved question.  The separability refinement in the
+later note remains separately flagged above.
+
+\noindent\textbf{[N10] Bounded further deductions and remaining gaps.}
+\path{REAL_TO_LABEL_INJECTION_CHART_LOCALITY_AUDIT.txt};
+\path{NEW_AVAILABILITY_IDEALS_REAL_CODE_BOUND.txt};
+\path{TRUSS_QUOTIENT_COMPARISON_AFTER_ORDER_FORCING.txt}.
+These do not assert a completed new quotient classification.
+\endgroup

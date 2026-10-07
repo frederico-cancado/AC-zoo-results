@@ -1,0 +1,55 @@
+\section{Reading the results and keeping the models distinct}
+\label{sec:overview}
+\subsection{Notation and status conventions}
+All unqualified mathematical implications are over classical $\ZF$. We write $X\preccurlyeq Y$ for an injection $X\inj Y$, $X\cong Y$ for a bijection, and $X\prec Y$ for $X\preccurlyeq Y$ with no reverse injection. These comparisons concern cardinalities; they do not require a globally chosen system of cardinal representatives. The Hartogs number $h(X)$ is the least ordinal not injecting into $X$. The Lindenbaum number $\ell(X)$ is the least nonzero ordinal not a surjective image of $X$, with harmless empty-set conventions handled separately. Under $\ACWO$, the largest well-ordered cardinal injecting into an infinite set $X$ exists; it is denoted $w(X)$.
+
+\begin{description}[style=nextline]
+\item[Source theorem.] A result in a cited external manuscript or published work. OpenAI's construction remains an explicit dependency.
+\item[Audited deduction.] An argument reconstructed or developed in this project and checked mathematically by separate AI agents and/or the coordinating agent. This is not a claim of external peer review or full formalization.
+\item[Conditional result.] A proved implication with additional stated hypotheses whose realization or preservation may remain open.
+\item[Unresolved here.] No proof or counterexample has been obtained in this investigation. This label does not assert that the world literature treats the problem as open.
+\end{description}
+
+The partition principle is
+\[
+\PP:\quad X\onto Y\ \Longrightarrow\ Y\inj X.
+\]
+The injection need not be a section of the given surjection. Every surjection having a section is equivalent to $\AC$, and must not be substituted for $\PP$. Choice for all ordinal-indexed families is $\ACWO$; classical implications give $\PP\Rightarrow\ACWO\Rightarrow\mathsf{DC}$. Choice for arbitrary families of finite or countable \emph{members} is a different assertion from choice for finite or countable \emph{index sets}.
+
+$\mathsf{BPI}$ denotes the Boolean Prime Ideal Theorem, equivalently the existence of an ultrafilter on every nontrivial Boolean algebra. $\mathsf{OP}$ says every set can be linearly ordered. $\mathsf{OEP}$ says every partial order has a linear extension. The implication $\mathsf{BPI}\Rightarrow\mathsf{OEP}\Rightarrow\mathsf{OP}$ is classical; the two order principles must not be identified. The ordinary Ramseyan partition principle is denoted $\mathsf{RPP}$ and is defined in the cardinal chapter; it is not the Ramsey property of a group or normal filter.
+
+\subsection{Three settings}
+\begin{enumerate}
+\item \textbf{The original pure model $W$.} This is the symmetric model in the pinned OpenAI source. The ground $V$ satisfies $\ZFC$. The distinguished non-well-orderable set $A$ consists of Cohen subsets of a regular ordinal $\kappa$. In the original construction $\kappa=\omega_1$ and the ground parameter is $\mu=((2^{\aleph_0})^+)^V$. The monoid $T$ has ground cardinality $\mu$. For this original model, the audited internal identification is $\mu=\omega_2^W$.
+\item \textbf{The finite-order extension $N=W[G]$.} Here $G$ is generic for finite linear orders on subsets of $A$ extending its native partial order. The generic order exists in $N$, while it provably does not exist in $W$. Thus the original order-extension obstruction is removed. This does not establish global $\mathsf{BPI}$ or preserve the original image classification.
+\item \textbf{Ordinary permutation models with atoms.} Earlier work used a faithful group $G$ and an effective normal filter of subgroups to build $\ZFA$ models. Its group criteria and counterexamples concern that setting. A pure symmetric extension is not an ordinary atom permutation model; the relevant collapse and transfer arguments cannot be silently moved between them.
+\end{enumerate}
+
+The source revision throughout is
+\begin{center}\small\path{adc7f1241b42e322a6451854ab7e4b4c146bf78a}.\end{center}
+The source supplies $\SVC(A)$, $\ACWO$, $A$ non-well-orderable, and the property
+\[
+Q(A):\quad\text{every non-well-orderable surjective image of $A$ is bijective with $A$.}
+\]
+The anchors are Proposition 3.6, Proposition 3.7, Proposition 3.8, Theorem 6.3 and Lemma 7.1 of \cite{OpenAI}. Section 8 supplies the ordinary first-order relative-consistency bridge. None of our applications replaces this bridge by an assumption that a transitive model or an inaccessible cardinal exists.
+
+\subsection{Main outcomes at a glance}
+\begin{longtable}{>{\raggedright\arraybackslash}p{.20\linewidth}>{\raggedright\arraybackslash}p{.72\linewidth}}
+\toprule
+Setting & Recorded outcome\\\midrule\endhead
+Original $W$ & $\PP+\ACWO+\mathsf{DC}+\FB+\NDS+\neg\AC$; all set-sized cardinal antichains finite, but their finite sizes unbounded.\\
+Original $W$ & $\mathsf{KWP}_1$, $\mathsf{OP}$, choice for finite members, and choice for arbitrary families of countable members; $\neg\mathsf{DC}_{\omega_1}$.\\
+Original $W$ & Native partial order has no linear extension; consequently $\neg\mathsf{OEP}$ and $\neg\mathsf{BPI}$. Explicit Boolean and graph witnesses have size $A$.\\
+Original $W$ & Exact cardinal normal forms and coordinate comparison; set-sized suprema and nonempty infima; all infinite $X$ satisfy $X^3\cong X^2$.\\
+Original $W$ & For every non-well-orderable $X$ and every set $Y$, $Y^X\cong Y^{w(X)}$. In particular $\mu\prec A$ while $Y^\mu\cong Y^A$ for every $Y$.\\
+Variants & Regular-parameter adaptations separate ordinal-comparability and Ramsey thresholds while retaining the strong original package and failure of BPI.\\
+Extension $N$ & $\ACWO+\mathsf{DC}+\neg\AC+\neg\mathsf{DC}_{\omega_1}$; old cardinals and cofinalities preserved; $\SVC(A)$ and $\SVC(\mathbb R)$; a non-well-orderable continuum.\\
+Extension $N$ & $A\inj\mathbb R$, $A\onto\mathbb R$, and $A^\omega\cong\mathbb R$; the two displayed directions do not give $\mathbb R\inj A$. Every generic open interval and final segment has size $A$.\\
+Unresolved & General $\PP\Rightarrow\NDS$; a different model of $\PP+\mathsf{BPI}+\neg\AC$; $\PP,Q(A),\FB,\NDS,\mathsf{BPI}$ in $N$; and $\mathbb R^N\inj A$.\\
+\bottomrule
+\end{longtable}
+
+\subsection{Historical motivation}
+The partition principle goes back to the early development of choice principles; a historical account and modern formulation appear in \cite{daSilva,BM}. Howard and Tachtsis studied no decreasing sequence of cardinals \cite{HT}, and Tachtsis studied its position in the weak-choice hierarchy \cite{Tachtsis2024}. Blass and Kulshreshtha distinguish 24 well-foundedness formulations and identify them under $\PP$ \cite{BK}; that equivalence does not prove any of them from $\PP$ alone.
+
+Feldman--Orhon, with Blass's appendix, show that any fixed finite bound on cardinal antichain size forces choice \cite{FO}. The assertion that each antichain is finite has no fixed bound and is different. Karagila explicitly records the corresponding question \cite{Karagila}; Tachtsis studies related infinite-family comparability \cite{Tachtsis2018}. Our use of the label $\FB$ is descriptive. The finite-product order argument is classical well-quasi-order theory \cite{Higman,Rado}; the application to the cited construction is the additional deduction.
