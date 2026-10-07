@@ -20,3 +20,11 @@ Added the confirmed author name Frederico Cançado to the paper title page
 and PDF author metadata. Updated the editable LaTeX source, README attribution,
 document check record, and checksums. Mathematical content and the CC BY 4.0
 license are unchanged. The initial public version remains in Git history.
+
+Complete-results consolidation — 7 October 2026 — version 2026-10-07.1
+Added reports/2026-10-07/ with a 40-page report, editable LaTeX sections,
+citation metadata, source/evidence archive containing 201 supporting records,
+bounded review records and checksums. Covers original-model, parameter-variant,
+finite-order-extension and earlier ordinary-FM results, with open statements
+and formal-verification limits preserved. Earlier PDF/source remain unchanged.
+Public dissemination is evidenced by this addition's GitHub commit.
