@@ -1,0 +1,25 @@
+SUPPORTING MATHEMATICAL RECORD — 7 October 2026
+
+Read Complete_research_results.pdf as the current status guide.
+The evidence files preserve chronological proof development and separate
+AI-assisted audits. Earlier unresolved or rejected claims are superseded
+where the main report says so. A filename containing DRAFT or CONDITIONAL
+is not alone a current status determination. These are research records,
+not externally peer-reviewed certificates.
+
+original_model/: original W, BPI, arithmetic, parameters, Ramsey and N.
+earlier_FM/: earlier ordinary atom-model constructions and counterexamples.
+finite_basis/: finite bases, comparisons and lattice deductions.
+source_verification/: proof status and actual pinned-construction check records.
+publication_audits/: dated literature, source and proof checks.
+
+SOURCE_MAP.tsv lists every evidence file, its workspace source, original
+and public-copy SHA256, and any incidental path/usage cleanup. Mathematical
+text is preserved. Original workspace files were not modified.
+Third-party construction sources are not redistributed; use the pinned
+OpenAI repository linked by the report. The imported raw conversation,
+account usage and mutable goal/checkpoint data are not published.
+
+Authored expression is under CC BY 4.0 to the extent the contributor holds
+rights; third-party quotations/references retain their terms. These records
+must be read with the report's attribution and AI-assistance disclosure.

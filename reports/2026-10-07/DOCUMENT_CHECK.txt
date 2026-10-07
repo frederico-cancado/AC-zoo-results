@@ -1,0 +1,41 @@
+DOCUMENT VERIFICATION — COMPLETE RESEARCH REPORT
+Version: 2026-10-07.1
+Date: 7 October 2026
+Author: Frederico Cançado
+
+PDF: Complete_research_results.pdf
+Length: 40 A4 pages; selectable text and linked table of contents.
+Built with pdfLaTeX three times after the final source changes.
+Final log contains no errors, missing/undefined references or citations,
+overfull boxes, or rerun requests. One underfull text box remains harmless.
+All final pages were rasterized and visually inspected; no clipped text,
+overlapping mathematics or broken tables were observed.
+All source files predate the final compiled PDF.
+
+MATHEMATICAL REVIEW SCOPE
+The report consolidates saved research; it does not resume the paused goal.
+The finite-basis argument is given in full; major later results have proof
+sketches with longer arguments in the supporting archive. Separate agents
+reviewed the cardinal, model-extension and earlier-history sections.
+See REPORT_CARDINALS_PUBLICATION_REVIEW.txt and
+REPORT_OVERVIEW_HISTORY_REVIEW.txt for those bounded mathematical reviews.
+The strict/reflexive order wording flagged by the cardinal review was
+corrected: finite strict orders extend the strict part of the native order.
+Audits are AI-assisted mathematical checks, not external human peer review.
+The limited Lean scope and unproved global principles are explicit.
+No independent global novelty or priority certification is asserted.
+
+EVIDENCE AND PUBLICATION PACKAGE
+SOURCE_MAP.tsv contains 201 evidence rows. Every original and public-copy
+SHA256 was checked against its file when this package was assembled.
+Only incidental local paths/account-usage lines were cleaned where stated;
+original workspace sources were retained unchanged.
+No credentials or absolute home paths were found in the final public texts.
+The raw imported conversation and third-party construction sources are
+excluded. The report links the pinned OpenAI source instead.
+
+The source-and-evidence ZIP contains the LaTeX, sections, 201 evidence files,
+metadata, review records, source map and file checksums. The PDF is supplied
+separately. SHA256SUMS.txt records PDF and unpacked-file hashes; the ZIP hash
+is in ARCHIVE_SHA256.txt to avoid a self-referential archive checksum.
+GitHub publication is recorded by the actual commit, not by this check file.

@@ -1,0 +1,10 @@
+2026-10-07.1 — Complete-results consolidation
+
+Adds one report covering the saved investigation through 7 October 2026.
+Includes the original-model finite basis and cardinal classification, BPI/OEP
+obstruction, explicit compactness witnesses, exponentiation and choice
+consequences, parameter/Ramsey spectra, and finite-order extension.
+Includes earlier ordinary-FM positive criteria, restricted successes and
+counterexamples, while preserving all unresolved distinctions.
+Provides a supporting proof archive and source/checksum map.
+Earlier public focused-paper files are retained unchanged in the repository.

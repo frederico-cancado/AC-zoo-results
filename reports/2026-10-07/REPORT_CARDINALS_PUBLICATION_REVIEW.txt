@@ -1,0 +1,182 @@
+CARDINALS SECTION AND NEW-MODEL TRANSFER: PUBLICATION REVIEW
+7 October 2026. Bounded consolidation review only; no new research.
+Reviewer: independent AI-agent review, not external human peer review.
+No edits were made to either reviewed section.
+
+SNAPSHOTS REVIEWED
+sections/cardinals.tex
+  SHA256 d1675ba3c60d929226975a014c10946b6367b7ba84d431ea4667e37553f50d2b
+sections/new_model.tex
+  SHA256 e0bd385ce26b55011df33f95712e38218d91401b352f2774baef18e1730330b6
+These hashes identify the last read snapshots; parent integration may
+subsequently make the small edits below.
+
+VERDICT
+Mathematical PASS relative to the established source construction and saved
+final audits. I found no theorem-level discrepancy in cardinals.tex and no
+false transfer from the original W into the finite-order extension N.
+Two concrete editorial issues were sent promptly to root; one is already
+resolved and the other concerns strict/reflexive notation, not the proof.
+The review did not re-prove the whole source construction, re-run Lean,
+render the full report, or conduct a new literature search.
+
+ISSUES
+
+1. RESOLVED DURING REVIEW: archive locators.
+The initial cardinals.tex proof-file map used workspace paths
+outputs/BPI_RPP_five_hour_research/ and outputs/Choice_principles_from_PP_model/.
+The final snapshot now correctly uses evidence/original_model/ and
+evidence/finite_basis/PROOFS_cardinal_lattice_and_power_roots.txt.
+No further correction required.
+
+2. SMALL PRECISION EDIT: strict extension versus reflexive order.
+new_model.tex lines 51--54 defines conditions as finite STRICT linear orders
+but says their generic union extends the reflexive relation <=_T.
+Read literally, inclusion of the diagonal is impossible for a strict order.
+Recommended wording: 'extend the strict part <_T of the native order on
+their domains' and 'the generic union L is a strict linear order on A
+extending <_T.' Alternatively state that the reflexive closure of L
+extends <=_T. This is the intended existing forcing; no argument changes.
+
+CARDINALS MATHEMATICAL CHECKS
+
+A. Action, fibers, and normal forms.
+Compared the section to T_ACTION_FIBERS_AND_SQUARE_COEFFICIENT_DRAFT.txt,
+T_ACTION_INDEPENDENT_AUDIT_AND_DC_OMEGA1.txt, and the final publication
+review CARDINAL_EXPONENTIATION_DRAFT_INDEPENDENT_REVIEW.txt.
+The anchor normalization and source-probe parameters yield a point outside
+the root in the specified translation fiber. Both the stronger diagram and
+its Cohen condition are moved, so the compressed proof retains the product
+compatibility requirement. Fibers with DIFFERENT multipliers refer to the
+same fixed anchor; their disjointness uses freeness in the T-coordinate,
+not false right cancellation. The raw normal form precedes A^2=A, so the
+absorption argument is not circular.
+
+The normalized records (0,lambda) and (a,e), mu<=a<=e, correctly replace
+the older minimal coefficient convention c(A)=1 by the absorbed coefficient
+mu. The componentwise injection order and the necessary/sufficient proofs
+are valid with that normalization. Well-orderable and finite boundary
+cases are expressly separated. An ordinal-indexed family of A-slices may
+be selected under AC_WO; no A-indexed selection is silently used.
+
+B. Lattice, finite bases, powers, and power-set roots.
+Compared with PROOFS_cardinal_lattice_and_power_roots.txt and the exact
+FB_NDS_FAC_EXACT_CHOICE_AUDIT.txt conventions. Set-sized suprema and
+nonempty set-sized infima remain realizable record pairs. The section
+avoids asserting an empty infimum, a largest cardinal, or complete
+distributivity. The displayed finite antichains have increasing first
+coordinates and decreasing second coordinates, with second >= first.
+Finite powers X^n=A times w(X), n>=2, correctly distinguish square
+absorption of A from its false universal version. The finite root-depth
+argument uses the finite coinitial basis of a SET of subsets of X and
+Cantor strictness, not an unchosen sequence of abstract representatives.
+
+C. Supported-name count and arbitrary-ground exponents.
+The canonical normalization is globally total, equivariant, rank bounded,
+and support preserving. Codes are partial VALUE functions, giving b^mu
+rather than merely 2^(mu times b). Equal codes are compared after restricting
+Cohen conditions and transporting over the same supported diagram.
+One common-support ordinal enumeration controls arbitrary WO families,
+not only selected ground families. Large exponent coefficients are above
+2^mu and hence in the preserved range; the possible collapse of smaller
+ground cardinals does not invalidate the arbitrary-ground formulas.
+
+The all-base collapse Y^X=Y^{w(X)} is not inferred from power-set equality.
+The ordinal-base sandwich precedes the b=2 power-set consequence; then
+non-WO bases use two specified injections with disjoint DOMAIN coordinates.
+Empty and singleton bases are handled, and the full internal 'every set Y'
+quantifier is pointwise, not a natural transformation or global class choice.
+Source: EXACT_EXPONENTIALS_AND_UNIVERSAL_EXPONENT_COLLAPSE_AUDIT.txt.
+
+D. Complete L-ground tables.
+Every row of equations (11)--(13) matches
+COMPLETE_GCH_GROUND_EXPONENT_TABLE.txt. Checks include: finite exponents;
+non-WO bases with first coordinate smaller than the second; the singleton
+exponent exception; the max(mu,E(b,lambda)) correction for intermediate
+ordinal exponents; singular base cofinalities; and all empty/singleton cases.
+The first-coordinate collapse for non-WO bases begins at exponent size two,
+not at one. Ground GCH is correctly distinguished from GCH in W.
+No exponent-table conclusion is transferred to N.
+
+E. Choice, Ramsey, and history.
+The original-model countable-member selector matches Form 85A, and the
+new second independent audit exists and passes. The section correctly
+separates member cardinality from index cardinality and does not transfer
+this selector to N. AC_WO -> DC is correctly attributed, with the earlier
+false HTML arrow discarded. The real-height obstruction explains failure
+of DC_omega1 even in the kappa lifts.
+
+The exact binary-pair and all-finite-color higher-arity spectra match their
+root audits. The triple negative witness uses four colors; binary triples
+remain explicitly unresolved. No improper iteration of a non-WO-domain
+principle on a now-WO homogeneous subset is used.
+
+PC+notAC and the Dedekind-finite all-base plateau are correctly described
+as prior phenomena. ICF is correctly NOT described as an AC consequence;
+EC and SES are AC consequences but are not equated with LT's opposite-
+direction strict-reflection assertion. The strong-limit ZFC SES proof is
+valid. PP prevents the unequal mutual-surjection mechanism underlying the
+classical Dedekind-finite plateau, as the section states. No general
+PP -> NDS claim has been introduced.
+
+NEW-MODEL FALSE-TRANSFER CHECKS
+
+1. CCC_3 is proved separately, not inferred from CCC_2 in ZF. The local
+sigma-bounded argument and global petal reduction are credited to their
+saved source-specific audits. The complete-Boolean possible-value covering
+argument explains cardinal/cofinality/Hartogs preservation; it is not a
+blanket ZFC ccc-preservation import.
+
+2. Original A^omega=A is always marked as OLD. The new power (A^omega)^N
+is R_N. The maps A->R_N and A onto R_N are not treated as a reverse
+injection. Neither R_N=A nor global PP is assumed in computing Hartogs
+thresholds; new AC_WO supplies the particular preimage selections needed.
+
+3. The old complete Boolean algebra's generic ultrafilter is an ultrafilter
+on the OLD algebra. Old completeness is not asserted for new families;
+repairing this one order obstruction is not asserted to prove BPI in N.
+
+4. Local fields are defined internally via a fixed SET of ground names.
+Chart genericity over W implies genericity over V, but not over V[F].
+Containment of a new WO real family in R_a is distinguished from the family
+itself belonging to V[K_a]. All fields have size mu, so proper inclusions
+are not incorrectly converted to cardinal inequalities.
+Sources: LOCAL_REAL_FIELDS_REFLECT_NATIVE_ORDER.txt;
+LOCAL_REAL_FIELDS_INDEPENDENT_AUDIT.txt;
+LOCAL_ZFC_REAL_COVERS_AND_ORDINAL_LOCALIZATION_AUDIT.txt.
+
+5. Preservation of comparisons and finite bases is confined to OLD sets
+and old cardinalities, even when the family or map is new. The stronger
+claims about all new sets remain unresolved. The surjective comparison
+proof has a separate saved reconstruction. New NDS/FB failure cannot be
+witnessed solely by old cardinalities, as stated; this is not global NDS.
+
+6. Nonexistence of new countable multisections uses canonical old possible-
+value covers and the established original countable-supported-set locality.
+It is not a preservation claim about arbitrary choice principles.
+Transport to R_N via the injective profile image has no spurious extra
+preimages from its identity extension on the complement.
+
+7. SVC(R_N), KWP*_1 and KWP_2 follow from surjective presentations. The
+section expressly does not assert KWP_1, OP, finite-member choice, PP or BPI.
+Finite KWP descent under ICF is valid and only gives the stated negative
+ICF/HCF conclusions. The original power-set comparability theorem is not
+silently transferred.
+
+8. The interval proof uses disjoint rays on ONE fixed old A-sized anchor
+fiber. It does not require a global disjoint refinement or cancellation
+of J_a^2=A. The current interval audit verifies J_a=A and all nonempty
+intervals=A. The optional order-density refinement is labeled separately
+as lacking its own recorded independent segment audit.
+
+9. The final locality/ideal coding statements match
+REAL_TO_LABEL_INJECTION_CHART_LOCALITY_AUDIT.txt and
+NEW_AVAILABILITY_IDEALS_REAL_CODE_BOUND.txt. Counting new ideals by reals
+does not make them ground or provide coherent global quotient codes.
+The exact missing global selector/coherence requirements remain visible.
+
+OUTCOME
+Apart from the small strict/reflexive wording correction above, the reviewed
+sections are suitable for inclusion as reports of the saved mathematical
+results with their stated verification and novelty limitations. Their final
+integrated typesetting remains the parent's separate validation task.

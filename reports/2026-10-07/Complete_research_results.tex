@@ -1,0 +1,57 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools}
+\usepackage[margin=25mm,headheight=14pt]{geometry}
+\usepackage{microtype,enumitem,booktabs,longtable,array,xcolor,xurl,fancyhdr,needspace}
+\definecolor{linkblue}{RGB}{26,64,99}
+\usepackage[colorlinks=true,allcolors=linkblue,bookmarksnumbered=true]{hyperref}
+\hypersetup{pdftitle={Choice principles after the OpenAI partition-principle model: complete research results},pdfauthor={Frederico Cancado},pdfsubject={Complete preliminary research record, 7 October 2026}}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Choice principles: complete research record}
+\fancyhead[R]{\small 7 October 2026}
+\fancyfoot[C]{\thepage}
+\setlength{\parskip}{3pt}
+\setlist{itemsep=3pt,topsep=5pt}
+\setcounter{tocdepth}{2}
+\setlength{\emergencystretch}{2em}
+\newcommand{\ZF}{\mathsf{ZF}}
+\newcommand{\ZFA}{\mathsf{ZFA}}
+\newcommand{\ZFC}{\mathsf{ZFC}}
+\newcommand{\AC}{\mathsf{AC}}
+\newcommand{\ACWO}{\mathsf{AC}_{\mathrm{WO}}}
+\newcommand{\PP}{\mathsf{PP}}
+\newcommand{\NDS}{\mathsf{NDS}}
+\newcommand{\FB}{\mathsf{FB}}
+\newcommand{\SVC}{\mathsf{SVC}}
+\newcommand{\Con}{\operatorname{Con}}
+\newcommand{\Ord}{\operatorname{Ord}}
+\newcommand{\calP}{\mathcal P}
+\newcommand{\inj}{\hookrightarrow}
+\newcommand{\onto}{\twoheadrightarrow}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\title{\textbf{Choice principles after the OpenAI\protect\\ partition-principle model}\protect\\[9pt]\large Complete research results and verification record}
+\author{Frederico Can\c{c}ado}
+\date{7 October 2026\protect\\\small Preliminary research report, version 2026-10-07.1}
+\begin{document}
+\maketitle
+\begin{abstract}
+This report consolidates the results obtained in the present investigation of weak choice and cardinal ordering. Starting from OpenAI's symmetric model of the partition principle without choice, it records a finite coinitial cardinal basis theorem, cardinal well-foundedness and finite antichains, a native order-extension obstruction to the Boolean Prime Ideal Theorem, explicit compactness counterexamples, exact cardinal arithmetic and an all-base exponent-collapse phenomenon. It also presents audited parameter variants, Ramsey spectra, and a different extension obtained by forcing a linear order on the native partial order. The latter preserves substantial choice and covering properties, but its partition principle and global cardinal classification remain unresolved. Earlier permutation-model criteria, positive local constructions and counterexamples are retained with their precise scopes. Proofs and proof sketches are paired with a public supporting record. The new arguments have AI-assisted mathematical checks; they have not received independent human peer review. The report separates established source theorems, deductions, preliminary extensions and open questions, without claiming global priority.
+\end{abstract}
+\paragraph{Attribution.} The construction solving the original PP-versus-AC problem belongs to OpenAI \cite{OpenAI}. The present report concerns additional consequences and model investigations. Substantial OpenAI Codex assistance was used for proof development, checking, literature searches and writing. Human authorship does not imply that independent human verification has already occurred.
+\paragraph{Scope of ``complete.''} This is a consolidated account of the mathematical results saved through the reporting cut-off, including negative results and unresolved obligations. It does not assert completion of the research programme or of the paused five-hour investigation. Longer derivations and independent AI audit records are distributed in the accompanying source archive. Earlier exploratory statements are superseded by the statuses in this report. The original imported conversation is preserved privately, unchanged; it is not reissued as a new theorem paper.
+\clearpage\tableofcontents\clearpage
+\input{sections/overview}
+\input{sections/finite_basis}
+\clearpage\input{sections/cardinals}
+\clearpage\input{sections/bpi_variants}
+\Needspace{12\baselineskip}\input{sections/new_model}
+\clearpage\input{sections/earlier_models}
+\Needspace{12\baselineskip}\input{sections/verification}
+\clearpage\input{sections/bibliography}
+\end{document}

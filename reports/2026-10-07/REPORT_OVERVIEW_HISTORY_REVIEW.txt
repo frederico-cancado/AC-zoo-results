@@ -1,0 +1,132 @@
+BOUNDED PUBLICATION ACCURACY REVIEW
+7 October 2026
+
+Scope: sections/overview.tex, sections/earlier_models.tex, and consistency
+of their front-table claims with sections/new_model.tex. This is a
+retrospective comparison with saved proof records, not new research, an
+exhaustive reproof of the historical archive, external peer review, or a
+novelty certificate. No main report sections were edited in this review.
+The separately authorized four missing-backslash corrections in
+sections/new_model.tex were applied; no bare quad/qquad instances remain.
+
+VERDICT
+
+No substantive mathematical contradiction or incorrect promotion of an
+unresolved N-result was found in the reviewed summaries. The source / local
+deduction / conditional result / unresolved distinctions are explicit.
+The current front table agrees with the detailed N section.
+
+1. OVERVIEW: CHECKS PASSED
+
+- PP is correctly distinguished from the assertion that each specified
+  surjection splits. The latter is AC and is not substituted for PP.
+- PP => AC_WO => DC agrees with the saved primary-source reconciliation
+  AC_WO_DC_PRIMARY_SOURCE_RECONCILIATION.txt. The second implication is
+  confirmed there against Jech's Theorem 8.2, not an old HTML implication
+  matrix. The earlier conflicting search result must remain superseded.
+- The definition of w(X) as an attained largest well-ordered cardinal
+  under AC_WO is legitimate. Ordinal-indexed choice assembles injections
+  of all ordinals below h(X); if h(X) were a limit cardinal, their
+  well-orderable union would contradict Hartogs. This also explains why
+  the existence of w(X) is not being asserted in bare ZF.
+- The original ground parameter mu and its internal omega_2 identification
+  are distinguished; this avoids treating the ground continuum as an
+  automatically preserved cardinal.
+- The W rows correctly include the normal-form consequences FB, NDS and
+  finite cardinal antichains, with unbounded finite antichain sizes. They
+  do not assert a fixed finite upper bound on all antichain sizes.
+- The universal exponent collapse is explicitly a W theorem. Its precise
+  all-Y formulation, including trivial bases, matches
+  EXACT_EXPONENTIALS_AND_UNIVERSAL_EXPONENT_COLLAPSE_AUDIT.txt. It is not
+  inferred merely from the cardinal normal form or transferred to N.
+- Choice for arbitrary families of countable MEMBERS has a completed
+  second check: COUNTABLE_MEMBER_CHOICE_SECOND_INDEPENDENT_AUDIT.txt.
+  The front table distinguishes member size from index-set size. It does
+  not transfer this theorem from W to N.
+- The text distinguishes OP, OEP and BPI, and distinguishes a native
+  order-extension witness from the corresponding global principles.
+- The first-order relative-consistency bridge remains an explicit
+  dependency on Section 8 of the pinned OpenAI source. No transitive-model
+  or inaccessible-cardinal assumption is silently substituted for it.
+- Historical references are used to motivate the problems. The stated
+  equivalences of well-foundedness formulations under PP are not read as
+  proofs that PP itself implies any such well-foundedness principle.
+
+2. HISTORICAL FM SECTION: CHECKS PASSED
+
+The section states its ordinary-FM scope, choice ground, faithful/effective
+action, external cardinal calculations, and recorded-construction
+hypotheses. These qualifications are mathematically important.
+
+The following were directly compared with saved derivations/audits:
+
+- Exact uniform subgroup PP criterion, simultaneous open witness, exact
+  stabilizer matching, and the open-core well-orderability test.
+- Common compression (C), uniform non-well-orderable profiles, and the
+  finite-prototype criterion. The coefficient-vector argument supports
+  NDS and finite antichains; it does not realize a nondiscrete example.
+- RPC and the conditional sufficiency of (C)+RPC+atom-subset dichotomy:
+  RELATIVE_POINT_COMPLETENESS_CRITERION.txt.
+- The separate failure of PP and NDS in the multi-HNN example:
+  HNN_INDEPENDENT_AUDIT_AND_NDS_FAILURE.txt. RPC realization alone is not
+  presented as a positive PP model.
+- No separable open group under PP and the density/capacity restrictions:
+  NO_SEPARABLE_OPEN_GROUP_PP_THEOREM.txt,
+  FINITE_PROTOTYPE_LOCAL_CAPACITY_OBSTRUCTION.txt,
+  COMMON_COMPRESSION_DENSITY_AND_SUBGROUP_BOUNDS.txt.
+  The summary keeps the bound continuum rather than inventing a 2^d(K)
+  amplification. Its exclusion of Polish effective topologies is not an
+  exclusion of every topology on a countable atom set.
+- Fixed-n finite choice: the untouched imported LaTeX section "Sharper
+  exclusions for permutation models" explicitly proves, for every fixed
+  n>=2, AC_WO+AC_n => AC in ordinary FM via an exact n-cycle of tail
+  classes. The new summary states that scope and does not transfer it to
+  the pure model W. The OP consequence is consistent with that theorem.
+- The historical forcing paragraph explicitly labels its material as
+  imported rather than a second independently certified construction.
+  The ordinal-target PP / AC_WO equivalence, SVC versus SVC+ distinction,
+  and first non-well-orderable powerset-of-an-ordinal statement match the
+  relevant opening sections of the imported LaTeX source.
+
+The many field, germ, forest and local-motion examples are concise
+retrospective summaries with pointers into the archive. This review did
+not re-run every normal-form and scheduling proof. Their explicit
+construction hypotheses and distinctions between PP failure, NDS failure
+and unclassified NDS are therefore essential and should remain.
+
+3. NEW-MODEL / FRONT-TABLE CONSISTENCY
+
+- The N table asserts AC_WO, DC, failure of AC and DC_(omega_1), old
+  cardinal/cofinality preservation, SVC(A), SVC(R), and non-well-orderable
+  R, consistently with the detailed section and its proof register.
+- A injects into R and A surjects onto R. Neither section infers R
+  injects into A from these maps. A^omega approximately R is explicitly
+  evaluated in N, whereas the old A^omega approximately A identity is
+  evaluated in W.
+- All old-set comparisons and relative finite-basis/PP statements remain
+  restricted to old sets. They are not promoted to global N axioms.
+- The final-segment and nonempty-open-interval cardinality claims reflect
+  the resolved anchored-ray result, not the older unresolved tail-square
+  bound. No global disjoint-refinement theorem is assumed.
+- The extra local separability refinement is explicitly marked as lacking
+  a separate saved independent audit, and is not used in the displayed
+  main outcomes.
+- Native order extendibility in N does not assert global OEP or BPI.
+  Global PP, Q(A), FB, NDS, finite cardinal antichains, BPI and R->A remain
+  unresolved in the detailed section. The shorter front table makes no
+  contradictory claim.
+- KWP*_1 / KWP_2 and the failure of ICF are not promoted to KWP_1 or OP.
+
+4. EDITORIAL / ARCHIVE NOTES
+
+- The four literal quad/qquad defects in new_model.tex were corrected by
+  explicit parent authorization. This review did not modify overview.tex
+  or earlier_models.tex.
+- evidence/original_model/ and evidence/earlier_FM/ are the intended
+  consolidated archive paths. Old workspace filenames in proof records
+  are resolved by the report source map; they are not new dependencies on
+  an unavailable outside publication.
+- Retain the definition of "audited deduction": separate AI/coordinating
+  checks are not external peer review or complete Lean formalization.
+- The output is ready for the coordinating agent's final cross-section
+  and PDF rendering checks. This review does not replace those checks.

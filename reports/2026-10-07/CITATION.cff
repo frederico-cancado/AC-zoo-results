@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite this report version and the exact GitHub commit used."
+title: "Choice principles after the OpenAI partition-principle model: complete research results and verification record"
+authors:
+  - family-names: "Cançado"
+    given-names: "Frederico"
+version: "2026-10-07.1"
+date-released: "2026-10-07"
+license: "CC-BY-4.0"
+repository-code: "https://github.com/frederico-cancado/AC-zoo-results"
+preferred-citation:
+  type: report
+  title: "Choice principles after the OpenAI partition-principle model: complete research results and verification record"
+  authors:
+    - family-names: "Cançado"
+      given-names: "Frederico"
+  year: 2026
+  version: "2026-10-07.1"
+  notes: "Preliminary AI-assisted research report; verification scope and attribution appear in the manuscript."
