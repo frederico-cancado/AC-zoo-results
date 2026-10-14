@@ -28,3 +28,14 @@ bounded review records and checksums. Covers original-model, parameter-variant,
 finite-order-extension and earlier ordinary-FM results, with open statements
 and formal-verification limits preserved. Earlier PDF/source remain unchanged.
 Public dissemination is evidenced by this addition's GitHub commit.
+
+Algebraic-closure article — 14 October 2026 — version 2026-10-14.1
+Added articles/2026-10-14-algebraic-closures/ with a 13-page article,
+33-page technical supplement, editable sources, mathematical research record,
+annotated primary-source bibliography, citation metadata and checksums.
+The main theorem constructs a pure-ZF model of DC + E + not U, relative to ZFC.
+The finite-group correspondence retains the existence assumption E.
+Two related articles are redistributed unchanged under verified CC BY 4.0
+licenses with their own authorship, version and source notices.
+Earlier published reports are unchanged. This is a preliminary preprint;
+internal AI audits are not external peer review or formal verification.

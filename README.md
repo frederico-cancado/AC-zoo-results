@@ -1,6 +1,16 @@
 # AC zoo research: choice and cardinal order
 
-**Frederico Cançado — preliminary research reports**
+**Frederico Cançado — articles and preliminary research**
+
+## Latest article — 14 October 2026
+
+### Algebraic closures: existence without uniqueness
+
+[Read the 13-page article](articles/2026-10-14-algebraic-closures/algebraic_closures.pdf) · [Proofs, supplement, sources and research record](articles/2026-10-14-algebraic-closures/) · [Related articles](articles/2026-10-14-algebraic-closures/RELATED_ARTICLES.md) · [Website](https://frederico-cancado.github.io/weak-choice-atlas/articles/algebraic-closures/)
+
+A pure-ZF symmetric model separates universal existence of algebraic closures from their conditional uniqueness, even with dependent choice. Under existence, uniqueness is equivalent to the stated finite-group projection and finite-torsor compactness principles; existence and uniqueness together imply choice for arbitrary families of nonempty finite sets. The reverse implication from uniqueness to existence over pure ZF remains unresolved here.
+
+Version **2026-10-14.1** is a preliminary preprint with complete proofs, a 33-page technical supplement, and two unchanged related papers redistributed under CC BY 4.0. Internal audits used AI assistance and are not external peer review or formal verification. No worldwide novelty certification is claimed.
 
 ## Latest complete report — 7 October 2026
 
