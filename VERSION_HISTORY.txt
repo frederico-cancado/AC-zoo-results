@@ -39,3 +39,11 @@ Two related articles are redistributed unchanged under verified CC BY 4.0
 licenses with their own authorship, version and source notices.
 Earlier published reports are unchanged. This is a preliminary preprint;
 internal AI audits are not external peer review or formal verification.
+
+Consistency-premise correction — 15 October 2026 — version 2026-10-15.1
+Corrected the algebraic-closure separation's relative-consistency premise from
+ZFC to ZF in the article, supplement and current summaries. Added the explicit
+constructible-universe reduction Con(ZF) => Con(ZFC) before the unchanged
+symmetric construction over a ZFC ground universe. Rebuilt both PDFs and
+updated citation metadata, research record and checksums. Original publication
+records and earlier reports remain available unchanged in Git history.

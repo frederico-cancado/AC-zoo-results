@@ -1,12 +1,14 @@
 # Algebraic closures: existence without uniqueness
 
-**Frederico Cançado · 14 October 2026 · version 2026-10-14.1**
+**Frederico Cançado · 15 October 2026 · version 2026-10-15.1**
 
-[Article (13-page PDF)](algebraic_closures.pdf) · [LaTeX source](algebraic_closures.tex) · [Technical supplement (33-page PDF)](algebraic_closures_supplement.pdf) · [Supplement source](algebraic_closures_supplement.tex)
+[Article (14-page PDF)](algebraic_closures.pdf) · [LaTeX source](algebraic_closures.tex) · [Technical supplement (33-page PDF)](algebraic_closures_supplement.pdf) · [Supplement source](algebraic_closures_supplement.tex)
 
 Let E mean that every field has an algebraic closure, and let U mean that any two supplied algebraic closures of a field are isomorphic over that field. The article gives a pure symmetric model establishing
 
-**Con(ZFC) ⇒ Con(ZF + DC + E + ¬U + ¬AC_fin + ¬BPI).**
+**Con(ZF) ⇒ Con(ZF + DC + E + ¬U + ¬AC_fin + ¬BPI).**
+
+The consistency premise was corrected from ZFC to ZF on 15 October 2026. Gödel's constructible-universe theorem gives Con(ZF) ⇒ Con(ZFC), after which the same symmetric construction applies. Choice is used in the construction's ground universe; the resulting model satisfies ZF.
 
 Thus universal existence does not imply conditional uniqueness, even with dependent choice. The proof includes two nonisomorphic algebraic closures over a specified well-orderable field. A second result proves E ∧ U ⇒ AC_fin and, assuming E, identifies U with finite-group projection and finite-torsor compactness principles. Definitions and all assumptions appear in the article.
 
